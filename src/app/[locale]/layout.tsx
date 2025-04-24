@@ -1,22 +1,17 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Noto_Sans } from 'next/font/google';
 
 import '../globals.css';
 import ProvidersWrapper from '@/lib/providers';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const notoSans = Noto_Sans({
+  variable: '--font-noto-sans',
   subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: 'Next.js Starter Template',
-  description: 'A modern starter template to quickly spin up your app',
+  title: 'E-commerce App',
+  description: 'Clothing web shop',
 };
 
 export default async function RootLayout({
@@ -29,9 +24,7 @@ export default async function RootLayout({
   const { locale } = await params;
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${notoSans.variable} antialiased font-noto`}>
         <ProvidersWrapper locale={locale}>{children}</ProvidersWrapper>
       </body>
     </html>
