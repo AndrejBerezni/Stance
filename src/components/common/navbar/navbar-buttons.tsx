@@ -15,11 +15,11 @@ export function NavbarButton({
   ...props
 }: INavbarButtonProps) {
   return (
-    <li>
+    <li className="flex items-center justify-center">
       <button
         {...props}
         className={clsx(
-          'hover:cursor-pointer focus:outline-[4px] focus:outline-primary/12 rounded-sm disabled:*:opacity-60',
+          'hover:cursor-pointer relative link-focus disabled:*:opacity-60',
           {
             'lg:hidden': smallScreenOnly,
           }

@@ -58,6 +58,9 @@
   .content-wrapper {
     @apply max-w-[1440px] w-full px-4 md:px-8 lg:px-28;
   }
+  .link-focus {
+    @apply focus:outline-[4px] focus:outline-primary/12 rounded-sm;
+  }
 }
 
 /* Handling light theme flashing if dark mode is system default */
