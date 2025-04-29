@@ -56,10 +56,10 @@
 
 @layer components {
   .section-wrapper {
-    @apply max-w-[1440px] w-full px-4 lg:px-24 xl:px-28 md:py-16 lg:py-24 py-12;
+    @apply max-w-[1440px] w-full px-4 lg:px-24 md:py-16 lg:py-24 py-12;
   }
   .navbar-wrapper {
-    @apply max-w-[1440px] w-full px-4 md:px-8 lg:px-28;
+    @apply max-w-[1440px] w-full px-0 md:px-4 lg:px-24;
   }
   .link-focus {
     @apply focus:outline-[4px] focus:outline-primary/12 rounded-sm;

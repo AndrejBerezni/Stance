@@ -21,7 +21,7 @@ export default function NavigationLinks({
 
   const links = useMemo(
     () => [
-      { id: 'shop-all-link', href: '/shop', text: translate('shopAll') },
+      { id: 'shop-all-link', href: '/products', text: translate('shopAll') },
       {
         id: 'latest-arrivals-link',
         href: '/latest-arrivals',
