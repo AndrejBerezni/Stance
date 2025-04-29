@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 
 import '../globals.css';
+import MainLayout from '@/components/common/main-layout';
 import ProvidersWrapper from '@/lib/providers';
 
 const notoSans = Noto_Sans({
@@ -24,8 +25,12 @@ export default async function RootLayout({
   const { locale } = await params;
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${notoSans.variable} antialiased font-noto`}>
-        <ProvidersWrapper locale={locale}>{children}</ProvidersWrapper>
+      <body
+        className={`${notoSans.variable} antialiased font-noto flex flex-col items-center`}
+      >
+        <ProvidersWrapper locale={locale}>
+          <MainLayout>{children}</MainLayout>
+        </ProvidersWrapper>
       </body>
     </html>
   );

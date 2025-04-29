@@ -31,7 +31,8 @@
   --primary: oklch(45.7% 0.24 277.023);
   --secondary: oklch(92% 0.1 200);
   --accent: oklch(82% 0.19 140);
-  --secondary-foreground: oklch(37.1% 0 0);
+  --secondary-foreground: oklch(43.9% 0 0);
+  --disabled: oklch(70.8% 0 0);
 }
 
 .dark {
@@ -41,6 +42,7 @@
   --secondary: oklch(55% 0.14 200);
   --accent: oklch(65% 0.22 140);
   --secondary-foreground: oklch(70.8% 0 0);
+  --disabled: oklch(43.9% 0 0);
 }
 
 @layer base {
@@ -49,6 +51,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .content-wrapper {
+    @apply max-w-[1440px] w-full px-4 md:px-8 lg:px-28;
+  }
+  .link-focus {
+    @apply focus:outline-[4px] focus:outline-primary/12 rounded-sm;
   }
 }
 

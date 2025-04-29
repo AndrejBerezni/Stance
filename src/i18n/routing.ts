@@ -17,5 +17,15 @@ export const routing = defineRouting({
   */
   pathnames: {
     '/': '/',
+
+    '/shop': {
+      en: '/shop',
+      pt: '/loja',
+    },
+
+    '/latest-arrivals': {
+      en: '/latest-arrivals',
+      pt: '/novidades',
+    },
   },
 });

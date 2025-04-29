@@ -1,5 +1,9 @@
 {
   "homepage": {
     "welcome": "welcome"
+  },
+  "navigation": {
+    "shopAll": "Shop all",
+    "latestArrivals": "Latest arrivals"
   }
 }
