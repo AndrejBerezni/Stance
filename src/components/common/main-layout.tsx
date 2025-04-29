@@ -14,8 +14,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
         <Navbar />
         <Sidebar />
       </SidebarProvider>
-
-      <main className="content-wrapper flex-1 w-full">{children}</main>
+      <main className="m-4 rounded-lg shadow-xl w-[calc(100%-32px)] flex-1 bg-background flex items-center flex-col">
+        {children}
+      </main>
       {/* <Footer /> */}
     </>
   );
