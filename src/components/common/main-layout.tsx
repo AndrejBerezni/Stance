@@ -11,9 +11,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <SidebarProvider>
-        <header className="w-screen flex justify-center items-center">
-          <Navbar />
-        </header>
+        <Navbar />
         <Sidebar />
       </SidebarProvider>
 

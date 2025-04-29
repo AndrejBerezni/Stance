@@ -32,22 +32,24 @@ export default function NavigationLinks({
   );
 
   return (
-    <ul {...props}>
-      {links.map((link) => (
-        <Link
-          key={link.id}
-          href={link.href}
-          className={clsx(
-            'active:text-primary text-sm lg:text-base hover:text-foreground disabled:text-disabled link-focus',
-            {
-              'text-foreground': pathname === link.href,
-              'text-secondary-foreground': pathname !== link.href,
-            }
-          )}
-        >
-          {link.text}
-        </Link>
-      ))}
-    </ul>
+    <nav>
+      <ul {...props}>
+        {links.map((link) => (
+          <Link
+            key={link.id}
+            href={link.href}
+            className={clsx(
+              'active:text-primary text-sm lg:text-base hover:text-foreground disabled:text-disabled link-focus',
+              {
+                'text-foreground': pathname === link.href,
+                'text-secondary-foreground': pathname !== link.href,
+              }
+            )}
+          >
+            {link.text}
+          </Link>
+        ))}
+      </ul>
+    </nav>
   );
 }

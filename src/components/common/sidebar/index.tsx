@@ -11,8 +11,9 @@ export default function Sidebar() {
   const { isOpen, closeSidebar } = useSidebar();
   return (
     <>
-      <nav
-        aria-hidden={!isOpen}
+      <aside
+        id="sidebar"
+        aria-hidden={!isOpen} //inert is not supported at all browsers at the moment of creation of this component, so we are adding aria-hidden as well
         inert={!isOpen}
         className={clsx(
           'z-20 fixed flex flex-col gap-6 top-0 right-0 ease-in transition-transform transform origin-right duration-500 w-screen max-w-[359px] h-screen bg-background p-4 pt-8',
@@ -24,7 +25,7 @@ export default function Sidebar() {
       >
         <SidebarHeader />
         <NavigationLinks className="flex-col flex p-3 gap-8" />
-      </nav>
+      </aside>
       <ModalOuter closeModal={closeSidebar} show={isOpen} />
     </>
   );

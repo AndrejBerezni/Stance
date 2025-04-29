@@ -25,7 +25,9 @@ export default async function RootLayout({
   const { locale } = await params;
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${notoSans.variable} antialiased font-noto`}>
+      <body
+        className={`${notoSans.variable} antialiased font-noto flex flex-col items-center`}
+      >
         <ProvidersWrapper locale={locale}>
           <MainLayout>{children}</MainLayout>
         </ProvidersWrapper>
