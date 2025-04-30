@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
     | 'primary'
     | 'secondary'
@@ -21,7 +21,7 @@ export default function Button({
   iconOnly = false,
   children,
   ...props
-}: IButtonProps) {
+}: ButtonProps) {
   const sizeClasses =
     !iconOnly &&
     clsx({
@@ -59,7 +59,7 @@ export default function Button({
     <button
       {...props}
       className={clsx(
-        'hover:cursor-pointer rounded-md justify-center flex items-center font-medium tracking-wide link-focus disabled:text-muted disabled:bg-disabled disabled:shadow-none disabled:hover:cursor-default duration-150',
+        `${props.className} hover:cursor-pointer rounded-md justify-center flex items-center font-medium tracking-wide link-focus disabled:text-muted disabled:bg-disabled disabled:shadow-none disabled:hover:cursor-default duration-150`,
         sizeClasses,
         iconSizeClasses,
         variantClasses

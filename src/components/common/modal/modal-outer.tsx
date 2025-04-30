@@ -1,9 +1,9 @@
-interface IModalOuterProps {
+interface ModalOuterProps {
   closeModal: () => void;
   show: boolean;
 }
 
-export default function ModalOuter({ closeModal, show }: IModalOuterProps) {
+export default function ModalOuter({ closeModal, show }: ModalOuterProps) {
   if (show)
     return (
       <div

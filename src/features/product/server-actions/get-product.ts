@@ -12,25 +12,20 @@ import productImages from '@/lib/temp-data/product-images.json';
 import rawProductsInformation from '@/lib/temp-data/product-info.json';
 import products from '@/lib/temp-data/products.json';
 
-import {
-  IInventoryItem,
-  IProduct,
-  IProductImage,
-  IProductInfo,
-} from '../types';
+import { InventoryItem, Product, ProductImage, ProductInfo } from '../types';
 
-const inventory = rawInventory as IInventoryItem[];
-const productsInformation = rawProductsInformation as IProductInfo[];
+const inventory = rawInventory as InventoryItem[];
+const productsInformation = rawProductsInformation as ProductInfo[];
 
 export const getProduct = async (
   product_id: string
-): Promise<IProduct | undefined> =>
+): Promise<Product | undefined> =>
   products.find((product) => product.product_id === product_id);
 
 export const getProductInfo = async (
   product_id: string
-): Promise<IProductInfo[] | undefined> => {
-  const productInfo: IProductInfo[] = productsInformation.filter(
+): Promise<ProductInfo[] | undefined> => {
+  const productInfo: ProductInfo[] = productsInformation.filter(
     (product) => product.product_id === product_id
   );
   return productInfo.length > 0 ? productInfo : undefined;
@@ -38,13 +33,13 @@ export const getProductInfo = async (
 
 export const getProductInventory = async (
   productId: string
-): Promise<IInventoryItem[] | undefined> =>
+): Promise<InventoryItem[] | undefined> =>
   inventory.filter((product) => product.product_id === productId);
 
 export const getProductImages = async (
   productId: string,
   color: string
-): Promise<IProductImage[] | undefined> =>
+): Promise<ProductImage[] | undefined> =>
   productImages.filter(
     (image) => image.product_id === productId && image.color === color
   );

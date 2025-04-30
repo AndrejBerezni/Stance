@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface Product {
   product_id: string;
   name: string;
   description: string;
@@ -11,7 +11,7 @@ export type ClothingSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type ShoeSize = number;
 
-export interface IInventoryItem {
+export interface InventoryItem {
   product_id: string;
   sku: string;
   color: string;
@@ -26,13 +26,13 @@ export interface IInventoryItem {
 
 export type ProductInfoTitle = 'Features' | 'Fabric & Care' | 'Shipping';
 
-export interface IProductInfo {
+export interface ProductInfo {
   product_id: string;
   title: ProductInfoTitle;
   description: string[];
 }
 
-export interface IProductImage {
+export interface ProductImage {
   product_id: string;
   color: string;
   image_url: string;

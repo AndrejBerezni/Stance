@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import CartButton from './cart-button';
 import SidebarTrigger from '../sidebar/sidebar-trigger';
 
-interface INavbarButtonProps
+interface NavbarButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   smallScreenOnly?: boolean;
@@ -13,7 +13,7 @@ export function NavbarButton({
   children,
   smallScreenOnly = false,
   ...props
-}: INavbarButtonProps) {
+}: NavbarButtonProps) {
   return (
     <button
       {...props}
