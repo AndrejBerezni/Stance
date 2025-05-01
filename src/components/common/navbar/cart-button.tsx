@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { ShoppingBag } from 'lucide-react';
 
 import { cn } from '@/lib/utils/cn';
 
@@ -26,7 +26,7 @@ export default function CartButton() {
 
   return (
     <NavbarButton>
-      <Image src="/icons/cart.svg" alt="Cart button." width={24} height={24} />
+      <ShoppingBag size={24} />
       {TEMP_ITEMS > 0 && <NumberOfItems items={TEMP_ITEMS} />}
     </NavbarButton>
   );

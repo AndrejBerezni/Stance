@@ -1,3 +1,4 @@
+import Button from '@/components/ui/button';
 import { cn } from '@/lib/utils/cn';
 
 import CartButton from './cart-button';
@@ -15,17 +16,15 @@ export function NavbarButton({
   ...props
 }: NavbarButtonProps) {
   return (
-    <button
+    <Button
+      variant="link-gray"
       {...props}
-      className={cn(
-        'hover:cursor-pointer relative link-focus disabled:*:opacity-60',
-        {
-          'lg:hidden': smallScreenOnly,
-        }
-      )}
+      className={cn('relative', {
+        'lg:hidden': smallScreenOnly,
+      })}
     >
       {children}
-    </button>
+    </Button>
   );
 }
 

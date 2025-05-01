@@ -1,5 +1,6 @@
 'use client';
-import Image from 'next/image';
+
+import { Menu } from 'lucide-react';
 
 import { useSidebar } from '@/lib/providers/sidebar-provider';
 
@@ -14,12 +15,7 @@ export default function SidebarTrigger() {
       aria-expanded={isOpen}
       aria-controls="sidebar"
     >
-      <Image
-        src="/icons/menu.svg"
-        alt="Button to open side menu"
-        height={24}
-        width={24}
-      />
+      <Menu size={32} />
     </NavbarButton>
   );
 }
