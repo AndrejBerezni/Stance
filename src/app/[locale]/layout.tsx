@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   description: 'Clothing web shop',
 };
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'pt' }];
+}
+
 export default async function RootLayout({
   children,
   params,
