@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/lib/utils/cn';
 
 import CartButton from './cart-button';
 import SidebarTrigger from '../sidebar/sidebar-trigger';
@@ -17,7 +17,7 @@ export function NavbarButton({
   return (
     <button
       {...props}
-      className={clsx(
+      className={cn(
         'hover:cursor-pointer relative link-focus disabled:*:opacity-60',
         {
           'lg:hidden': smallScreenOnly,

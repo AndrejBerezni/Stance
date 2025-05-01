@@ -1,10 +1,11 @@
 'use client';
 import { HTMLAttributes, useMemo } from 'react';
 
-import clsx from 'clsx';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+
+import { cn } from '@/lib/utils/cn';
 
 /* Since NavigationLinks is reusable component (at the moment of it's creation it is being used on navbar and sidebar),
 to comply to Open/Closed principle, we pass styles as props, instead of defining styles
@@ -38,7 +39,7 @@ export default function NavigationLinks({
           <Link
             key={link.id}
             href={link.href}
-            className={clsx(
+            className={cn(
               'active:text-primary text-sm lg:text-base hover:text-foreground disabled:text-disabled link-focus',
               {
                 'text-foreground': pathname === link.href,
