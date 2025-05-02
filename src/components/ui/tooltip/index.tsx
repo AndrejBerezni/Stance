@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import useTooltip from '@/hooks/ui/useTooltip';
+import useTooltip from '@/hooks/useTooltip';
 import { cn } from '@/lib/utils/cn';
 
 import { arrowVariants, tooltipVariants } from './styles';

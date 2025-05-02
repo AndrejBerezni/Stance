@@ -11,7 +11,7 @@ const buttonVariants = cva(
         tertiary:
           'bg-transparent hover:bg-disabled text-primary focus:bg-disabled',
         link: 'bg-transparent text-primary !p-0 hover:text-primary-hover',
-        'link-gray':
+        ghost:
           'bg-transparent !p-0 text-secondary-foreground hover:text-foreground',
         destructive:
           'bg-destructive shadow-md text-background hover:bg-destructive/80',

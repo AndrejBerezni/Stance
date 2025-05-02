@@ -22,7 +22,7 @@ const meta: Meta<StoryProps> = {
         'secondary',
         'tertiary',
         'link',
-        'link-gray',
+        'ghost',
         'destructive',
       ],
       control: {

@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'secondary'
     | 'tertiary'
     | 'link'
-    | 'link-gray'
+    | 'ghost'
     | 'destructive';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   iconOnly?: boolean;

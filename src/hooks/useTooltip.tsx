@@ -5,12 +5,12 @@ import calculateCoordinates, {
   Coordinates,
 } from '@/lib/utils/ui/calculate-coordinates';
 
-interface UseTooltipProps {
+interface UseTooltipParams {
   position: TooltipPosition;
   delay: number;
 }
 
-export default function useTooltip({ position, delay }: UseTooltipProps) {
+export default function useTooltip({ position, delay }: UseTooltipParams) {
   const [visible, setVisible] = useState<boolean>(false);
   const [coords, setCoords] = useState<Coordinates>({ top: 0, left: 0 });
   const targetRef = useRef<HTMLDivElement>(null);

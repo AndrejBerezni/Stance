@@ -17,7 +17,7 @@ export function NavbarButton({
 }: NavbarButtonProps) {
   return (
     <Button
-      variant="link-gray"
+      variant="ghost"
       {...props}
       className={cn('relative', {
         'lg:hidden': smallScreenOnly,
