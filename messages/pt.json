@@ -5,5 +5,14 @@
   "navigation": {
     "shopAll": "Ver tudo",
     "latestArrivals": "Novidades"
+  },
+
+  "productPage": {
+    "availableSizes": "Tamanhos Disponíveis",
+    "availableColors": "Cores Disponíveis",
+    "quantity": "Quantidade",
+    "addToCart": "Adicionar ao carrinho",
+    "seeAll": "Ver",
+    "reviews": "avaliações"
   }
 }

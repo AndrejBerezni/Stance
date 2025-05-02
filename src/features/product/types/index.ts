@@ -7,7 +7,7 @@ export interface Product {
   created_at: string;
 }
 
-export type ClothingSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ClothingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type ShoeSize = number;
 

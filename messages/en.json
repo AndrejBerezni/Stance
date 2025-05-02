@@ -5,5 +5,13 @@
   "navigation": {
     "shopAll": "Shop all",
     "latestArrivals": "Latest arrivals"
+  },
+  "productPage": {
+    "availableSizes": "Available Sizes",
+    "availableColors": "Available Colors",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "seeAll": "See all",
+    "reviews": "reviews"
   }
 }
