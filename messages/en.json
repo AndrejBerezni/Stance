@@ -13,5 +13,17 @@
     "addToCart": "Add to Cart",
     "seeAll": "See all",
     "reviews": "reviews"
+  },
+  "colors": {
+    "white": "White",
+    "pink": "Pink",
+    "beige": "Beige",
+    "green": "Green",
+    "black": "Black",
+    "orange": "Orange",
+    "yellow": "Yellow",
+    "brown": "Brown",
+    "red": "Red",
+    "blue": "Blue"
   }
 }

@@ -14,7 +14,7 @@ interface SizeSelectButtonProps {
   selected: boolean;
 }
 
-export default function SizeSelectorButton({
+export default function SizeSelectButton({
   size,
   handleSelect,
   selected,

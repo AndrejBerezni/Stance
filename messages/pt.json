@@ -14,5 +14,17 @@
     "addToCart": "Adicionar ao carrinho",
     "seeAll": "Ver",
     "reviews": "avaliações"
+  },
+  "colors": {
+    "white": "Branco",
+    "pink": "Rosa",
+    "beige": "Bege",
+    "green": "Verde",
+    "black": "Preto",
+    "orange": "Laranja",
+    "yellow": "Amarelo",
+    "brown": "Castanho",
+    "red": "Vermelho",
+    "blue": "Azul"
   }
 }

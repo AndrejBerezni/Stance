@@ -29,7 +29,7 @@ export default function AttributeSelector<T>({
   return (
     <div className="flex flex-col gap-4">
       <h2
-        id="size-selector-heading"
+        id={`${attribute}-selector-heading`}
         className="text-sm text-tertiary-foreground"
       >
         {heading}
@@ -38,7 +38,7 @@ export default function AttributeSelector<T>({
       <div
         className="flex gap-4 flex-wrap"
         role="radiogroup"
-        aria-labelledby="size-selector-heading"
+        aria-labelledby={`${attribute}-selector-heading`}
       >
         {options.map((option: T) => {
           const value = getOptionValue(option);

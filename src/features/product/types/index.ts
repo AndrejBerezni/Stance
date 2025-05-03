@@ -7,10 +7,6 @@ export interface Product {
   created_at: string;
 }
 
-export type ClothingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-
-export type ShoeSize = number;
-
 export interface InventoryItem {
   product_id: string;
   sku: string;
@@ -37,3 +33,37 @@ export interface ProductImage {
   color: string;
   image_url: string;
 }
+
+// TO DO: When we implement db, need to think how to store available attributes for each product
+export type ClothingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
+
+export type ShoeSize =
+  | 4
+  | 4.5
+  | 5
+  | 5.5
+  | 6
+  | 6.5
+  | 7
+  | 7.5
+  | 8
+  | 8.5
+  | 9
+  | 9.5
+  | 10
+  | 10.5
+  | 11
+  | 11.5
+  | 12;
+
+export type ProductColor =
+  | 'white'
+  | 'pink'
+  | 'beige'
+  | 'green'
+  | 'black'
+  | 'orange'
+  | 'yellow'
+  | 'brown'
+  | 'red'
+  | 'blue';
