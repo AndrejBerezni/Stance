@@ -39,7 +39,9 @@ export const getProductInventory = async (
 export const getProductImages = async (
   productId: string,
   color: string
-): Promise<ProductImage[] | undefined> =>
-  productImages.filter(
+): Promise<ProductImage[] | undefined> => {
+  const images = productImages.filter(
     (image) => image.product_id === productId && image.color === color
   );
+  return images.length > 0 ? images : undefined;
+};

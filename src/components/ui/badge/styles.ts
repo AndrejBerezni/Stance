@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-const badgeVariants = cva('rounded-full border-[1px] whitespace-nowrap', {
+const badgeVariants = cva('rounded-full border-[1px] whitespace-nowrap w-fit', {
   variants: {
     variant: {
       neutral: 'bg-gray-50 border-border text-neutral-600',

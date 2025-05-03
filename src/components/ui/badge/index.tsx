@@ -11,6 +11,10 @@ interface BadgeProps {
   size: BadgeSize;
 }
 
-export default function Badge({ text, variant, size }: BadgeProps) {
+export default function Badge({
+  text,
+  variant = 'brand',
+  size = 'md',
+}: BadgeProps) {
   return <div className={cn(badgeVariants({ variant, size }))}>{text}</div>;
 }

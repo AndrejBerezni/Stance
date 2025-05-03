@@ -23,6 +23,8 @@ export default function useAddToCart({
     if (amount > 1) setAmount((prev) => prev - 1);
   };
 
+  // TO DO: We will extract size and color from search params?
+
   const addToCart = () => {
     // TO DO: cart logic
     console.log(`${amount} of ${productId} added to cart.`);

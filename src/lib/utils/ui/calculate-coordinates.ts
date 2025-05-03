@@ -11,17 +11,37 @@ const calculateCoordinates = (
 ): Coordinates => {
   const { top, left, width, height } = rect;
 
+  // Get the scroll position
+  const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Calculate positions with scroll offsets
   switch (position) {
     case 'top':
-      return { top, left: left + width / 2 };
+      return {
+        top: top + scrollY,
+        left: left + width / 2 + scrollX,
+      };
     case 'bottom':
-      return { top: top + height, left: left + width / 2 };
+      return {
+        top: top + height + scrollY,
+        left: left + width / 2 + scrollX,
+      };
     case 'left':
-      return { top: top + height / 2, left };
+      return {
+        top: top + height / 2 + scrollY,
+        left: left + scrollX,
+      };
     case 'right':
-      return { top: top + height / 2, left: left + width };
+      return {
+        top: top + height / 2 + scrollY,
+        left: left + width + scrollX,
+      };
     default:
-      return { top: top + height, left: left + width / 2 };
+      return {
+        top: top + height + scrollY,
+        left: left + width / 2 + scrollX,
+      };
   }
 };
 

@@ -27,7 +27,7 @@ export default function ColorSelectButton({
   return (
     <div className="relative flex items-center justify-center h-[56px] w-[56px]">
       {/* Displaying tooltip with color name for color-blind users */}
-      <Tooltip content={translate(color.name)}>
+      <Tooltip content={translate(color.name)} position="bottom">
         <button
           onClick={handleSelect}
           role="radio"

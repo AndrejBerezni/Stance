@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { AccordionItem } from './accordion-item';
+import { IAccordionItem } from './accordion-item';
 
 interface AccordionItemContentProps {
   isExpanded: boolean;
-  item: AccordionItem;
+  item: IAccordionItem;
 }
 
 export default function AccordionItemContent({

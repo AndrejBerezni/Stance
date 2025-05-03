@@ -4,16 +4,18 @@ import Button from '@/components/ui/button';
 
 interface CartControlProps {
   max: number;
-  amount: number;
+  amount?: number;
   handleIncrement: () => void;
   handleDecrement: () => void;
+  disabled?: boolean;
 }
 
 export default function CartControl({
   max,
-  amount,
+  amount = 1,
   handleIncrement,
   handleDecrement,
+  disabled = false,
 }: CartControlProps) {
   return (
     <div
@@ -34,7 +36,7 @@ export default function CartControl({
       </span>
       <Button
         variant="ghost"
-        disabled={amount === max}
+        disabled={amount === max || disabled}
         onClick={handleIncrement}
         aria-label="Increase quantity"
       >

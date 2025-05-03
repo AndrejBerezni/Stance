@@ -1,25 +1,19 @@
-import { useState } from 'react';
-
-import CurrentImage from './current-image';
-import ThumbnailList from './thumbnail-list';
-import { ProductImage } from '../../types';
+import ImageGalleryContent from './image-gallery-content';
+import NoImagesFound from './no-images-found';
+import { getProductImages } from '../../server-actions';
 
 interface ImageGalleryProps {
-  images: ProductImage[];
+  productId: string;
+  color: string;
 }
 
-export default function ImageGallery({ images }: ImageGalleryProps) {
-  const [currentImage, setCurrentImage] = useState<number>(0);
-  return (
-    <div className="w-full lg:w-1/2">
-      <CurrentImage image={images[currentImage]} />
-      {images.length > 1 && (
-        <ThumbnailList
-          images={images}
-          currentImage={currentImage}
-          selectImage={setCurrentImage}
-        />
-      )}
-    </div>
-  );
+export default async function ImageGallery({
+  productId,
+  color,
+}: ImageGalleryProps) {
+  const images = await getProductImages(productId, color);
+
+  if (!images) return <NoImagesFound />;
+
+  return <ImageGalleryContent images={images} />;
 }

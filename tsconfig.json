@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "__tests__/homepage.test.js"
+    "__tests__/homepage.test.js",
+    "src/features/product/components/attribute-selector"
   ],
   "exclude": ["node_modules"]
 }

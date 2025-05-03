@@ -21,7 +21,12 @@ type Story = StoryObj<StoryProps>;
 export const OneImage: Story = {
   args: {
     images: [
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
+      },
     ],
   },
   render: (args) => (
@@ -33,8 +38,18 @@ export const OneImage: Story = {
 export const TwoImages: Story = {
   args: {
     images: [
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg',
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
+      },
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg',
+      },
     ],
   },
   render: (args) => (
@@ -46,9 +61,24 @@ export const TwoImages: Story = {
 export const ThreeImages: Story = {
   args: {
     images: [
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg',
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-3.jpg',
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
+      },
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg',
+      },
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-3.jpg',
+      },
     ],
   },
   render: (args) => (
@@ -60,10 +90,30 @@ export const ThreeImages: Story = {
 export const FourImages: Story = {
   args: {
     images: [
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg',
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-3.jpg',
-      'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-4.jpg',
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg',
+      },
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg',
+      },
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-3.jpg',
+      },
+      {
+        product_id: 'voyager-hoodie',
+        color: 'green',
+        image_url:
+          'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-4.jpg',
+      },
     ],
   },
   render: (args) => (
