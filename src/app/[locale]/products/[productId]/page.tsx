@@ -1,6 +1,9 @@
 import { Suspense } from 'react';
 
+import { redirect } from 'next/navigation';
+
 import ProductDetailsSection from '@/features/product/components/product-details-section';
+import { getProduct } from '@/features/product/server-actions';
 
 export default async function Product({
   params,
@@ -10,18 +13,17 @@ export default async function Product({
   searchParams: Promise<{ color: string; size: string }>;
 }) {
   const { productId } = await params;
-  const { color, size } = await searchParams;
 
-  console.log(productId, color, size);
+  const product = await getProduct(productId);
+
+  if (!product) redirect('/products');
+
+  const { color, size } = await searchParams;
 
   return (
     <>
       <Suspense fallback={<div>Loading..</div>}>
-        <ProductDetailsSection
-          productId={productId}
-          size={size}
-          color={color}
-        />
+        <ProductDetailsSection product={product} size={size} color={color} />
       </Suspense>
     </>
   );

@@ -3,15 +3,12 @@ import { useTranslations } from 'next-intl';
 import Badge from '@/components/ui/badge';
 import Button from '@/components/ui/button';
 
-import StarRating from '../../star-rating';
+import StarRating from '../star-rating';
 
-export default function ProductDetailsHeader() {
+export default function ProductMetadata() {
   const translate = useTranslations('productPage');
   return (
-    <div>
-      <h1 className="font-semibold text-3xl md:text-5xl mb-5">
-        Voyager Hoodie
-      </h1>
+    <>
       <p className="text-3xl font-medium mb-2">
         $76<span className="line-through text-lg text-muted ml-2">$95</span>
       </p>
@@ -23,6 +20,6 @@ export default function ProductDetailsHeader() {
           {translate('seeAll')} 61 {translate('reviews')}
         </Button>
       </div>
-    </div>
+    </>
   );
 }
