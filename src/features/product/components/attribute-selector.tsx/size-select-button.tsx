@@ -8,7 +8,7 @@ export interface Size {
   inStock: boolean;
 }
 
-interface SizeSelectorButtonProps {
+interface SizeSelectButtonProps {
   size: Size;
   handleSelect: () => void;
   selected: boolean;
@@ -18,7 +18,7 @@ export default function SizeSelectorButton({
   size,
   handleSelect,
   selected,
-}: SizeSelectorButtonProps) {
+}: SizeSelectButtonProps) {
   return (
     <Button
       variant="secondary"
