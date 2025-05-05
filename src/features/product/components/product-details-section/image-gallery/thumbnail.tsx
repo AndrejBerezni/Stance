@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
+import { ProductImage } from '@/features/product/types';
 import { cn } from '@/lib/utils/cn';
 
 import { thumbnailVariants } from './styles';
-import { ProductImage } from '../../types';
 
 interface ThumbnailProps {
   selected: boolean;

@@ -1,10 +1,8 @@
 import Button from '@/components/ui/button';
 import { cn } from '@/lib/utils/cn';
 
-import { ClothingSize, ShoeSize } from '../../types';
-
 export interface Size {
-  name: ClothingSize | ShoeSize;
+  name: string;
   inStock: boolean;
 }
 

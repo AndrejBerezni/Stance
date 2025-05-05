@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 
-import useChangeSearchParam from '../../../../hooks/useChangeSearchParam';
+import useChangeSearchParam from '@/hooks/useChangeSearchParam';
 
 interface AttributeSelectorProps<T> {
   attribute: string;

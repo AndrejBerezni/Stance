@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { TooltipPosition } from '@/components/ui/tooltip';
 import calculateCoordinates, {
   Coordinates,
-} from '@/lib/utils/ui/calculate-coordinates';
+} from '@/lib/utils/calculate-coordinates';
 
 interface UseTooltipParams {
   position: TooltipPosition;

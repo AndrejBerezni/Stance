@@ -5,7 +5,9 @@
     "description": "Navigate the urban jungle with our Urban Drift Bucket Hat. It's not only trendy but also practical, offering shade from the hustle and bustle.",
     "category": "unisex",
     "collection": "urban",
-    "created_at": "2024-04-04"
+    "created_at": "2024-04-04",
+    "sizing_convention": null,
+    "available_colors": ["black", "white"]
   },
   {
     "product_id": "tangerine-mini-tote",
@@ -13,7 +15,9 @@
     "description": "Carry a pop of color with our Tangerine Mini Tote. Compact and vibrant, it's the perfect accessory for the fashion-forward minimalist.",
     "category": "women",
     "collection": "fresh",
-    "created_at": "2024-04-03"
+    "created_at": "2024-04-03",
+    "sizing_convention": null,
+    "available_colors": ["orange"]
   },
   {
     "product_id": "elemental-sneakers",
@@ -21,7 +25,9 @@
     "description": "Ground your steps in style with our Elemental Sneakers. Designed with the elements in mind, they bring a natural balance to your stride and your ensemble.",
     "category": "unisex",
     "collection": "fresh",
-    "created_at": "2024-03-25"
+    "created_at": "2024-03-25",
+    "sizing_convention": "shoes",
+    "available_colors": ["beige"]
   },
   {
     "product_id": "metro-hoodie",
@@ -29,7 +35,9 @@
     "description": "The Metro Hoodie is your ticket to comfortable, laid-back fashion. Whether you're on the move or taking it easy, this hoodie has got you covered.",
     "category": "unisex",
     "collection": "urban",
-    "created_at": "2024-03-23"
+    "created_at": "2024-03-23",
+    "sizing_convention": "clothes",
+    "available_colors": ["black"]
   },
   {
     "product_id": "sunbeam-mules",
@@ -37,7 +45,9 @@
     "description": "Let your feet bask in the glow of our Sunbeam Mules. With their radiant style and effortless slip-on design, they're sunshine for your step.",
     "category": "women",
     "collection": "fresh",
-    "created_at": "2024-03-22"
+    "created_at": "2024-03-22",
+    "sizing_convention": "shoes",
+    "available_colors": ["yellow"]
   },
   {
     "product_id": "azure-attitude-shades",
@@ -45,7 +55,9 @@
     "description": "Step out in style with our Azure Attitude Shades, featuring a bold blue tint and modern design. These sunglasses are not just an accessory but a statement of confidence.",
     "category": "men",
     "collection": "urban",
-    "created_at": "2024-03-21"
+    "created_at": "2024-03-21",
+    "sizing_convention": null,
+    "available_colors": ["blue"]
   },
   {
     "product_id": "voyager-hoodie",
@@ -53,7 +65,9 @@
     "description": "The Voyager Hoodie is for the explorer at heart. Its durable fabric and roomy pockets are perfect for those who are always searching for the next adventure.",
     "category": "unisex",
     "collection": "urban",
-    "created_at": "2024-03-20"
+    "created_at": "2024-03-20",
+    "sizing_convention": "clothes",
+    "available_colors": ["brown", "green"]
   },
   {
     "product_id": "la-baseball-hat",
@@ -61,7 +75,9 @@
     "description": "Shield your eyes and show your style with our LA Baseball Hat. It's not just a nod to the city of angels but a capstone for any casual outfit.",
     "category": "unisex",
     "collection": "fresh",
-    "created_at": "2024-02-29"
+    "created_at": "2024-02-29",
+    "sizing_convention": null,
+    "available_colors": ["black"]
   },
   {
     "product_id": "classic-canvas-tee",
@@ -69,7 +85,9 @@
     "description": "The Classic Canvas Tee is your go-to wardrobe staple, offering unparalleled comfort and a timeless look that never goes out of style.",
     "category": "unisex",
     "collection": "fresh",
-    "created_at": "2024-02-26"
+    "created_at": "2024-02-26",
+    "sizing_convention": "clothes",
+    "available_colors": ["beige", "brown", "orange", "red", "white"]
   },
   {
     "product_id": "cool-neo-retro-shoes",
@@ -77,7 +95,9 @@
     "description": "Merge past and present with our Cool Neo-Retro Shoes. Their classic silhouette with modern twists will have you walking with a foot in each era.",
     "category": "unisex",
     "collection": "fresh",
-    "created_at": "2024-02-20"
+    "created_at": "2024-02-20",
+    "sizing_convention": "shoes",
+    "available_colors": ["white"]
   },
   {
     "product_id": "city-quilted-jacket",
@@ -85,7 +105,9 @@
     "description": "Our City Quilted Jacket is the urban adventurer's essential. With its sleek quilting and durable design, it's ready to take on the city streets while keeping you insulated.",
     "category": "unisex",
     "collection": "urban",
-    "created_at": "2024-02-06"
+    "created_at": "2024-02-06",
+    "sizing_convention": "clothes",
+    "available_colors": ["white"]
   },
   {
     "product_id": "autumnal-knitwear",
@@ -93,7 +115,9 @@
     "description": "Wrap yourself in the warmth of our Autumnal Knitwear, crafted from premium wool blends to keep you cozy as the leaves change color. Perfect for chilly evenings and crisp mornings.",
     "category": "women",
     "collection": "cozy",
-    "created_at": "2024-01-31"
+    "created_at": "2024-01-31",
+    "sizing_convention": "clothes",
+    "available_colors": ["blue", "brown", "yellow"]
   },
   {
     "product_id": "stepsoft-socks",
@@ -101,7 +125,9 @@
     "description": "Step into luxury with our StepSoft Socks, designed to pamper your feet with every step. Their cloud-like cushioning is like a spa for your soles.",
     "category": "unisex",
     "collection": "cozy",
-    "created_at": "2024-01-31"
+    "created_at": "2024-01-31",
+    "sizing_convention": null,
+    "available_colors": ["orange", "pink"]
   },
   {
     "product_id": "color-ease-tee",
@@ -109,7 +135,9 @@
     "description": "Experience the ease of color with our soft and simple tees available in a rainbow of hues, designed to brighten your day and your outfit.",
     "category": "unisex",
     "collection": "fresh",
-    "created_at": "2024-01-30"
+    "created_at": "2024-01-30",
+    "sizing_convention": "clothes",
+    "available_colors": ["pink"]
   },
   {
     "product_id": "harvest-cozy-turtleneck",
@@ -117,7 +145,9 @@
     "description": "Cozy up in our Harvest Turtleneck, a snug embrace on a crisp day. Its rich texture and warm tones embody the essence of autumn comfort.",
     "category": "women",
     "collection": "cozy",
-    "created_at": "2024-01-26"
+    "created_at": "2024-01-26",
+    "sizing_convention": "clothes",
+    "available_colors": ["beige"]
   },
   {
     "product_id": "neutral-charm-blazer",
@@ -125,7 +155,9 @@
     "description": "Our Neutral Charm Blazer adds a touch of sophistication to any outfit. Its subtle hues and tailored fit make it a versatile choice for any occasion.",
     "category": "women",
     "collection": "urban",
-    "created_at": "2024-01-25"
+    "created_at": "2024-01-25",
+    "sizing_convention": "clothes",
+    "available_colors": ["beige"]
   },
   {
     "product_id": "cute-banana-socks",
@@ -133,7 +165,9 @@
     "description": "Add a bunch of fun to your feet with our Cute Banana Socks. They're as comfy as they are playful, perfect for lounging or peeling around town.",
     "category": "unisex",
     "collection": "cozy",
-    "created_at": "2024-01-14"
+    "created_at": "2024-01-14",
+    "sizing_convention": null,
+    "available_colors": ["pink"]
   },
   {
     "product_id": "canis-philosophus-linen-tee",
@@ -141,7 +175,9 @@
     "description": "Embrace the wisdom of comfort with our Canis Philosophus Linen Tee. Made from breathable linen, this T-shirt combines classic style with a relaxed fit for the thinker on the move.",
     "category": "men",
     "collection": "fresh",
-    "created_at": "2024-01-08"
+    "created_at": "2024-01-08",
+    "sizing_convention": "clothes",
+    "available_colors": ["white"]
   },
   {
     "product_id": "urban-bomber-jacket",
@@ -149,6 +185,8 @@
     "description": "The Urban Bomber Jacket is your armor against the elements. Its edgy style and robust construction make it a city dweller's essential.",
     "category": "men",
     "collection": "urban",
-    "created_at": "2024-01-03"
+    "created_at": "2024-01-03",
+    "sizing_convention": "clothes",
+    "available_colors": ["green"]
   }
 ]

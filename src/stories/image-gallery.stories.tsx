@@ -2,12 +2,12 @@ import { ComponentProps } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import ImageGallery from '@/features/product/components/image-gallery';
+import ImageGalleryContent from '@/features/product/components/product-details-section/image-gallery/image-gallery-content';
 
-type StoryProps = ComponentProps<typeof ImageGallery>;
+type StoryProps = ComponentProps<typeof ImageGalleryContent>;
 
 const meta: Meta<StoryProps> = {
-  component: ImageGallery,
+  component: ImageGalleryContent,
   title: 'Components/ImageGallery',
   parameters: {
     layout: 'centered',
@@ -31,7 +31,7 @@ export const OneImage: Story = {
   },
   render: (args) => (
     <div className="w-[768px] border-2 p-12 flex justify-center">
-      <ImageGallery {...args} />
+      <ImageGalleryContent {...args} />
     </div>
   ),
 };
@@ -54,7 +54,7 @@ export const TwoImages: Story = {
   },
   render: (args) => (
     <div className="w-[768px] border-2 p-12 flex justify-center">
-      <ImageGallery {...args} />
+      <ImageGalleryContent {...args} />
     </div>
   ),
 };
@@ -83,7 +83,7 @@ export const ThreeImages: Story = {
   },
   render: (args) => (
     <div className="w-[768px] border-2 p-12 flex justify-center">
-      <ImageGallery {...args} />
+      <ImageGalleryContent {...args} />
     </div>
   ),
 };
@@ -118,7 +118,7 @@ export const FourImages: Story = {
   },
   render: (args) => (
     <div className="w-[768px] border-2 p-12 flex justify-center">
-      <ImageGallery {...args} />
+      <ImageGalleryContent {...args} />
     </div>
   ),
 };

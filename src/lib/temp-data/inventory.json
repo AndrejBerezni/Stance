@@ -405,7 +405,7 @@
     "discount_percentage": 10,
     "sale_price": 22.5,
     "sold": 80,
-    "stock": 920
+    "stock": 0
   },
   {
     "product_id": "classic-canvas-tee",

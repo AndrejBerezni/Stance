@@ -1,9 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+import { ProductImage } from '@/features/product/types';
+
 import CurrentImage from './current-image';
 import ThumbnailList from './thumbnail-list';
-import { ProductImage } from '../../types';
 
 export default function ImageGalleryContent({
   images,

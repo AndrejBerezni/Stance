@@ -5,10 +5,24 @@ import Tooltip from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils/cn';
 
 import { colorSelectVariants } from './styles';
-import { ProductColor } from '../../types';
+
+//workaround:
+type AvailableColor =
+  | 'white'
+  | 'pink'
+  | 'beige'
+  | 'green'
+  | 'black'
+  | 'orange'
+  | 'yellow'
+  | 'brown'
+  | 'red'
+  | 'blue'
+  | null
+  | undefined;
 
 export interface Color {
-  name: ProductColor;
+  name: string;
   inStock: boolean;
 }
 
@@ -33,7 +47,12 @@ export default function ColorSelectButton({
           role="radio"
           aria-label={`${color.name} color${!color.inStock ? ' (out of stock)' : ''}`}
           aria-checked={selected}
-          className={cn(colorSelectVariants({ color: color.name, selected }))}
+          className={cn(
+            colorSelectVariants({
+              color: color.name as AvailableColor,
+              selected,
+            })
+          )}
         >
           {selected && color.inStock && <Check size={26} />}
         </button>

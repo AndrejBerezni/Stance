@@ -1,40 +1,55 @@
 import { Suspense } from 'react';
 
-import { Product } from '../../types';
-import ImageGallery from '../image-gallery';
 import AddToCart from './add-to-cart';
+import ImageGallery from './image-gallery';
+import { Product } from '../../types';
+import ImageGallerySkeleton from './image-gallery/image-gallery-skeleton';
 import ProductAttributes from './product-attributes';
-import ProductMetadata from './product-metadata';
-import ProductSpecification from './product-specification';
-import ImageGallerySkeleton from '../image-gallery/image-gallery-skeleton';
+import ProductInfo from './product-info';
+import ProductPrice from './product-price';
+import ProductRating from './product-rating';
 
 interface ProductDetailsSectionProps {
   product: Product;
   color: string;
-  size: string;
 }
 
 export default async function ProductDetailsSection({
   product,
   color,
-  size,
 }: ProductDetailsSectionProps) {
-  const { product_id: productId, name, description } = product;
+  const {
+    product_id: productId,
+    name,
+    description,
+    sizing_convention,
+    available_colors,
+    inventory,
+  } = product;
 
   return (
     <section className="section-wrapper flex flex-col lg:flex-row gap-12 lg:gap-8">
       <Suspense fallback={<ImageGallerySkeleton />}>
         <ImageGallery productId={productId} color={color} />
       </Suspense>
+
       <div className="flex gap-8 flex-col">
         <div>
           <h1 className="font-semibold text-3xl md:text-5xl mb-5">{name}</h1>
-          <ProductMetadata />
+          <ProductPrice />
+          <ProductRating />
         </div>
+
         <p className="text-secondary-foreground">{description}</p>
-        <ProductAttributes />
+
+        <ProductAttributes
+          sizing_convention={sizing_convention}
+          available_colors={available_colors}
+          inventory={inventory}
+          currentColor={color}
+        />
         <AddToCart productId={productId} max={5} disabled={false} />
-        <ProductSpecification productId={productId} />
+        <ProductInfo productId={productId} />
       </div>
     </section>
   );

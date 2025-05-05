@@ -1,6 +1,6 @@
 import ImageGalleryContent from './image-gallery-content';
 import NoImagesFound from './no-images-found';
-import { getProductImages } from '../../server-actions';
+import { getProductImages } from '../../../server-actions';
 
 interface ImageGalleryProps {
   productId: string;

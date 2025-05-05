@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
 
+import { ProductImage } from '@/features/product/types';
+import calculateThumbnailSize from '@/lib/utils/calculate-thumbnail-size';
 import { cn } from '@/lib/utils/cn';
-import calculateThumbnailSize from '@/lib/utils/ui/calculate-thumbnail-size';
 
 import Thumbnail from './thumbnail';
-import { ProductImage } from '../../types';
 
 interface ThumbnailListProps {
   images: ProductImage[];

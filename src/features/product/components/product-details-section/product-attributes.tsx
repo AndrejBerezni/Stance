@@ -1,40 +1,36 @@
 'use client';
 import { useTranslations } from 'next-intl';
 
-import AttributeSelector from '../attribute-selector';
-import ColorSelectButton, {
-  Color,
-} from '../attribute-selector/color-select-button';
-import SizeSelectButton, {
-  Size,
-} from '../attribute-selector/size-select-button';
+import AttributeSelector from './attribute-selector';
+import { InventoryItem } from '../../types';
+import ColorSelectButton from './attribute-selector/color-select-button';
+import SizeSelectButton from './attribute-selector/size-select-button';
+import { getSizes, checkColorStock, checkSizeStock } from '../../utils';
 
-const sizes: Size[] = [
-  { name: 'xs', inStock: true },
-  { name: 's', inStock: true },
-  { name: 'm', inStock: false },
-  { name: 'l', inStock: true },
-  { name: 'xl', inStock: false },
-];
+interface ProductAttributesProps {
+  sizing_convention: string | null;
+  available_colors: string[];
+  inventory: InventoryItem[];
+  currentColor: string;
+}
 
-const colors: Color[] = [
-  { name: 'green', inStock: true },
-  { name: 'beige', inStock: false },
-  { name: 'yellow', inStock: false },
-  { name: 'black', inStock: true },
-  { name: 'white', inStock: true },
-  { name: 'blue', inStock: true },
-  { name: 'pink', inStock: false },
-];
-
-export default function ProductAttributes() {
+export default function ProductAttributes({
+  sizing_convention,
+  available_colors,
+  inventory,
+  currentColor,
+}: ProductAttributesProps) {
   const translate = useTranslations('productPage');
+  const sizes = getSizes(sizing_convention);
   return (
     <>
       <AttributeSelector
         attribute="color"
         heading={translate('availableColors')}
-        options={colors}
+        options={available_colors.map((color) => ({
+          name: color,
+          inStock: checkColorStock(inventory, color),
+        }))}
         getOptionValue={(color) => color.name.toString()}
         renderOption={(color, selected, handleSelect) => (
           <ColorSelectButton
@@ -44,19 +40,24 @@ export default function ProductAttributes() {
           />
         )}
       />
-      <AttributeSelector
-        attribute="size"
-        heading={translate('availableSizes')}
-        options={sizes}
-        getOptionValue={(size) => size.name.toString()}
-        renderOption={(size, selected, handleSelect) => (
-          <SizeSelectButton
-            size={size}
-            selected={selected}
-            handleSelect={handleSelect}
-          />
-        )}
-      />
+      {sizes && (
+        <AttributeSelector
+          attribute="size"
+          heading={translate('availableSizes')}
+          options={sizes.map((size) => ({
+            name: size,
+            inStock: checkSizeStock(inventory, currentColor, size),
+          }))}
+          getOptionValue={(size) => size.name.toString()}
+          renderOption={(size, selected, handleSelect) => (
+            <SizeSelectButton
+              size={size}
+              selected={selected}
+              handleSelect={handleSelect}
+            />
+          )}
+        />
+      )}
     </>
   );
 }

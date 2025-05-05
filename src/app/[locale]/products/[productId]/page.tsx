@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-
 import { redirect } from 'next/navigation';
 
 import ProductDetailsSection from '@/features/product/components/product-details-section';
@@ -18,13 +16,11 @@ export default async function Product({
 
   if (!product) redirect('/products');
 
-  const { color, size } = await searchParams;
+  let { color } = await searchParams;
 
-  return (
-    <>
-      <Suspense fallback={<div>Loading..</div>}>
-        <ProductDetailsSection product={product} size={size} color={color} />
-      </Suspense>
-    </>
-  );
+  if (!color || !product.available_colors.includes(color)) {
+    color = product.available_colors[0];
+  }
+
+  return <ProductDetailsSection product={product} color={color} />;
 }

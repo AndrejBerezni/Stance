@@ -14,27 +14,30 @@ import products from '@/lib/temp-data/products.json';
 
 import { InventoryItem, Product, ProductImage, ProductInfo } from '../types';
 
-const inventory = rawInventory as InventoryItem[];
+const inventoryList = rawInventory as InventoryItem[];
 const productsInformation = rawProductsInformation as ProductInfo[];
 
 export const getProduct = async (
-  product_id: string
-): Promise<Product | undefined> =>
-  products.find((product) => product.product_id === product_id);
+  productId: string
+): Promise<Product | undefined> => {
+  const product = products.find((product) => product.product_id === productId);
+  if (!product) return undefined;
+
+  const inventory = inventoryList.filter(
+    (item) => item.product_id === productId
+  );
+
+  return { ...product, inventory };
+};
 
 export const getProductInfo = async (
-  product_id: string
+  productId: string
 ): Promise<ProductInfo[] | undefined> => {
   const productInfo: ProductInfo[] = productsInformation.filter(
-    (product) => product.product_id === product_id
+    (product) => product.product_id === productId
   );
   return productInfo.length > 0 ? productInfo : undefined;
 };
-
-export const getProductInventory = async (
-  productId: string
-): Promise<InventoryItem[] | undefined> =>
-  inventory.filter((product) => product.product_id === productId);
 
 export const getProductImages = async (
   productId: string,

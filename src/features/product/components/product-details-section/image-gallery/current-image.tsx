@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 
-import { ProductImage } from '../../types';
+import { ProductImage } from '@/features/product/types';
 
 export default function CurrentImage({ image }: { image: ProductImage }) {
   return (
