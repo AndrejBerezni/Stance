@@ -8,7 +8,7 @@ export default function useChangeSearchParam(param: string) {
   const changeSearchParam = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set(param, value);
-    replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   const currentValue = searchParams.get(param) || '';

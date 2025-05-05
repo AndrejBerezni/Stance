@@ -48,7 +48,7 @@ export default async function ProductDetailsSection({
           inventory={inventory}
           currentColor={color}
         />
-        <AddToCart productId={productId} max={5} disabled={false} />
+        <AddToCart product={product} />
         <ProductInfo productId={productId} />
       </div>
     </section>

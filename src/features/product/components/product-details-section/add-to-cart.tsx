@@ -6,24 +6,24 @@ import Button from '@/components/ui/button';
 import CartControl from '@/features/cart/components/cart-control';
 import useAddToCart from '@/features/cart/hooks/useAddToCart';
 
+import useInventory from '../../hooks/useInventory';
+import { Product } from '../../types';
+
 interface AddToCartProps {
-  productId: string;
-  max: number;
-  disabled: boolean;
+  product: Product;
 }
 
-export default function AddToCart({
-  productId,
-  max,
-  disabled,
-}: AddToCartProps) {
+export default function AddToCart({ product }: AddToCartProps) {
+  const translate = useTranslations('productPage');
+
+  const { sku, max, disabled } = useInventory(product);
   const {
     amount,
     increment: handleIncrement,
     decrement: handleDecrement,
     addToCart,
-  } = useAddToCart({ productId, max, initialAmount: 1 });
-  const translate = useTranslations('productPage');
+  } = useAddToCart({ sku, max, initialAmount: 1 });
+
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -34,7 +34,7 @@ export default function AddToCart({
           {translate('quantity')}
         </h2>
         <CartControl
-          max={max}
+          max={disabled ? 1 : max}
           amount={amount}
           handleIncrement={handleIncrement}
           handleDecrement={handleDecrement}
@@ -44,7 +44,7 @@ export default function AddToCart({
       <Button
         className="mb-2"
         onClick={addToCart}
-        aria-label={`Add ${amount} of ${productId} to cart`}
+        aria-label={`Add ${amount} of ${sku} to cart`}
         disabled={disabled}
       >
         {translate('addToCart')}

@@ -3,13 +3,13 @@ import { useState } from 'react';
 // TO CONSIDER: This hook might handle both adding to cart and editing amount of items in the cart
 
 interface UseAddToCartParams {
-  productId: string;
+  sku: string;
   max: number;
   initialAmount: number;
 }
 
 export default function useAddToCart({
-  productId,
+  sku,
   max,
   initialAmount,
 }: UseAddToCartParams) {
@@ -27,7 +27,7 @@ export default function useAddToCart({
 
   const addToCart = () => {
     // TO DO: cart logic
-    console.log(`${amount} of ${productId} added to cart.`);
+    console.log(`${amount} of ${sku} added to cart.`);
   };
 
   return {
