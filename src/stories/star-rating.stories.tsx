@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import StarRating from '@/features/product/components/product-details-section/star-rating';
+import StarRating from '@/components/ui/star-rating';
 
 type StoryProps = ComponentProps<typeof StarRating>;
 

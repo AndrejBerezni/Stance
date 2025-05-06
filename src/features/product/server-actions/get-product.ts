@@ -10,6 +10,7 @@ which later we will replace with appropriate data fetching
 import rawInventory from '@/lib/temp-data/inventory.json';
 import productImages from '@/lib/temp-data/product-images.json';
 import rawProductsInformation from '@/lib/temp-data/product-info.json';
+import reviews from '@/lib/temp-data/product-reviews.json';
 import products from '@/lib/temp-data/products.json';
 
 import { InventoryItem, Product, ProductImage, ProductInfo } from '../types';
@@ -47,4 +48,19 @@ export const getProductImages = async (
     (image) => image.product_id === productId && image.color === color
   );
   return images.length > 0 ? images : undefined;
+};
+
+export const getProductRating = async (productId: string) => {
+  const productReviews = reviews.filter(
+    (review) => review.product_id === productId
+  );
+  let rating = '0';
+  if (productReviews.length > 0) {
+    rating = (
+      productReviews.reduce((acc, cur) => acc + cur.rating, 0) /
+      productReviews.length
+    ).toFixed(1);
+  }
+
+  return { rating, total: productReviews.length };
 };

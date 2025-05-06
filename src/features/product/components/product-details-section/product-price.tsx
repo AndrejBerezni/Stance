@@ -17,7 +17,7 @@ export default function ProductPrice({ product }: { product: Product }) {
   invalid criteria is entered, item will always be present, and therefore the
   following line will display skeleton until that is all handled.
   */
-  if (!item) return <Skeleton className="h-9 w-1/2" />;
+  if (!item) return <Skeleton className="h-9 w-1/2 mb-2" />;
 
   /* We are checking discount only after we have the item: */
 

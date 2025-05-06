@@ -13,7 +13,9 @@
     "addToCart": "Add to Cart",
     "seeAll": "See all",
     "reviews": "reviews",
-    "discount": "OFF"
+    "discount": "OFF",
+    "noReviews": "No reviews yet.",
+    "beFirst": "Be the first."
   },
   "colors": {
     "white": "White",

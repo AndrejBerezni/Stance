@@ -45,8 +45,12 @@ export default async function ProductDetailsSection({
       <div className="flex gap-8 flex-col">
         <div>
           <h1 className="font-semibold text-3xl md:text-5xl mb-5">{name}</h1>
+
           <ProductPrice product={product} />
-          <ProductRating productId={productId} />
+
+          <Suspense fallback={<Skeleton className="h-7 w-1/2 mt-3" />}>
+            <ProductRating productId={productId} />
+          </Suspense>
         </div>
 
         <p className="text-secondary-foreground">{description}</p>
@@ -57,7 +61,9 @@ export default async function ProductDetailsSection({
           inventory={inventory}
           currentColor={color}
         />
+
         <AddToCart product={product} />
+
         <Suspense fallback={<Skeleton className="h-[250px] w-full" />}>
           <ProductInfo productId={productId} />
         </Suspense>

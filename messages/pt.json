@@ -14,7 +14,9 @@
     "addToCart": "Adicionar ao carrinho",
     "seeAll": "Ver",
     "reviews": "avaliações",
-    "discount": "Desconto"
+    "discount": "Desconto",
+    "noReviews": "Nenhuma avaliação ainda.",
+    "beFirst": "Seja o primeiro."
   },
   "colors": {
     "white": "Branco",
