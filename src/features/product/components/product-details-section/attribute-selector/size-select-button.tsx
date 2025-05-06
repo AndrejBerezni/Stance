@@ -1,6 +1,12 @@
 import Button from '@/components/ui/button';
 import { cn } from '@/lib/utils/cn';
 
+const sizeDisplayMap: Record<string, string> = {
+  sm: 's',
+  md: 'm',
+  lg: 'l',
+};
+
 export interface Size {
   name: string;
   inStock: boolean;
@@ -17,6 +23,7 @@ export default function SizeSelectButton({
   handleSelect,
   selected,
 }: SizeSelectButtonProps) {
+  const displayName = sizeDisplayMap[size.name] ?? size.name; // s, m, and l have values sm, md, and lg in database, so here we are handling displaying wanted strings
   return (
     <Button
       variant="secondary"
@@ -31,7 +38,7 @@ export default function SizeSelectButton({
       aria-label={`Size ${size.name}${!size.inStock ? ' (out of stock)' : ''}`}
       aria-checked={selected}
     >
-      {size.name}
+      {displayName}
     </Button>
   );
 }
