@@ -3,9 +3,9 @@ import { useTranslations } from 'next-intl';
 
 import AttributeSelector from './attribute-selector';
 import { InventoryItem } from '../../types';
+import { checkColorStock, checkSizeStock, getSizes } from '../../utils';
 import ColorSelectButton from './attribute-selector/color-select-button';
 import SizeSelectButton from './attribute-selector/size-select-button';
-import { getSizes, checkColorStock, checkSizeStock } from '../../utils';
 
 interface ProductAttributesProps {
   sizing_convention: string | null;

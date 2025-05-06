@@ -1,6 +1,8 @@
 import Badge from '@/components/ui/badge';
 
-export default function ProductPrice() {
+import { Product } from '../../types';
+
+export default function ProductPrice({ product }: { product: Product }) {
   return (
     <>
       <p className="text-3xl font-medium mb-2">

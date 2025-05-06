@@ -36,8 +36,8 @@ export default async function ProductDetailsSection({
       <div className="flex gap-8 flex-col">
         <div>
           <h1 className="font-semibold text-3xl md:text-5xl mb-5">{name}</h1>
-          <ProductPrice />
-          <ProductRating />
+          <ProductPrice product={product} />
+          <ProductRating productId={productId} />
         </div>
 
         <p className="text-secondary-foreground">{description}</p>

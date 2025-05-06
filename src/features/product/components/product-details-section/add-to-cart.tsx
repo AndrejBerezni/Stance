@@ -16,13 +16,13 @@ interface AddToCartProps {
 export default function AddToCart({ product }: AddToCartProps) {
   const translate = useTranslations('productPage');
 
-  const { sku, max, disabled } = useInventory(product);
+  const { item, max, disabled } = useInventory(product);
   const {
     amount,
     increment: handleIncrement,
     decrement: handleDecrement,
     addToCart,
-  } = useAddToCart({ sku, max, initialAmount: 1 });
+  } = useAddToCart({ sku: item?.sku ?? '', max, initialAmount: 1 });
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function AddToCart({ product }: AddToCartProps) {
       <Button
         className="mb-2"
         onClick={addToCart}
-        aria-label={`Add ${amount} of ${sku} to cart`}
+        aria-label={`Add ${amount} of ${item?.sku} to cart`}
         disabled={disabled}
       >
         {translate('addToCart')}

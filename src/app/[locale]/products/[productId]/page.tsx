@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 
 import ProductDetailsSection from '@/features/product/components/product-details-section';
 import { getProduct } from '@/features/product/server-actions';
+import { setDefaultColorAndSize } from '@/features/product/utils';
 
 export default async function Product({
   params,
@@ -16,10 +17,13 @@ export default async function Product({
 
   if (!product) redirect('/products');
 
-  let { color } = await searchParams;
+  const { color, needsRedirect, updatedParams } = await setDefaultColorAndSize(
+    searchParams,
+    product
+  );
 
-  if (!color || !product.available_colors.includes(color)) {
-    color = product.available_colors[0];
+  if (needsRedirect) {
+    redirect(`/products/${productId}?${updatedParams.toString()}`);
   }
 
   return <ProductDetailsSection product={product} color={color} />;

@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils/cn';
 
 import { colorSelectVariants } from './styles';
 
-//workaround:
 type AvailableColor =
   | 'white'
   | 'pink'

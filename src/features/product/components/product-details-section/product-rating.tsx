@@ -4,7 +4,7 @@ import Button from '@/components/ui/button';
 
 import StarRating from './star-rating';
 
-export default function ProductRating() {
+export default function ProductRating({ productId }: { productId: string }) {
   const translate = useTranslations('productPage');
   return (
     <div className="flex items-center gap-2 mt-3">
