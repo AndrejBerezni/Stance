@@ -45,6 +45,8 @@ export default function Tooltip({
       {visible && (
         <TooltipPortal>
           <div
+            id="tooltip"
+            role="tooltip"
             style={tooltipStyles}
             className={cn(tooltipVariants({ position }))}
           >

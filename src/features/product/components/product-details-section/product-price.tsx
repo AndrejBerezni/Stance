@@ -31,11 +31,11 @@ export default function ProductPrice({ product }: { product: Product }) {
     <>
       <p className="text-3xl font-medium mb-2">
         {onDiscount
-          ? formatPrice(item.sale_price!)
-          : formatPrice(item.list_price!)}
+          ? formatPrice(item.sale_price ?? 0)
+          : formatPrice(item.list_price ?? 0)}
         {onDiscount && (
           <span className="line-through text-lg text-muted ml-2">
-            {formatPrice(item.list_price)}
+            {formatPrice(item.list_price ?? 0)}
           </span>
         )}
       </p>

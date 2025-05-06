@@ -22,6 +22,7 @@ export default function Thumbnail({
     <div
       className={cn(thumbnailVariants({ size, selected }))}
       aria-selected={selected}
+      role="tab"
     >
       <Image
         src={image.image_url}

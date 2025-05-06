@@ -7,8 +7,8 @@ type BadgeSize = 'sm' | 'md' | 'lg';
 
 interface BadgeProps {
   text: string;
-  variant: BadgeVariant;
-  size: BadgeSize;
+  variant?: BadgeVariant;
+  size?: BadgeSize;
 }
 
 export default function Badge({

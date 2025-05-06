@@ -22,7 +22,12 @@ export default function AddToCart({ product }: AddToCartProps) {
     increment: handleIncrement,
     decrement: handleDecrement,
     addToCart,
-  } = useAddToCart({ sku: item?.sku ?? '', max, initialAmount: 1 });
+  } = useAddToCart({
+    sku: item?.sku ?? '',
+    max,
+    initialAmount: 1,
+    disabled: disabled || !item,
+  });
 
   return (
     <>
