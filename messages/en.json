@@ -12,7 +12,8 @@
     "quantity": "Quantity",
     "addToCart": "Add to Cart",
     "seeAll": "See all",
-    "reviews": "reviews"
+    "reviews": "reviews",
+    "discount": "OFF"
   },
   "colors": {
     "white": "White",

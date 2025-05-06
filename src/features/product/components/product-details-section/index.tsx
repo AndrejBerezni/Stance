@@ -1,18 +1,23 @@
 import { Suspense } from 'react';
 
+import Skeleton from '@/components/ui/skeleton';
+
 import AddToCart from './add-to-cart';
 import ImageGallery from './image-gallery';
-import { Product } from '../../types';
-import ImageGallerySkeleton from './image-gallery/image-gallery-skeleton';
 import ProductAttributes from './product-attributes';
 import ProductInfo from './product-info';
 import ProductPrice from './product-price';
 import ProductRating from './product-rating';
+import { Product } from '../../types';
 
 interface ProductDetailsSectionProps {
   product: Product;
   color: string;
 }
+
+/* Certain children are async components that fetch data,
+and they are wrapped in Suspense, while others receive
+data from page component (product, color) */
 
 export default async function ProductDetailsSection({
   product,
@@ -29,7 +34,11 @@ export default async function ProductDetailsSection({
 
   return (
     <section className="section-wrapper flex flex-col lg:flex-row gap-12 lg:gap-8">
-      <Suspense fallback={<ImageGallerySkeleton />}>
+      <Suspense
+        fallback={
+          <Skeleton className="relative md:h-[600px] lg:h-[800px] h-[400px] w-full mb-6" />
+        }
+      >
         <ImageGallery productId={productId} color={color} />
       </Suspense>
 
@@ -49,7 +58,9 @@ export default async function ProductDetailsSection({
           currentColor={color}
         />
         <AddToCart product={product} />
-        <ProductInfo productId={productId} />
+        <Suspense fallback={<Skeleton className="h-[250px] w-full" />}>
+          <ProductInfo productId={productId} />
+        </Suspense>
       </div>
     </section>
   );

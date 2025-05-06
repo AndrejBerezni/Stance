@@ -23,14 +23,14 @@ export default function useInventory(product: Product) {
         item.color === color &&
         (!product.sizing_convention ? true : item.size?.toString() === size) // handling also products that don't have size (like sunglasses, socks...)
     );
-    if (!newItem || newItem.stock === 0) {
-      setDisabled(true);
+    if (!newItem) {
       setItem(null);
-      setMax(1);
     } else {
-      setDisabled(false);
+      const outOfStock = newItem.stock === 0;
+      const newMax = outOfStock ? 1 : newItem.stock;
+      setDisabled(outOfStock);
       setItem(newItem);
-      setMax(newItem.stock);
+      setMax(newMax);
     }
   }, [searchParams, product]);
 

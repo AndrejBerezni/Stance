@@ -1182,8 +1182,8 @@
     "size": "sm",
     "list_price": 90,
     "discount": null,
-    "discount_percentage": 10,
-    "sale_price": 81,
+    "discount_percentage": null,
+    "sale_price": null,
     "sold": 95,
     "stock": 305
   },
