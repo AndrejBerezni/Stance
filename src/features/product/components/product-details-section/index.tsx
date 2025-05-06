@@ -36,7 +36,7 @@ export default async function ProductDetailsSection({
     <section className="section-wrapper flex flex-col lg:flex-row gap-12 lg:gap-8">
       <Suspense
         fallback={
-          <Skeleton className="relative md:h-[600px] lg:h-[800px] h-[400px] w-full mb-6" />
+          <Skeleton className="relative md:h-[600px] lg:min-w-1/2 lg:max-w-1/2 lg:h-[800px] h-[400px] w-full mb-6" />
         }
       >
         <ImageGallery productId={productId} color={color} />
