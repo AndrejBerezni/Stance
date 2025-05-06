@@ -1,0 +1,38 @@
+export interface Product {
+  product_id: string;
+  name: string;
+  description: string;
+  category: string;
+  collection: string;
+  created_at: string;
+  sizing_convention: string | null;
+  available_colors: string[];
+  inventory: InventoryItem[];
+}
+
+export interface InventoryItem {
+  product_id: string;
+  sku: string;
+  color: string;
+  size: string | null;
+  list_price: number;
+  discount: number | null;
+  discount_percentage: number | null;
+  sale_price: number | null;
+  sold: number;
+  stock: number;
+}
+
+export type ProductInfoTitle = 'Features' | 'Fabric & Care' | 'Shipping';
+
+export interface ProductInfo {
+  product_id: string;
+  title: ProductInfoTitle;
+  description: string[];
+}
+
+export interface ProductImage {
+  product_id: string;
+  color: string;
+  image_url: string;
+}

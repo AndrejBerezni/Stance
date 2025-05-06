@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   description: 'Clothing web shop',
 };
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'pt' }];
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -26,7 +30,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${notoSans.variable} antialiased font-noto flex flex-col items-center`}
+        className={`${notoSans.variable} antialiased min-h-screen font-noto flex flex-col items-center bg-linear-to-br from-[#F9FAFB] to-[#D2D6DB] px-4 pb-16 lg:pb-4 dark:from-[#262626] dark:to-[#3F3F46]`}
       >
         <ProvidersWrapper locale={locale}>
           <MainLayout>{children}</MainLayout>

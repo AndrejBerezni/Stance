@@ -18,9 +18,9 @@ export const routing = defineRouting({
   pathnames: {
     '/': '/',
 
-    '/shop': {
-      en: '/shop',
-      pt: '/loja',
+    '/products': {
+      en: '/products',
+      pt: '/produtos',
     },
 
     '/latest-arrivals': {

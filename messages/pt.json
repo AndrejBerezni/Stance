@@ -5,5 +5,29 @@
   "navigation": {
     "shopAll": "Ver tudo",
     "latestArrivals": "Novidades"
+  },
+
+  "productPage": {
+    "availableSizes": "Tamanhos Disponíveis",
+    "availableColors": "Cores Disponíveis",
+    "quantity": "Quantidade",
+    "addToCart": "Adicionar ao carrinho",
+    "seeAll": "Ver",
+    "reviews": "avaliações",
+    "discount": "Desconto",
+    "noReviews": "Nenhuma avaliação ainda.",
+    "beFirst": "Seja o primeiro."
+  },
+  "colors": {
+    "white": "Branco",
+    "pink": "Rosa",
+    "beige": "Bege",
+    "green": "Verde",
+    "black": "Preto",
+    "orange": "Laranja",
+    "yellow": "Amarelo",
+    "brown": "Castanho",
+    "red": "Vermelho",
+    "blue": "Azul"
   }
 }

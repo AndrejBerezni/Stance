@@ -5,5 +5,28 @@
   "navigation": {
     "shopAll": "Shop all",
     "latestArrivals": "Latest arrivals"
+  },
+  "productPage": {
+    "availableSizes": "Available Sizes",
+    "availableColors": "Available Colors",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "seeAll": "See all",
+    "reviews": "reviews",
+    "discount": "OFF",
+    "noReviews": "No reviews yet.",
+    "beFirst": "Be the first."
+  },
+  "colors": {
+    "white": "White",
+    "pink": "Pink",
+    "beige": "Beige",
+    "green": "Green",
+    "black": "Black",
+    "orange": "Orange",
+    "yellow": "Yellow",
+    "brown": "Brown",
+    "red": "Red",
+    "blue": "Blue"
   }
 }

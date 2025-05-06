@@ -1,9 +1,10 @@
-import clsx from 'clsx';
+import Button from '@/components/ui/button';
+import { cn } from '@/lib/utils/cn';
 
 import CartButton from './cart-button';
 import SidebarTrigger from '../sidebar/sidebar-trigger';
 
-interface INavbarButtonProps
+interface NavbarButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   smallScreenOnly?: boolean;
@@ -13,19 +14,17 @@ export function NavbarButton({
   children,
   smallScreenOnly = false,
   ...props
-}: INavbarButtonProps) {
+}: NavbarButtonProps) {
   return (
-    <button
+    <Button
+      variant="ghost"
       {...props}
-      className={clsx(
-        'hover:cursor-pointer relative link-focus disabled:*:opacity-60',
-        {
-          'lg:hidden': smallScreenOnly,
-        }
-      )}
+      className={cn('relative', {
+        'lg:hidden': smallScreenOnly,
+      })}
     >
       {children}
-    </button>
+    </Button>
   );
 }
 
