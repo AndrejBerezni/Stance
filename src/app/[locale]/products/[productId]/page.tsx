@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import ProductDetailsSection from '@/features/product/components/product-details-section';
+import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
 import { getProduct } from '@/features/product/server-actions';
 import { setDefaultColorAndSize } from '@/features/product/utils';
 
@@ -26,5 +27,10 @@ export default async function Product({
     redirect(`/products/${productId}?${updatedParams.toString()}`);
   }
 
-  return <ProductDetailsSection product={product} color={color} />;
+  return (
+    <>
+      <ProductDetailsSection product={product} color={color} />
+      <ProductSpecificationsSection />
+    </>
+  );
 }
