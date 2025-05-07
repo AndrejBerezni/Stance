@@ -2,7 +2,10 @@ import { redirect } from 'next/navigation';
 
 import ProductDetailsSection from '@/features/product/components/product-details-section';
 import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
-import { getProduct } from '@/features/product/server-actions';
+import {
+  getProduct,
+  getRelatedProductCards,
+} from '@/features/product/server-actions';
 import { setDefaultColorAndSize } from '@/features/product/utils';
 
 export default async function Product({
@@ -17,6 +20,10 @@ export default async function Product({
   const product = await getProduct(productId);
 
   if (!product) redirect('/products');
+
+  const products = await getRelatedProductCards(product);
+  // console.log(JSON.stringify(products));
+  console.log(products);
 
   const { color, needsRedirect, updatedParams } = await setDefaultColorAndSize(
     searchParams,

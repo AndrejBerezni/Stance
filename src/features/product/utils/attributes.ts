@@ -65,3 +65,21 @@ export const setDefaultColorAndSize = async (
 
   return { color, needsRedirect, updatedParams };
 };
+
+export const generateProductLink = (product: Product): string => {
+  const searchParams = new URLSearchParams();
+
+  const color = product.available_colors[0];
+  if (color) {
+    searchParams.set('color', color);
+  }
+
+  if (product.sizing_convention) {
+    const availableSizes = getSizes(product.sizing_convention);
+    if (availableSizes && availableSizes.length > 0) {
+      searchParams.set('size', availableSizes[0]);
+    }
+  }
+
+  return `/products/${product.product_id}?${searchParams.toString()}`;
+};

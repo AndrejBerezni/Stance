@@ -10,6 +10,12 @@ export interface Product {
   inventory: InventoryItem[];
 }
 
+export interface ProductCard {
+  product: Omit<Product, 'inventory'>;
+  images: Record<string, string>;
+  prices: Record<string, { list: number; sale: number | null }>;
+}
+
 export interface InventoryItem {
   product_id: string;
   sku: string;
