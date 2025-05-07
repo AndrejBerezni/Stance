@@ -883,7 +883,7 @@
     "list_price": 20,
     "discount": null,
     "discount_percentage": null,
-    "sale_price": 20,
+    "sale_price": null,
     "sold": 65,
     "stock": 435
   },

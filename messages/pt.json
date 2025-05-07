@@ -6,7 +6,6 @@
     "shopAll": "Ver tudo",
     "latestArrivals": "Novidades"
   },
-
   "productPage": {
     "availableSizes": "Tamanhos Disponíveis",
     "availableColors": "Cores Disponíveis",
@@ -17,6 +16,38 @@
     "discount": "Desconto",
     "noReviews": "Nenhuma avaliação ainda.",
     "beFirst": "Seja o primeiro."
+  },
+  "productSpec": {
+    "discover": "Descubra a elegância intemporal",
+    "introduction": "Entre num mundo onde a qualidade encontra o charme clássico com a nossa coleção. Cada fio tece uma promessa de qualidade incomparável, garantindo que cada peça não é apenas parte do seu guarda-roupa, mas uma obra de arte. Eis a essência do que torna a nossa roupa um marco para quem aprecia a excelência e valoriza o ambiente.",
+    "sustainability": "Sustentabilidade",
+    "comfort": "Conforto",
+    "durability": "Durabilidade",
+    "versatility": "Versatilidade",
+    "ecoFriendlyChoice": "Escolha Ecológica",
+    "sustainabilityIntro": "Com a nossa abordagem sustentável, criamos roupa que transmite uma mensagem de cuidado — cuidado pelo planeta e pela arte da moda.",
+    "recycledMaterials": "Materiais Reciclados",
+    "lowImpactDye": "Tintas de Baixo Impacto",
+    "carbonNeutral": "Neutro em Carbono",
+    "waterConservation": "Conservação de Água",
+    "uncompromisedComfort": "Conforto Inigualável",
+    "comfortIntro": "As nossas peças são um refúgio de suavidade, concebidas para cair graciosamente e permitir liberdade de movimento.",
+    "ergonomicFits": "Ajustes Ergonómicos",
+    "softToTheTouchFabrics": "Tecidos Suaves ao Toque",
+    "breathableWeaves": "Tecidos Respiráveis",
+    "thoughtfulDesign": "Design Cuidadoso",
+    "builtToLast": "Feito para Durar",
+    "durabilityIntro": "Aqui está roupa em que pode confiar para parecer sempre nova, uso após uso, ano após ano.",
+    "reinforcedConstruction": "Construção Reforçada",
+    "qualityControl": "Controlo de Qualidade",
+    "materialResilience": "Resistência dos Materiais",
+    "warrantyAndRepair": "Garantia e Reparação",
+    "versatileByDesign": "Versátil por Design",
+    "versatilityIntro": "As nossas peças são uma celebração da versatilidade, oferecendo uma gama de estilos tão adequados para uma reunião de negócios como para um brunch informal.",
+    "adaptiveStyles": "Estilos Adaptáveis",
+    "functionalFashion": "Moda Funcional",
+    "timelessAesthetics": "Estética Intemporal",
+    "mixAndMatchPotential": "Potencial para Combinar e Cruzar"
   },
   "colors": {
     "white": "Branco",
