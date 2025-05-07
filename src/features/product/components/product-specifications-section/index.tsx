@@ -98,7 +98,7 @@ export default function ProductSpecificationsSection() {
         ],
       },
     }),
-    []
+    [translate]
   );
 
   const tabs: Tab[] = useMemo(
@@ -120,7 +120,7 @@ export default function ProductSpecificationsSection() {
         content: <SpecificationTab spec={specifications.versatility} />,
       },
     ],
-    [specifications]
+    [specifications, translate]
   );
 
   return (
