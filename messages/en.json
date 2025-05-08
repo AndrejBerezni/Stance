@@ -15,7 +15,8 @@
     "reviews": "reviews",
     "discount": "OFF",
     "noReviews": "No reviews yet.",
-    "beFirst": "Be the first."
+    "beFirst": "Be the first.",
+    "inCollection": "In this collection"
   },
   "productSpec": {
     "discover": "Discover timeless elegance",
@@ -50,6 +51,7 @@
     "mixAndMatchPotential": "Mix-and-Match Potential"
   },
   "colors": {
+    "chooseColor": "Choose color",
     "white": "White",
     "pink": "Pink",
     "beige": "Beige",

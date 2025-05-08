@@ -15,7 +15,8 @@
     "reviews": "avaliações",
     "discount": "Desconto",
     "noReviews": "Nenhuma avaliação ainda.",
-    "beFirst": "Seja o primeiro."
+    "beFirst": "Seja o primeiro.",
+    "inCollection": "Nesta coleção"
   },
   "productSpec": {
     "discover": "Descubra a elegância intemporal",
@@ -50,6 +51,7 @@
     "mixAndMatchPotential": "Potencial para Combinar e Cruzar"
   },
   "colors": {
+    "chooseColor": "Escolha a cor",
     "white": "Branco",
     "pink": "Rosa",
     "beige": "Bege",

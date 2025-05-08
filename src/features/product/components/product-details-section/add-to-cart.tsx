@@ -7,10 +7,10 @@ import CartControl from '@/features/cart/components/cart-control';
 import useAddToCart from '@/features/cart/hooks/useAddToCart';
 
 import useInventory from '../../hooks/useInventory';
-import { Product } from '../../types';
+import { ProductWithInventory } from '../../types';
 
 interface AddToCartProps {
-  product: Product;
+  product: ProductWithInventory;
 }
 
 export default function AddToCart({ product }: AddToCartProps) {
@@ -32,12 +32,12 @@ export default function AddToCart({ product }: AddToCartProps) {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <h2
+        <h3
           id={`quantity-selector-heading`}
           className="text-sm text-tertiary-foreground"
         >
           {translate('quantity')}
-        </h2>
+        </h3>
         <CartControl
           max={disabled ? 1 : max}
           amount={amount}

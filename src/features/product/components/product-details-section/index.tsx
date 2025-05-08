@@ -8,10 +8,10 @@ import ProductAttributes from './product-attributes';
 import ProductInfo from './product-info';
 import ProductPrice from './product-price';
 import ProductRating from './product-rating';
-import { Product } from '../../types';
+import { ProductWithInventory } from '../../types';
 
 interface ProductDetailsSectionProps {
-  product: Product;
+  product: ProductWithInventory;
   color: string;
 }
 
