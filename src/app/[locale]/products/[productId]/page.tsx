@@ -1,11 +1,12 @@
+import { Suspense } from 'react';
+
 import { redirect } from 'next/navigation';
 
 import ProductDetailsSection from '@/features/product/components/product-details-section';
 import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
-import {
-  getProduct,
-  getRelatedProductCards,
-} from '@/features/product/server-actions';
+import RelatedProductsSection from '@/features/product/components/related-products-section';
+import RelatedProductsSectionSkeleton from '@/features/product/components/related-products-section/related-products-section-skeleton';
+import { getProduct } from '@/features/product/server-actions';
 import { setDefaultColorAndSize } from '@/features/product/utils';
 
 export default async function Product({
@@ -21,10 +22,6 @@ export default async function Product({
 
   if (!product) redirect('/products');
 
-  const products = await getRelatedProductCards(product);
-  // console.log(JSON.stringify(products));
-  console.log(products);
-
   const { color, needsRedirect, updatedParams } = await setDefaultColorAndSize(
     searchParams,
     product
@@ -38,6 +35,12 @@ export default async function Product({
     <>
       <ProductDetailsSection product={product} color={color} />
       <ProductSpecificationsSection />
+      <Suspense fallback={<RelatedProductsSectionSkeleton />}>
+        <RelatedProductsSection
+          productId={productId}
+          collection={product.collection}
+        />
+      </Suspense>
     </>
   );
 }

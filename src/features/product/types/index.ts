@@ -7,13 +7,16 @@ export interface Product {
   created_at: string;
   sizing_convention: string | null;
   available_colors: string[];
+}
+
+export interface ProductWithInventory extends Product {
   inventory: InventoryItem[];
 }
 
 export interface ProductCard {
-  product: Omit<Product, 'inventory'>;
+  product: Product;
   images: Record<string, string>;
-  prices: Record<string, { list: number; sale: number | null }>;
+  prices: Record<string, { list_price: number; sale_price: number | null }>;
 }
 
 export interface InventoryItem {

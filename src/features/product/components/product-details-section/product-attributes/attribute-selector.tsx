@@ -28,12 +28,12 @@ export default function AttributeSelector<T>({
 
   return (
     <div className="flex flex-col gap-4">
-      <h2
+      <h3
         id={`${attribute}-selector-heading`}
         className="text-sm text-tertiary-foreground"
       >
         {heading}
-      </h2>
+      </h3>
 
       <div
         className="flex gap-4 flex-wrap"

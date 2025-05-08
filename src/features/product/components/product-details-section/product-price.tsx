@@ -5,10 +5,14 @@ import Badge from '@/components/ui/badge';
 import Skeleton from '@/components/ui/skeleton';
 
 import useInventory from '../../hooks/useInventory';
-import { Product } from '../../types';
+import { ProductWithInventory } from '../../types';
 import { formatPrice, getDiscountText } from '../../utils';
 
-export default function ProductPrice({ product }: { product: Product }) {
+export default function ProductPrice({
+  product,
+}: {
+  product: ProductWithInventory;
+}) {
   const translate = useTranslations('productPage');
   const { item } = useInventory(product);
 
@@ -21,7 +25,9 @@ export default function ProductPrice({ product }: { product: Product }) {
 
   /* We are checking discount only after we have the item: */
 
-  const onDiscount = !!item?.sale_price;
+  const onDiscount = !!(
+    item?.sale_price && item.sale_price !== item.list_price
+  );
   let discountText = '';
   if (onDiscount) {
     discountText = `${getDiscountText(item)} ${translate('discount')}`;

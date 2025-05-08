@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 
-import { InventoryItem, Product } from '../types';
+import { InventoryItem, ProductWithInventory } from '../types';
 
 /* This hook is used to determine, based on color and size,
 whether item can be added to cart, what is the maximum number of items,
 and to provide cart with sku for that product */
 
-export default function useInventory(product: Product) {
+export default function useInventory(product: ProductWithInventory) {
   const [disabled, setDisabled] = useState<boolean>(false);
   const [max, setMax] = useState<number>(1);
   const [item, setItem] = useState<InventoryItem | null>(null);

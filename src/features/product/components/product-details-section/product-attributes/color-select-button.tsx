@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils/cn';
 
 import { colorSelectVariants } from './styles';
 
-type AvailableColor =
+export type AvailableColor =
   | 'white'
   | 'pink'
   | 'beige'
