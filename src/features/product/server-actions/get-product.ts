@@ -75,7 +75,6 @@ export const getRelatedProductCards = async (
   productId: string,
   collection: string
 ): Promise<ProductCard[]> => {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
   const relatedProducts = products
     .filter((p) => p.collection === collection && p.product_id !== productId)
     .slice(0, 4);
