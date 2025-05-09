@@ -1,3 +1,4 @@
+'use client';
 import { InputHTMLAttributes } from 'react';
 
 import { CircleX } from 'lucide-react';
@@ -45,13 +46,13 @@ export default function TextInput({
   ...props
 }: TextInputProps) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {label && (
         <label htmlFor={id} className="font-medium text-ink-700 text-sm">
           {label}
         </label>
       )}
-      <div className="relative">
+      <div className="relative w-full">
         {Icon && (
           <Icon
             className="absolute top-1/2 -translate-y-1/2 left-3.5 text-ink-500"
@@ -67,7 +68,7 @@ export default function TextInput({
           placeholder={placeholder}
           disabled={disabled}
           className={cn(
-            'text-sm py-2.5 text-ink-900 bg-ink-50 placeholder:text-ink-500 disabled:text-ink-400 border-border rounded-md border-[1px] pr-8 focus:outline-[2px]  disabled:border-disabled ',
+            'w-full text-sm py-2.5 text-ink-900 bg-ink-50 placeholder:text-ink-500 disabled:text-ink-400 border-border rounded-md border-[1px] pr-8 focus:outline-[2px]  disabled:border-disabled ',
             {
               'pl-10': Icon,
               'pl-3.5': !Icon,

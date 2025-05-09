@@ -6,7 +6,7 @@ import JoinNewsletter from './join-newsletter';
 
 export default function Footer() {
   return (
-    <footer className="w-full rounded-b-lg shadow-xl bg-background">
+    <footer className="w-full rounded-b-lg shadow-xl bg-background flex items-center flex-col">
       <div className="section-wrapper flex flex-col gap-12 md:gap-16">
         <JoinNewsletter />
         <div>
