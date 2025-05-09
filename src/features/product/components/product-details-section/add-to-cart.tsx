@@ -32,10 +32,7 @@ export default function AddToCart({ product }: AddToCartProps) {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <h3
-          id={`quantity-selector-heading`}
-          className="text-sm text-tertiary-foreground"
-        >
+        <h3 id={`quantity-selector-heading`} className="text-sm text-ink-500">
           {translate('quantity')}
         </h3>
         <CartControl

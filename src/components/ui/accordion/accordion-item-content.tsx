@@ -29,7 +29,7 @@ export default function AccordionItemContent({
       className="pl-1.5 list-disc list-inside origin-top overflow-hidden transition-all duration-300 ease-in-out"
     >
       {item.content.map((line) => (
-        <li key={line} className="text-secondary-foreground">
+        <li key={line} className="text-ink-600">
           {line}
         </li>
       ))}

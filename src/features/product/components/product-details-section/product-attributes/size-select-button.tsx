@@ -30,7 +30,7 @@ export default function SizeSelectButton({
       className={cn('w-16 h-12 uppercase focus:outline-none shadow-none', {
         'border-primary': selected,
         'border-border': !selected,
-        'text-muted bg-disabled ': !size.inStock,
+        'text-ink-400 bg-disabled ': !size.inStock,
         'border-none': !size.inStock && !selected,
       })}
       onClick={handleSelect}

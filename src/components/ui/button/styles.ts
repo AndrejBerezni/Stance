@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'hover:cursor-pointer rounded-md justify-center flex items-center font-medium tracking-wide link-focus disabled:text-muted disabled:bg-disabled disabled:shadow-none disabled:hover:cursor-default duration-150',
+  'hover:cursor-pointer rounded-md justify-center flex items-center font-medium tracking-wide link-focus disabled:text-ink-400 disabled:bg-disabled disabled:shadow-none disabled:hover:cursor-default duration-150',
   {
     variants: {
       variant: {
@@ -11,8 +11,7 @@ const buttonVariants = cva(
         tertiary:
           'bg-transparent hover:bg-disabled text-primary focus:bg-disabled',
         link: 'bg-transparent text-primary !p-0 hover:text-primary-hover',
-        ghost:
-          'bg-transparent !p-0 text-secondary-foreground hover:text-foreground',
+        ghost: 'bg-transparent !p-0 text-ink-600 hover:text-ink-900',
         destructive:
           'bg-destructive shadow-md text-background hover:bg-destructive/80',
       },

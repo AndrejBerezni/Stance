@@ -53,7 +53,7 @@ export default async function ProductDetailsSection({
           </Suspense>
         </div>
 
-        <p className="text-secondary-foreground">{description}</p>
+        <p className="text-ink-600">{description}</p>
 
         <ProductAttributes
           sizing_convention={sizing_convention}

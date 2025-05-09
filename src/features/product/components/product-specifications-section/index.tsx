@@ -128,9 +128,7 @@ export default function ProductSpecificationsSection() {
       <h2 className="font-semibold text-3xl md:text-5xl mb-6">
         {translate('discover')}
       </h2>
-      <p className="mb-16 text-lg text-secondary-foreground">
-        {translate('introduction')}
-      </p>
+      <p className="mb-16 text-lg text-ink-600">{translate('introduction')}</p>
       <Tabs tabs={tabs} />
     </section>
   );

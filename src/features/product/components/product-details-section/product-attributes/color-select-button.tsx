@@ -59,7 +59,7 @@ export default function ColorSelectButton({
 
       {/* Diagonal line over the button if color is out of stock */}
       {!color.inStock && (
-        <div className="absolute pointer-events-none top-1/2 -rotate-45 left-1 w-[48px] h-0.5 bg-secondary-foreground"></div>
+        <div className="absolute pointer-events-none top-1/2 -rotate-45 left-1 w-[48px] h-0.5 bg-ink-600"></div>
       )}
     </div>
   );

@@ -9,7 +9,7 @@ export default function ProductCardPrice({
     price.sale_price && price.sale_price !== price.list_price
   );
   return (
-    <p className="text-secondary-foreground flex items-center gap-2">
+    <p className="text-ink-600 flex items-center gap-2">
       <span className="text-lg">
         {onDiscount
           ? formatPrice(price.sale_price ?? 0)
