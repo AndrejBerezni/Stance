@@ -25,7 +25,7 @@ export default function Thumbnail({
       role="tab"
     >
       <Image
-        src={image.image_url}
+        src={image.image_url ?? '/images/no-image.jpg'}
         alt={image.product_id}
         onClick={selectImage}
         fill

@@ -24,7 +24,7 @@ export default function ProductCard({ cardData }: { cardData: IProductCard }) {
   return (
     <article>
       <ProductCardImage
-        img={images[displayedColor]}
+        src={images[displayedColor]}
         alt={product.name}
         href={href}
       />

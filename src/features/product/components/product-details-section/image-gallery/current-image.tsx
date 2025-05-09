@@ -11,7 +11,7 @@ export default function CurrentImage({ image }: { image: ProductImage }) {
       </Head>
       <div className="relative md:h-[600px] lg:h-[800px] overflow-x-hidden h-[400px] w-full rounded-xl mb-6">
         <Image
-          src={image.image_url}
+          src={image.image_url ?? '/images/no-image'}
           alt={image.product_id}
           fill
           sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 50vw, 720px"
