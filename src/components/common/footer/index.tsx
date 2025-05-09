@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="w-full rounded-b-lg shadow-xl bg-background flex items-center flex-col">
       <div className="section-wrapper flex flex-col gap-12 md:gap-16">
         <JoinNewsletter />
-        <div>
+        <div className="flex lg:flex-row flex-col lg:gap-16 md:gap-12 gap-8">
           <FooterBrand />
           <FooterLinks />
         </div>
