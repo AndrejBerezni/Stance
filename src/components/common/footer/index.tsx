@@ -13,7 +13,7 @@ export default function Footer() {
           <FooterBrand />
           <FooterLinks />
         </div>
-        <div>
+        <div className="w-full gap-8 flex pt-8 flex-col md:flex-row border-t-[1px] border-border">
           <FooterTrademark />
           <FooterSocialMedia />
         </div>
