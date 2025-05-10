@@ -1,8 +1,8 @@
 import FooterBrand from './footer-brand';
 import FooterLinks from './footer-links';
-import FooterSocialMedia from './footer-social-media';
 import FooterTrademark from './footer-trademark';
 import JoinNewsletter from './join-newsletter';
+import LanguageSwitcher from './language-switcher';
 
 export default function Footer() {
   return (
@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
         <div className="w-full gap-8 flex pt-8 flex-col md:flex-row border-t-[1px] border-border">
           <FooterTrademark />
-          <FooterSocialMedia />
+          <LanguageSwitcher />
         </div>
       </div>
     </footer>
