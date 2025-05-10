@@ -40,7 +40,7 @@ export default function ProductPrice({
           ? formatPrice(item.sale_price ?? 0)
           : formatPrice(item.list_price ?? 0)}
         {onDiscount && (
-          <span className="line-through text-lg text-muted ml-2">
+          <span className="line-through text-lg text-ink-400 ml-2">
             {formatPrice(item.list_price ?? 0)}
           </span>
         )}

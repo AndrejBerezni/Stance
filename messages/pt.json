@@ -50,6 +50,24 @@
     "timelessAesthetics": "Estética Intemporal",
     "mixAndMatchPotential": "Potencial para Combinar e Cruzar"
   },
+  "footer": {
+    "newsHead": "Subscreva a nossa newsletter",
+    "newsText": "Enviaremos uma carta agradável uma vez por semana. Sem spam.",
+    "enterEmail": "Introduza o seu e-mail",
+    "subscribe": "Subscrever",
+    "brandText": "Crie percursos de estilo deslumbrantes que tragam mais alegria a cada fio.",
+    "shop": "explorar",
+    "categories": "categorias",
+    "collections": "coleções",
+    "unisex": "Unissex",
+    "women": "Mulheres",
+    "men": "Homens",
+    "latestArrivals": "Novidades",
+    "urban": "Oásis Urbano",
+    "cozy": "Conforto Aconchegante",
+    "fresh": "Fusão Refrescante",
+    "allRights": "Todos os direitos reservados."
+  },
   "colors": {
     "chooseColor": "Escolha a cor",
     "white": "Branco",

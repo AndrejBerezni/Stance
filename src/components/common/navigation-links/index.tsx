@@ -40,10 +40,10 @@ export default function NavigationLinks({
             key={link.id}
             href={link.href}
             className={cn(
-              'active:text-primary text-sm lg:text-base hover:text-foreground disabled:text-disabled link-focus',
+              'active:text-primary text-sm lg:text-base hover:text-ink-900 disabled:text-disabled link-focus',
               {
-                'text-foreground': pathname === link.href,
-                'text-secondary-foreground': pathname !== link.href,
+                'text-ink-900': pathname === link.href,
+                'text-ink-600': pathname !== link.href,
               }
             )}
           >

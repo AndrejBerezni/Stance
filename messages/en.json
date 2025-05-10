@@ -50,6 +50,24 @@
     "timelessAesthetics": "Timeless Aesthetics",
     "mixAndMatchPotential": "Mix-and-Match Potential"
   },
+  "footer": {
+    "newsHead": "Join our newsletter",
+    "newsText": "We’ll send you a nice letter once per week. No spam.",
+    "enterEmail": "Enter your email",
+    "subscribe": "Subscribe",
+    "brandText": "Craft stunning style journeys that weave more joy into every thread.",
+    "shop": "shop",
+    "categories": "categories",
+    "collections": "collections",
+    "unisex": "Unisex",
+    "women": "Women",
+    "men": "Men",
+    "latestArrivals": "Latest arrivals",
+    "urban": "Urban Oasis",
+    "cozy": "Cozy Comfort",
+    "fresh": "Fresh Fusion",
+    "allRights": "All rights reserved."
+  },
   "colors": {
     "chooseColor": "Choose color",
     "white": "White",

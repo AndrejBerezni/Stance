@@ -16,7 +16,7 @@ export default function ProductCardHeader({
   return (
     <Link href={href} className="group">
       <h4>
-        <span className="capitalize block text-xs text-secondary-foreground">
+        <span className="capitalize block text-xs text-ink-600">
           {translate(displayedColor)}
         </span>
         <span className="font-medium text-lg group-hover:underline">

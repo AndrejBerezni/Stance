@@ -33,8 +33,7 @@ export default function Tabs({ tabs }: TabsProps) {
               'px-2 pb-3 pt-0 border-b-[1px] hover:cursor-pointer',
               {
                 'text-primary border-b-primary': activeIndex === index,
-                'text-secondary-foreground border-b-transparent':
-                  activeIndex !== index,
+                'text-ink-600 border-b-transparent': activeIndex !== index,
               }
             )}
           >

@@ -46,7 +46,7 @@ export default function StarRating({
           }}
           onClick={() => handleClick(star)}
           className={cn('', {
-            'hover:cursor-pointer hover:drop-shadow-[0px_0px_1px_var(--foreground)]':
+            'hover:cursor-pointer hover:drop-shadow-[0px_0px_1px_var(--ink-900)]':
               !locked,
           })}
         >

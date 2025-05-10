@@ -5,11 +5,11 @@ export const colorSelectVariants = cva(
   {
     variants: {
       color: {
-        white: 'bg-white ring-[1px] ring-foreground hover:ring-0',
+        white: 'bg-white ring-[1px] ring-ink-900 hover:ring-0',
         pink: 'bg-fuchsia-300',
         beige: 'bg-[#EDE8D0]',
         green: 'bg-green-700',
-        black: 'bg-black dark:ring-[1px] dark:ring-foreground',
+        black: 'bg-black dark:ring-[1px] dark:ring-ink-900',
         orange: 'bg-orange-600',
         yellow: 'bg-yellow-500',
         brown: 'bg-amber-800',
