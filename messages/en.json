@@ -1,10 +1,13 @@
 {
-  "homepage": {
-    "welcome": "welcome"
-  },
   "navigation": {
     "shopAll": "Shop all",
     "latestArrivals": "Latest arrivals"
+  },
+  "home": {
+    "heroHead": "Summer styles are finally here",
+    "heroText": "This year, our new summer collection will be your haven from the world's harsh elements.",
+    "shopNow": "Shop now",
+    "heroImgAlt": "Woman in shopping mall."
   },
   "productPage": {
     "availableSizes": "Available Sizes",

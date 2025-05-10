@@ -1,10 +1,13 @@
 {
-  "homepage": {
-    "welcome": "bem-vindos"
-  },
   "navigation": {
     "shopAll": "Ver tudo",
     "latestArrivals": "Novidades"
+  },
+  "home": {
+    "heroHead": "Os estilos de verão já chegaram",
+    "heroText": "Este ano, a nossa nova coleção de verão será o seu refúgio contra os elementos mais duros do mundo.",
+    "shopNow": "Comprar agora",
+    "heroImgAlt": "Mulher no centro comercial."
   },
   "productPage": {
     "availableSizes": "Tamanhos Disponíveis",
