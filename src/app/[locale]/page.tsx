@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
+import FeaturesSection from '@/components/common/features-section';
 import HeroSection from '@/components/common/hero-section';
 import buttonVariants from '@/components/ui/button/styles';
 import CollectionsGrid from '@/features/product/components/collections-grid';
@@ -42,6 +43,7 @@ export default async function Home() {
       <Suspense fallback={<CollectionsGridSkeleton />}>
         <CollectionsGrid />
       </Suspense>
+      <FeaturesSection />
     </>
   );
 }
