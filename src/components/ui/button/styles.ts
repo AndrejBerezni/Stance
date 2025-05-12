@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'hover:cursor-pointer rounded-md justify-center flex items-center font-medium tracking-wide link-focus disabled:text-ink-400 disabled:bg-disabled disabled:shadow-none disabled:hover:cursor-default duration-150',
+  'hover:cursor-pointer rounded-md justify-center flex items-center text-center font-medium tracking-wide link-focus disabled:text-ink-400 disabled:bg-disabled disabled:shadow-none disabled:hover:cursor-default duration-150',
   {
     variants: {
       variant: {

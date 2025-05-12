@@ -75,12 +75,58 @@ export const getRelatedProductCards = async (
   productId: string,
   collection: string
 ): Promise<ProductCard[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const relatedProducts = products
     .filter((p) => p.collection === collection && p.product_id !== productId)
     .slice(0, 4);
 
   return relatedProducts.map((related) => {
+    // Map images by color
+    const imageMap: Record<string, string> = {};
+    related.available_colors.forEach((color) => {
+      const img = productImages.find(
+        (i) => i.product_id === related.product_id && i.color === color
+      );
+      if (img) {
+        imageMap[color] = img.image_url;
+      }
+    });
+
+    // Map prices by color
+    const priceMap: Record<
+      string,
+      { list_price: number; sale_price: number | null }
+    > = {};
+    related.available_colors.forEach((color) => {
+      const inv = rawInventory.find(
+        (i) => i.product_id === related.product_id && i.color === color
+      );
+      if (inv) {
+        priceMap[color] = {
+          list_price: inv.list_price,
+          sale_price: inv.sale_price,
+        };
+      }
+    });
+
+    return {
+      product: related,
+      images: imageMap,
+      prices: priceMap,
+    };
+  });
+};
+
+export const getLatestArrivals = async (): Promise<
+  ProductCard[] | undefined
+> => {
+  const latestProducts = products
+    .sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    )
+    .slice(0, 8);
+
+  return latestProducts.map((related) => {
     // Map images by color
     const imageMap: Record<string, string> = {};
     related.available_colors.forEach((color) => {

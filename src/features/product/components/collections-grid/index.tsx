@@ -18,7 +18,7 @@ function Collection({ collection }: { collection: ICollection }) {
         sizes="(max-width: 768px) 100vw, 45vw"
         className="object-cover object-center group-hover:scale-105 duration-300"
       />
-      <div className="absolute bottom-4 left-4 text-background z-20">
+      <div className="absolute bottom-4 left-4 text-background dark:text-shadow-[0_0_4px_white] z-20">
         <h3 className=" text-sm">{collection.name}</h3>
         <p className="text-lg font-medium">{collection.description}</p>
       </div>
