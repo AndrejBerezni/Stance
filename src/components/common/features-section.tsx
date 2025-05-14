@@ -1,5 +1,7 @@
-import { Truck, ShieldCheck, ArrowLeftRight } from 'lucide-react';
+import { ArrowLeftRight, ShieldCheck, Truck } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
+
+import IconContainer from '../ui/icon-container';
 
 interface IFeature {
   id: string;
@@ -48,9 +50,7 @@ export default async function FeaturesSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {features.map((feature) => (
           <article key={feature.id} className="flex flex-col items-center">
-            <div className="text-primary h-12 w-12 flex items-center justify-center rounded-full aspect-square shadow-[0px_0px_4px_var(--ink-400)] mb-5">
-              {feature.icon}
-            </div>
+            <IconContainer className="mb-5"> {feature.icon}</IconContainer>
             <h4 className="mb-2 font-semibold text-xl">{feature.title}</h4>
             <p className="text-ink-600">{feature.description}</p>
           </article>

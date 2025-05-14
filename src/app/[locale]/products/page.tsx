@@ -1,8 +1,19 @@
-import { useTranslations } from 'next-intl';
+import ProductFilters from '@/features/product/components/product-filters';
+import ProductGrid from '@/features/product/components/product-grid';
+import { getLatestArrivals } from '@/features/product/server-actions';
 
-export default function Products() {
-  const translate = useTranslations('navigation');
+export default async function Products({
+  searchParams,
+}: {
+  searchParams: Promise<{ color: string }>;
+}) {
   return (
-    <h1 className="capitalize font-bold text-7xl">{translate('shopAll')}</h1>
+    <div className="grid xl:grid-cols-4 section-wrapper gap-16">
+      <ProductFilters />
+      <ProductGrid
+        fetchItems={async () => await getLatestArrivals()}
+        fullWidth={false}
+      />
+    </div>
   );
 }

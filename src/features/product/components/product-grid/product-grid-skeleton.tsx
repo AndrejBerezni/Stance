@@ -1,16 +1,26 @@
-import Skeleton from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils/cn';
 
 import ProductCardSkeleton from '../product-card/product-card-skeleton';
 
-export default function ProductGridSkeleton({ items = 4 }: { items?: number }) {
+interface ProductGridSkeletonProps {
+  items?: number;
+  fullWidth?: boolean;
+}
+
+export default function ProductGridSkeleton({
+  items = 4,
+  fullWidth = true,
+}: ProductGridSkeletonProps) {
   return (
-    <section className="section-wrapper">
-      <Skeleton className="h-8 md:h-9 w-48 mb-8" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
-        {Array.from({ length: items }, (_, index) => index).map((item) => (
-          <ProductCardSkeleton key={item} />
-        ))}
-      </div>
-    </section>
+    <div
+      className={cn('grid grid-cols-1 sm:grid-cols-2 gap-8', {
+        'xl:grid-cols-4': fullWidth,
+        'xl:grid-cols-3': !fullWidth,
+      })}
+    >
+      {Array.from({ length: items }, (_, index) => index).map((item) => (
+        <ProductCardSkeleton key={item} />
+      ))}
+    </div>
   );
 }

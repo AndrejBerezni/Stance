@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils/cn';
 import { colorButtonVariants } from './styles';
 import { AvailableColor } from '../product-details-section/product-attributes/color-select-button';
 
+// TO DO: when we have backend and fetch data properly, we need to handle out of stock colors like we do on product page
+
 interface ProductCardColorsProps {
   colors: string[];
   displayedColor: string;
