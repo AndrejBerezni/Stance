@@ -11,7 +11,7 @@ export default function AccordionItemContent({
   isExpanded,
   item,
 }: AccordionItemContentProps) {
-  const contentRef = useRef<HTMLUListElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState<number>(0);
 
   useEffect(() => {
@@ -21,18 +21,14 @@ export default function AccordionItemContent({
   }, [isExpanded, item.content]);
 
   return (
-    <ul
+    <div
       id={item.id}
       ref={contentRef}
       aria-labelledby={item.title}
       style={{ maxHeight: `${contentHeight}px` }}
-      className="origin-top list-inside list-disc overflow-hidden pl-1.5 transition-all duration-300 ease-in-out"
+      className="origin-top overflow-hidden pl-1.5 transition-all duration-300 ease-in-out"
     >
-      {item.content.map((line) => (
-        <li key={line} className="text-ink-600">
-          {line}
-        </li>
-      ))}
-    </ul>
+      {item.content}
+    </div>
   );
 }

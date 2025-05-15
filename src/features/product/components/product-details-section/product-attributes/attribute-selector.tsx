@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 
-import useChangeSearchParam from '@/hooks/useChangeSearchParam';
+import useModifySearchParam from '@/hooks/useModifySearchParam';
 
 interface AttributeSelectorProps<T> {
   attribute: string;
@@ -23,8 +23,8 @@ export default function AttributeSelector<T>({
   getOptionValue,
   renderOption,
 }: AttributeSelectorProps<T>) {
-  const { changeSearchParam: handleSelect, currentValue } =
-    useChangeSearchParam(attribute);
+  const { setSearchParam: handleSelect, currentValue } =
+    useModifySearchParam(attribute);
 
   return (
     <div className="flex flex-col gap-4">
