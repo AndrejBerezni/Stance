@@ -98,6 +98,10 @@
   },
   "filterAndSort": {
     "sortBy": "Ordenar por",
-    "filter": "Filtrar"
+    "filter": "Filtrar",
+    "category": "Categoria",
+    "collections": "Coleções",
+    "colors": "Cores",
+    "rating": "Avaliação"
   }
 }

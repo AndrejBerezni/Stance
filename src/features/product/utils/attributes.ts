@@ -84,5 +84,5 @@ export const generateProductLink = (
     }
   }
 
-  return `/products/${product.product_id}?${searchParams.toString()}`;
+  return `/${product.product_id}?${searchParams.toString()}`;
 };
