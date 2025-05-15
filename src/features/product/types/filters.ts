@@ -7,5 +7,4 @@ export interface IFilters {
   collections: FilterItem[];
   categories: FilterItem[];
   colors: FilterItem[];
-  rating: FilterItem[];
 }

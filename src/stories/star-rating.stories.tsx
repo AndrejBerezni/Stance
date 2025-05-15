@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -19,7 +19,7 @@ const meta: Meta<StoryProps> = {
         type: 'number',
       },
     },
-    initial: {
+    rating: {
       control: {
         type: 'number',
       },
@@ -40,15 +40,27 @@ type Story = StoryObj<StoryProps>;
 export const Input: Story = {
   args: {
     max: 10,
-    initial: 6.9,
+    rating: 6.9,
   },
-  render: (args) => <StarRating {...args} />,
+  render: (args) => {
+    const Demo = () => {
+      const [rating, setRating] = useState<number>(args.rating as number);
+      return (
+        <StarRating
+          max={args.max}
+          rating={rating}
+          handleClick={(star: number) => setRating(star)}
+        />
+      );
+    };
+    return <Demo />;
+  },
 };
 
 export const Descriptive: Story = {
   args: {
     max: 10,
-    initial: 8.2,
+    rating: 8,
     locked: true,
   },
   render: (args) => <StarRating {...args} />,

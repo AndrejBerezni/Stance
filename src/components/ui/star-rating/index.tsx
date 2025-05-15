@@ -7,21 +7,20 @@ import Star from './star';
 
 interface StarRatingProps {
   max?: number;
-  initial?: number;
+  rating?: number;
   name?: string;
+  handleClick?: (star: number) => void;
   locked?: boolean;
 }
 
 export default function StarRating({
   max = 5,
-  initial = 0,
+  rating = 0,
   name = 'rating',
+  handleClick,
   locked = false,
 }: StarRatingProps) {
-  const [rating, setRating] = useState<number>(initial);
   const [hovered, setHovered] = useState<number | null>(null);
-
-  const handleClick = (star: number) => setRating(star);
 
   const handleFill = (star: number) => {
     const activeRating = hovered ?? rating;
@@ -44,7 +43,11 @@ export default function StarRating({
           onMouseLeave={() => {
             if (!locked) setHovered(null);
           }}
-          onClick={() => handleClick(star)}
+          onClick={() => {
+            if (handleClick) {
+              handleClick(star);
+            }
+          }}
           className={cn('', {
             'hover:cursor-pointer hover:drop-shadow-[0px_0px_1px_var(--ink-900)]':
               !locked,

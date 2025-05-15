@@ -10,7 +10,6 @@ export const getFilters = async (): Promise<IFilters> => {
     collections: [],
     categories: [],
     colors: [],
-    rating: [],
   };
 
   const collections = collectionsData.map((collection) => ({
@@ -39,13 +38,6 @@ export const getFilters = async (): Promise<IFilters> => {
   if (colors && colors.length > 0) {
     filters.colors = colors;
   }
-
-  filters.rating = Array.from({ length: 5 }, (_, index) => index + 1).map(
-    (item) => ({
-      label: item.toString(),
-      value: item.toString(),
-    })
-  );
 
   return filters;
 };
