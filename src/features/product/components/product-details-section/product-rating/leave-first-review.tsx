@@ -7,7 +7,7 @@ import Button from '@/components/ui/button';
 export default function LeaveFirstReview() {
   const translate = useTranslations('productPage');
   return (
-    <div className="text-sm flex gap-1">
+    <div className="flex gap-1 text-sm">
       <p>{translate('noReviews')}</p>
       <Button variant="link" className="text-sm">
         {translate('beFirst')}

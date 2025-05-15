@@ -33,22 +33,22 @@ export default async function ProductDetailsSection({
   } = product;
 
   return (
-    <section className="section-wrapper flex flex-col lg:flex-row gap-12 lg:gap-8">
+    <section className="section-wrapper flex flex-col gap-12 lg:flex-row lg:gap-8">
       <Suspense
         fallback={
-          <Skeleton className="relative md:h-[600px] lg:min-w-1/2 lg:max-w-1/2 lg:h-[800px] h-[400px] w-full mb-6" />
+          <Skeleton className="relative mb-6 h-[400px] w-full md:h-[600px] lg:h-[800px] lg:max-w-1/2 lg:min-w-1/2" />
         }
       >
         <ImageGallery productId={productId} color={color} />
       </Suspense>
 
-      <div className="flex gap-8 flex-col">
+      <div className="flex flex-col gap-8">
         <div>
-          <h1 className="font-semibold text-3xl md:text-5xl mb-5">{name}</h1>
+          <h1 className="mb-5 text-3xl font-semibold md:text-5xl">{name}</h1>
 
           <ProductPrice product={product} />
 
-          <Suspense fallback={<Skeleton className="h-7 w-1/2 mt-3" />}>
+          <Suspense fallback={<Skeleton className="mt-3 h-7 w-1/2" />}>
             <ProductRating productId={productId} />
           </Suspense>
         </div>

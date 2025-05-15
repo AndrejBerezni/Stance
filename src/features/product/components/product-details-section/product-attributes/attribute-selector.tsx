@@ -28,12 +28,12 @@ export default function AttributeSelector<T>({
 
   return (
     <div className="flex flex-col gap-4">
-      <h3 id={`${attribute}-selector-heading`} className="text-sm text-ink-500">
+      <h3 id={`${attribute}-selector-heading`} className="text-ink-500 text-sm">
         {heading}
       </h3>
 
       <div
-        className="flex gap-4 flex-wrap"
+        className="flex flex-wrap gap-4"
         role="radiogroup"
         aria-labelledby={`${attribute}-selector-heading`}
       >

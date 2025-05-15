@@ -16,7 +16,7 @@ export default async function ProductGrid({
   if (items) {
     return (
       <ul
-        className={cn('grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8', {
+        className={cn('grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4', {
           'xl:grid-cols-4': fullWidth,
           'xl:grid-cols-3': !fullWidth,
         })}

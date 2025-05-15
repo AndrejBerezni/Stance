@@ -12,7 +12,7 @@ function NumberOfItems({ items }: { items: number }) {
   return (
     <div
       className={cn(
-        'absolute -top-2 h-[18px] w-[18px] p-1 text-xs flex items-center justify-center rounded-full aspect-square -right-2 bg-primary text-background font-semibold',
+        'bg-primary text-background absolute -top-2 -right-2 flex aspect-square h-[18px] w-[18px] items-center justify-center rounded-full p-1 text-xs font-semibold',
         { '-right-4': items > 99 }
       )}
     >

@@ -20,14 +20,14 @@ export default function LanguageSwitcher() {
       {locales.map((locale) => (
         <li
           key={`${locale}-select`}
-          className="px-2  border-l-[1px] first:border-l-0"
+          className="border-l-[1px] px-2 first:border-l-0"
         >
           <button
             role="radio"
             aria-checked={locale === currentLocale}
             aria-label={`Select ${locale} language`}
             onClick={() => handleLocaleChange(locale)}
-            className={cn('uppercase text-xs hover:cursor-pointer', {
+            className={cn('text-xs uppercase hover:cursor-pointer', {
               'text-ink-500 hover:text-ink-700': locale !== currentLocale,
               'text-ink-700 font-semibold': locale === currentLocale,
             })}

@@ -11,7 +11,7 @@ export default function IconContainer({
     <span
       aria-hidden={true}
       className={cn(
-        'text-primary h-12 w-12 flex items-center justify-center rounded-full aspect-square shadow-[0px_0px_4px_var(--ink-400)]',
+        'text-primary flex aspect-square h-12 w-12 items-center justify-center rounded-full shadow-[0px_0px_4px_var(--ink-400)]',
         className
       )}
     >

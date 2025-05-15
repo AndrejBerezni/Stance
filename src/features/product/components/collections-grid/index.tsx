@@ -9,20 +9,20 @@ function Collection({ collection }: { collection: ICollection }) {
   return (
     <Link
       href={`/products?collection=${collection.collection_id}`}
-      className="relative rounded-xl overflow-hidden first:row-span-2 col-span-1 min-h-[276px] group"
+      className="group relative col-span-1 min-h-[276px] overflow-hidden rounded-xl first:row-span-2"
     >
       <Image
         src={collection.image_url ?? '/images/no-image.jpg'}
         alt={collection.description}
         fill
         sizes="(max-width: 768px) 100vw, 45vw"
-        className="object-cover object-center group-hover:scale-105 duration-300"
+        className="object-cover object-center duration-300 group-hover:scale-105"
       />
-      <div className="absolute bottom-4 left-4 text-background dark:text-shadow-[0_0_4px_white] z-20">
-        <h3 className=" text-sm">{collection.name}</h3>
+      <div className="text-background absolute bottom-4 left-4 z-20 dark:text-shadow-[0_0_4px_white]">
+        <h3 className="text-sm">{collection.name}</h3>
         <p className="text-lg font-medium">{collection.description}</p>
       </div>
-      <div className="hidden z-10 transition-all group-hover:block absolute inset-0 bg-gradient-to-b from-transparent to-[90%] to-black/50"></div>
+      <div className="absolute inset-0 z-10 hidden bg-gradient-to-b from-transparent to-black/50 to-[90%] transition-all group-hover:block"></div>
     </Link>
   );
 }
@@ -37,7 +37,7 @@ export default async function CollectionsGrid() {
         <h2 className="mb-8 text-3xl font-semibold">
           {translate('ourCollections')}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-4 sm:grid-rows-2 gap-7">
+        <div className="grid grid-cols-1 grid-rows-4 gap-7 sm:grid-cols-2 sm:grid-rows-2">
           {collections.map((collection) => (
             <Collection
               key={collection.collection_id}

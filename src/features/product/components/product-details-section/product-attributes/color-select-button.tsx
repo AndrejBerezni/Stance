@@ -38,7 +38,7 @@ export default function ColorSelectButton({
 }: ColorSelectButtonProps) {
   const translate = useTranslations('colors');
   return (
-    <div className="relative flex items-center justify-center h-[56px] w-[56px]">
+    <div className="relative flex h-[56px] w-[56px] items-center justify-center">
       {/* Displaying tooltip with color name for color-blind users */}
       <Tooltip content={translate(color.name)} position="bottom">
         <button
@@ -59,7 +59,7 @@ export default function ColorSelectButton({
 
       {/* Diagonal line over the button if color is out of stock */}
       {!color.inStock && (
-        <div className="absolute pointer-events-none top-1/2 -rotate-45 left-1 w-[48px] h-0.5 bg-ink-600"></div>
+        <div className="bg-ink-600 pointer-events-none absolute top-1/2 left-1 h-0.5 w-[48px] -rotate-45"></div>
       )}
     </div>
   );

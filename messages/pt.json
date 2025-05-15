@@ -95,5 +95,9 @@
     "brown": "Castanho",
     "red": "Vermelho",
     "blue": "Azul"
+  },
+  "filterAndSort": {
+    "sortBy": "Ordenar por",
+    "filter": "Filtrar"
   }
 }

@@ -26,7 +26,7 @@ export default function AccordionItemContent({
       ref={contentRef}
       aria-labelledby={item.title}
       style={{ maxHeight: `${contentHeight}px` }}
-      className="pl-1.5 list-disc list-inside origin-top overflow-hidden transition-all duration-300 ease-in-out"
+      className="origin-top list-inside list-disc overflow-hidden pl-1.5 transition-all duration-300 ease-in-out"
     >
       {item.content.map((line) => (
         <li key={line} className="text-ink-600">

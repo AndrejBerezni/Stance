@@ -6,14 +6,14 @@ import LanguageSwitcher from './language-switcher';
 
 export default function Footer() {
   return (
-    <footer className="w-full rounded-b-lg shadow-xl bg-background flex items-center flex-col">
+    <footer className="bg-background flex w-full flex-col items-center rounded-b-lg shadow-xl">
       <div className="section-wrapper flex flex-col gap-12 md:gap-16">
         <JoinNewsletter />
-        <div className="flex lg:flex-row flex-col lg:gap-16 md:gap-12 gap-8">
+        <div className="flex flex-col gap-8 md:gap-12 lg:flex-row lg:gap-16">
           <FooterBrand />
           <FooterLinks />
         </div>
-        <div className="w-full gap-8 flex pt-8 flex-col md:flex-row border-t-[1px] border-border">
+        <div className="border-border flex w-full flex-col gap-8 border-t-[1px] pt-8 md:flex-row">
           <FooterTrademark />
           <LanguageSwitcher />
         </div>

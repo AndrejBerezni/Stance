@@ -30,7 +30,7 @@ export const OneImage: Story = {
     ],
   },
   render: (args) => (
-    <div className="w-[768px] border-2 p-12 flex justify-center">
+    <div className="flex w-[768px] justify-center border-2 p-12">
       <ImageGalleryContent {...args} />
     </div>
   ),
@@ -53,7 +53,7 @@ export const TwoImages: Story = {
     ],
   },
   render: (args) => (
-    <div className="w-[768px] border-2 p-12 flex justify-center">
+    <div className="flex w-[768px] justify-center border-2 p-12">
       <ImageGalleryContent {...args} />
     </div>
   ),
@@ -82,7 +82,7 @@ export const ThreeImages: Story = {
     ],
   },
   render: (args) => (
-    <div className="w-[768px] border-2 p-12 flex justify-center">
+    <div className="flex w-[768px] justify-center border-2 p-12">
       <ImageGalleryContent {...args} />
     </div>
   ),
@@ -117,7 +117,7 @@ export const FourImages: Story = {
     ],
   },
   render: (args) => (
-    <div className="w-[768px] border-2 p-12 flex justify-center">
+    <div className="flex w-[768px] justify-center border-2 p-12">
       <ImageGalleryContent {...args} />
     </div>
   ),

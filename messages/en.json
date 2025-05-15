@@ -95,5 +95,9 @@
     "brown": "Brown",
     "red": "Red",
     "blue": "Blue"
+  },
+  "filterAndSort": {
+    "sortBy": "Sort by",
+    "filter": "Filter"
   }
 }

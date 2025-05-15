@@ -10,7 +10,7 @@ export default function SpecificationTabImage({
   alt,
 }: SpecificationTabImageProps) {
   return (
-    <div className="relative aspect-3/2 overflow-hidden rounded-xl w-full lg:min-w-1/3 lg:max-w-1/3 max-h-[400px] lg:max-h-auto">
+    <div className="lg:max-h-auto relative aspect-3/2 max-h-[400px] w-full overflow-hidden rounded-xl lg:max-w-1/3 lg:min-w-1/3">
       <Image
         src={src}
         alt={alt}

@@ -8,8 +8,8 @@ export default function ProductGridHeader({
   headerAction,
 }: ProductGridHeaderProps) {
   return (
-    <div className="flex mb-8 items-center justify-between">
-      {title && <h2 className="font-semibold text-2xl md:text-3xl">{title}</h2>}
+    <div className="mb-8 flex items-center justify-between">
+      {title && <h2 className="text-2xl font-semibold md:text-3xl">{title}</h2>}
       {headerAction}
     </div>
   );

@@ -37,7 +37,7 @@ export default function Tooltip({
         ref={targetRef}
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
-        className="max-w-fit max-h-fit hover:cursor-pointer"
+        className="max-h-fit max-w-fit hover:cursor-pointer"
       >
         {children}
       </div>

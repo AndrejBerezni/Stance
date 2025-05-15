@@ -16,7 +16,7 @@ export default function ProductCardPrice({
           : formatPrice(price.list_price ?? 0)}
       </span>
       {onDiscount && (
-        <span className="line-through text-xs">
+        <span className="text-xs line-through">
           {formatPrice(price.list_price ?? 0)}
         </span>
       )}

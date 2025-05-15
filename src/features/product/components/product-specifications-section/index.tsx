@@ -125,10 +125,10 @@ export default function ProductSpecificationsSection() {
 
   return (
     <section className="section-wrapper">
-      <h2 className="font-semibold text-3xl md:text-5xl mb-6">
+      <h2 className="mb-6 text-3xl font-semibold md:text-5xl">
         {translate('discover')}
       </h2>
-      <p className="mb-16 text-lg text-ink-600">{translate('introduction')}</p>
+      <p className="text-ink-600 mb-16 text-lg">{translate('introduction')}</p>
       <Tabs tabs={tabs} />
     </section>
   );

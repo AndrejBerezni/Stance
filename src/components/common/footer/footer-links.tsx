@@ -11,7 +11,7 @@ interface LinksColumnProps {
 function LinksColumn({ title, links }: LinksColumnProps) {
   return (
     <div className="flex flex-col gap-4">
-      <h4 className="uppercase text-sm text-ink-500">{title}</h4>
+      <h4 className="text-ink-500 text-sm uppercase">{title}</h4>
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.id}>
@@ -81,7 +81,7 @@ export default function FooterLinks() {
     [translate]
   );
   return (
-    <div className="xl:flex flex-1 xl:justify-evenly grid md:grid-cols-2 grid-cols-1 gap-8">
+    <div className="grid flex-1 grid-cols-1 gap-8 md:grid-cols-2 xl:flex xl:justify-evenly">
       {links.map((linksCol) => (
         <LinksColumn
           key={linksCol.title}

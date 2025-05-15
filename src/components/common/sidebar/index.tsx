@@ -16,15 +16,15 @@ export default function Sidebar() {
         aria-hidden={!isOpen} //inert is not supported at all browsers at the moment of creation of this component, so we are adding aria-hidden as well
         inert={!isOpen}
         className={cn(
-          'z-20 fixed flex flex-col gap-6 top-0 right-0 ease-in transition-transform transform origin-right duration-500 w-screen max-w-[359px] h-screen bg-background p-4 pt-8',
+          'bg-background fixed top-0 right-0 z-20 flex h-screen w-screen max-w-[359px] origin-right transform flex-col gap-6 p-4 pt-8 transition-transform duration-500 ease-in',
           {
             'translate-x-0': isOpen,
-            'translate-x-full pointer-events-none': !isOpen,
+            'pointer-events-none translate-x-full': !isOpen,
           }
         )}
       >
         <SidebarHeader />
-        <NavigationLinks className="flex-col flex p-3 gap-8" />
+        <NavigationLinks className="flex flex-col gap-8 p-3" />
       </aside>
       <ModalOuter closeModal={closeSidebar} show={isOpen} />
     </>

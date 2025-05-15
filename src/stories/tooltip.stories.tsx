@@ -35,7 +35,7 @@ type Story = StoryObj<StoryProps>;
 export const Bottom: Story = {
   args: {
     children: (
-      <div className="w-fit shadow-md bg-blue-200 p-4 flex rounded-lg items-center justify-center">
+      <div className="flex w-fit items-center justify-center rounded-lg bg-blue-200 p-4 shadow-md">
         Hover me!
       </div>
     ),

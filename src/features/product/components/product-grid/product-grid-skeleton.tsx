@@ -13,7 +13,7 @@ export default function ProductGridSkeleton({
 }: ProductGridSkeletonProps) {
   return (
     <div
-      className={cn('grid grid-cols-1 sm:grid-cols-2 gap-8', {
+      className={cn('grid grid-cols-1 gap-8 sm:grid-cols-2', {
         'xl:grid-cols-4': fullWidth,
         'xl:grid-cols-3': !fullWidth,
       })}

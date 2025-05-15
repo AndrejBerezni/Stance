@@ -27,7 +27,7 @@ export default function ProductCardColors({
     <div
       role="radiogroup"
       aria-label={translate('chooseColor')}
-      className="flex gap-1 flex-wrap max-w-full"
+      className="flex max-w-full flex-wrap gap-1"
     >
       {colors.map((color) => (
         <button
@@ -35,7 +35,7 @@ export default function ProductCardColors({
           role="radio"
           aria-checked={displayedColor === color}
           aria-label={translate(color)}
-          className="w-6 h-6 flex items-center justify-center"
+          className="flex h-6 w-6 items-center justify-center"
           onClick={() => setDisplayedColor(color)}
         >
           <span

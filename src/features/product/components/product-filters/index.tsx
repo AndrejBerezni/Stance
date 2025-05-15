@@ -1,31 +1,41 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+
+import useIsDesktop from '@/hooks/useIsDesktop';
+import { cn } from '@/lib/utils/cn';
+
+import Filters from './filters';
+import ProductFiltersHeader from './product-filters-header';
+import ProductFiltersTrigger from './product-filters-trigger';
 
 export default function ProductFilters() {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const isDesktop = useIsDesktop();
 
-  const changeSearchParam = (param: string, value: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (params.has(param, value)) {
-      console.log('already there, removing');
-      params.delete(param, value);
-    } else {
-      params.append(param, value);
-    }
-
-    replace(`${pathname}?${params.toString()}`, { scroll: false });
-  };
   return (
-    <section className="h-[800px] bg-blue-300 hidden xl:flex xl:col-span-1">
-      <button onClick={() => changeSearchParam('collection', 'men')}>
-        men
-      </button>
-      <button onClick={() => changeSearchParam('collection', 'women')}>
-        women
-      </button>
-    </section>
+    <>
+      <ProductFiltersTrigger
+        handleClose={() => setIsOpen((prev) => !prev)}
+        isOpen={isOpen}
+      />
+      <aside
+        id="filters"
+        aria-modal={isDesktop ? undefined : true}
+        aria-hidden={!isDesktop && !isOpen ? true : undefined}
+        inert={!isDesktop && !isOpen ? true : undefined}
+        className={cn(
+          'bg-background fixed top-0 left-0 z-20 flex h-full w-full origin-left transform flex-col gap-6 border-2 p-4 pt-8 transition-transform duration-500 ease-in sm:w-62 xl:sticky xl:h-auto xl:p-4 xl:duration-0',
+          {
+            'translate-x-0': isOpen,
+            'pointer-events-none -translate-x-full xl:pointer-events-auto xl:translate-x-0':
+              !isOpen,
+          }
+        )}
+      >
+        <ProductFiltersHeader handleClose={() => setIsOpen(false)} />
+        <Filters />
+      </aside>
+    </>
   );
 }

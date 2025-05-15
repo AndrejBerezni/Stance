@@ -12,7 +12,7 @@ export default async function ProductRating({
   const { rating, total } = await getProductRating(productId);
 
   return (
-    <div className="flex items-center gap-2 mt-3">
+    <div className="mt-3 flex items-center gap-2">
       <p className="text-xl">{rating}</p>
       <StarRating locked initial={Number(rating)} />
       {total === 0 ? <LeaveFirstReview /> : <SeeAllReviews total={total} />}

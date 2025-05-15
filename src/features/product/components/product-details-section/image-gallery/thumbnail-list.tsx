@@ -19,9 +19,9 @@ export default function ThumbnailList({
 }: ThumbnailListProps) {
   return (
     <div
-      className={cn('w-full flex gap-4 no-scrollbar', {
+      className={cn('no-scrollbar flex w-full gap-4', {
         'overflow-x-scroll': images.length > 3,
-        'overflow-x-hidden justify-between': images.length <= 3,
+        'justify-between overflow-x-hidden': images.length <= 3,
       })}
     >
       {images.map((image, index) => (

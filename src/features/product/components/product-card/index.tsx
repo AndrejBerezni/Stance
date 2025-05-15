@@ -28,7 +28,7 @@ export default function ProductCard({ cardData }: { cardData: IProductCard }) {
         alt={product.name}
         href={href}
       />
-      <div className="py-4 flex flex-col gap-3">
+      <div className="flex flex-col gap-3 py-4">
         <ProductCardHeader
           displayedColor={displayedColor}
           name={product.name}

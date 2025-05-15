@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { cn } from '@/lib/utils/cn';
+
 import AccordionItemContent from './accordion-item-content';
 import AccordionItemTrigger from './accordion-item-trigger';
 
@@ -15,10 +17,16 @@ export default function AccordionItem({ item }: { item: IAccordionItem }) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   return (
-    <div className="border-t-[1px] first:border-t-0 pt-6 flex justify-between gap-6 items-start">
+    <div className="flex items-start justify-between gap-6 border-t-[1px] pt-6 first:border-t-0">
       <div className="flex-1">
         <h3
-          className="text-lg hover:cursor-pointer font-medium align-top mb-2"
+          className={cn(
+            'align-top text-lg font-medium duration-300 hover:cursor-pointer',
+            {
+              'mb-0': !isExpanded,
+              'mb-2': isExpanded,
+            }
+          )}
           id={item.title}
           onClick={() => setIsExpanded((prev) => !prev)}
         >
