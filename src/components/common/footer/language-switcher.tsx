@@ -23,6 +23,7 @@ export default function LanguageSwitcher() {
           className="border-l-[1px] px-2 first:border-l-0"
         >
           <button
+            type="button"
             role="radio"
             aria-checked={locale === currentLocale}
             aria-label={`Select ${locale} language`}

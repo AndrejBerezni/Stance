@@ -42,6 +42,7 @@ export default function ColorSelectButton({
       {/* Displaying tooltip with color name for color-blind users */}
       <Tooltip content={translate(color.name)} position="bottom">
         <button
+          type="button"
           onClick={handleSelect}
           role="radio"
           aria-label={`${color.name} color${!color.inStock ? ' (out of stock)' : ''}`}

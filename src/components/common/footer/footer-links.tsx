@@ -57,7 +57,7 @@ export default function FooterLinks() {
         links: [
           {
             id: 'latest-link',
-            href: '/products?collection=latest',
+            href: '/products?collection=latestArrivals',
             text: translate('latestArrivals'),
           },
           {

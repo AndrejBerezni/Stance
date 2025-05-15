@@ -31,12 +31,14 @@ export default function ProductCardColors({
     >
       {colors.map((color) => (
         <button
+          type="button"
           key={color}
           role="radio"
           aria-checked={displayedColor === color}
           aria-label={translate(color)}
           className="flex h-6 w-6 items-center justify-center"
           onClick={() => setDisplayedColor(color)}
+          title={translate(color)}
         >
           <span
             className={cn(

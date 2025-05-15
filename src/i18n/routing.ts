@@ -22,10 +22,5 @@ export const routing = defineRouting({
       en: '/products',
       pt: '/produtos',
     },
-
-    '/latest-arrivals': {
-      en: '/latest-arrivals',
-      pt: '/novidades',
-    },
   },
 });

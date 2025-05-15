@@ -10,6 +10,7 @@ export default function SidebarHeader() {
     <div className="flex w-full items-center justify-between">
       <Brand />
       <button
+        type="button"
         className="text-ink-600 hover:text-ink-900 hover:cursor-pointer"
         onClick={closeSidebar}
       >

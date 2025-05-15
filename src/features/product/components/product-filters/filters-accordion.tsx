@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 
 import Accordion from '@/components/ui/accordion';
 
+import ColorFilter from './filters/color-filter';
 import MultipleSelectFilter from './filters/multiple-select-filter';
 import { IFilters } from '../../types';
 
@@ -20,7 +21,7 @@ export default function FiltersAccordion({ filters }: FiltersAccordionProps) {
         title: translate('collections'),
         content: (
           <MultipleSelectFilter
-            name="collections"
+            name="collection"
             filterValues={filters.collections}
           />
         ),
@@ -34,6 +35,11 @@ export default function FiltersAccordion({ filters }: FiltersAccordionProps) {
             filterValues={filters.categories}
           />
         ),
+      },
+      {
+        id: 'colors-filters',
+        title: translate('colors'),
+        content: <ColorFilter colors={filters.colors} />,
       },
     ],
     []

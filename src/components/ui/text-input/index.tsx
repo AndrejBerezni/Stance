@@ -81,6 +81,7 @@ export default function TextInput({
         />
         {value.length > 0 && (
           <button
+            type="button"
             aria-label="Clear input"
             onClick={clearInput}
             className="text-ink-500 hover:text-ink-900 absolute top-1/2 right-2 -translate-y-1/2 hover:cursor-pointer"

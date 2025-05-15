@@ -23,6 +23,7 @@ export default function Tabs({ tabs }: TabsProps) {
       >
         {tabs.map((tab, index) => (
           <button
+            type="button"
             key={index}
             role="tab"
             aria-selected={activeIndex === index}
