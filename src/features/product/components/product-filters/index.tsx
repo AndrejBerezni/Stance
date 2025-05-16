@@ -6,6 +6,7 @@ import ModalOuter from '@/components/common/modal/modal-outer';
 import useIsDesktop from '@/hooks/useIsDesktop';
 import { cn } from '@/lib/utils/cn';
 
+import ClearFilters from './clear-filters';
 import FiltersAccordion from './filters-accordion';
 import ProductFiltersHeader from './product-filters-header';
 import ProductFiltersTrigger from './product-filters-trigger';
@@ -43,6 +44,8 @@ export default function ProductFilters({ filters }: ProductFiltersProps) {
       >
         <ProductFiltersHeader handleClose={handleClose} />
         <FiltersAccordion filters={filters} />
+        <div className="bg-border h-[1px] w-full"></div>
+        <ClearFilters />
       </aside>
       <ModalOuter closeModal={handleClose} show={!isDesktop && isOpen} />
     </>
