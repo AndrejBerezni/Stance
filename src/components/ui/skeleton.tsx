@@ -6,6 +6,6 @@ interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function Skeleton({ className }: SkeletonProps) {
   return (
-    <div className={`${className} animate-pulse bg-disabled rounded-xl`}></div>
+    <div className={`${className} bg-disabled animate-pulse rounded-xl`}></div>
   );
 }

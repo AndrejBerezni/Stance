@@ -9,7 +9,7 @@ export default function CurrentImage({ image }: { image: ProductImage }) {
       <Head>
         <link rel="preload" as="image" href={image.image_url} />
       </Head>
-      <div className="relative md:h-[600px] lg:h-[800px] overflow-x-hidden h-[400px] w-full rounded-xl mb-6">
+      <div className="relative mb-6 h-[400px] w-full overflow-x-hidden rounded-xl md:h-[600px] lg:h-[800px]">
         <Image
           src={image.image_url ?? '/images/no-image'}
           alt={image.product_id}

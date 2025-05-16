@@ -13,14 +13,14 @@ export default function JoinNewsletter() {
   const [email, setEmail] = useState<string>('');
 
   return (
-    <div className="flex flex-col lg:flex-row justify-between gap-5">
+    <div className="flex flex-col justify-between gap-5 lg:flex-row">
       <div>
-        <h3 className="text-xl font-semibold text-ink-900">
+        <h3 className="text-ink-900 text-xl font-semibold">
           {translate('newsHead')}
         </h3>
         <p className="text-ink-600">{translate('newsText')}</p>
       </div>
-      <form className="flex items-start sm:gap-4 flex-col sm:flex-row lg:w-auto">
+      <form className="flex flex-col items-start sm:flex-row sm:gap-4 lg:w-auto">
         <TextInput
           id="email"
           name="email"
@@ -29,7 +29,7 @@ export default function JoinNewsletter() {
           onValueChange={setEmail}
           clearInput={() => setEmail('')}
           placeholder={translate('enterEmail')}
-          className="flex-1 min-w-[270px]"
+          className="min-w-[270px] flex-1"
         />
         <Button type="submit" className="h-[42px] w-full sm:w-auto">
           {translate('subscribe')}

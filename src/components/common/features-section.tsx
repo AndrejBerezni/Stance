@@ -1,5 +1,7 @@
-import { Truck, ShieldCheck, ArrowLeftRight } from 'lucide-react';
+import { ArrowLeftRight, ShieldCheck, Truck } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
+
+import IconContainer from '../ui/icon-container';
 
 interface IFeature {
   id: string;
@@ -34,24 +36,22 @@ export default async function FeaturesSection() {
 
   return (
     <section className="section-wrapper text-center">
-      <div className="lg:px-[160px] md:px-[40px] mb-12 md:mb-16 ">
-        <h3 className="text-primary font-semibold mb-3">
+      <div className="mb-12 md:mb-16 md:px-[40px] lg:px-[160px]">
+        <h3 className="text-primary mb-3 font-semibold">
           {translate('featuresSubtitle')}
         </h3>
-        <h2 className="text-3xl md:text-5xl font-semibold mb-5">
+        <h2 className="mb-5 text-3xl font-semibold md:text-5xl">
           {translate('featuresTitle')}
         </h2>
         <p className="text-ink-600 text-lg md:text-xl">
           {translate('featuresDescription')}
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         {features.map((feature) => (
           <article key={feature.id} className="flex flex-col items-center">
-            <div className="text-primary h-12 w-12 flex items-center justify-center rounded-full aspect-square shadow-[0px_0px_4px_var(--ink-400)] mb-5">
-              {feature.icon}
-            </div>
-            <h4 className="mb-2 font-semibold text-xl">{feature.title}</h4>
+            <IconContainer className="mb-5"> {feature.icon}</IconContainer>
+            <h4 className="mb-2 text-xl font-semibold">{feature.title}</h4>
             <p className="text-ink-600">{feature.description}</p>
           </article>
         ))}

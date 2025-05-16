@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils/cn';
 import { colorButtonVariants } from './styles';
 import { AvailableColor } from '../product-details-section/product-attributes/color-select-button';
 
+// TO DO: when we have backend and fetch data properly, we need to handle out of stock colors like we do on product page
+
 interface ProductCardColorsProps {
   colors: string[];
   displayedColor: string;
@@ -25,16 +27,18 @@ export default function ProductCardColors({
     <div
       role="radiogroup"
       aria-label={translate('chooseColor')}
-      className="flex gap-1 flex-wrap max-w-full"
+      className="flex max-w-full flex-wrap gap-1"
     >
       {colors.map((color) => (
         <button
+          type="button"
           key={color}
           role="radio"
           aria-checked={displayedColor === color}
           aria-label={translate(color)}
-          className="w-6 h-6 flex items-center justify-center"
+          className="flex h-6 w-6 items-center justify-center"
           onClick={() => setDisplayedColor(color)}
+          title={translate(color)}
         >
           <span
             className={cn(

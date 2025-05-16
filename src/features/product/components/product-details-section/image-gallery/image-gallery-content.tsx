@@ -26,7 +26,7 @@ export default function ImageGalleryContent({
   const safeCurrentImage = Math.min(currentImage, images.length - 1);
 
   return (
-    <div className="w-full lg:min-w-1/2 lg:max-w-1/2">
+    <div className="w-full lg:max-w-1/2 lg:min-w-1/2">
       <CurrentImage image={images[safeCurrentImage]} />
       {images.length > 1 && (
         <ThumbnailList

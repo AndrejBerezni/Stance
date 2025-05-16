@@ -21,7 +21,7 @@ export default function AccordionItemTrigger({
         isExpanded ? `Collapse ${item.title}` : `Expand ${item.title}`
       }
       onClick={handleExpand}
-      className="flex items-center h-7"
+      className="flex h-7 items-center"
       aria-expanded={isExpanded}
       aria-controls={item.id}
     >

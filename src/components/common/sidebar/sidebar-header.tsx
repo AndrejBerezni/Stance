@@ -7,10 +7,11 @@ import Brand from '../brand';
 export default function SidebarHeader() {
   const { closeSidebar } = useSidebar();
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className="flex w-full items-center justify-between">
       <Brand />
       <button
-        className="hover:cursor-pointer text-ink-600 hover:text-ink-900"
+        type="button"
+        className="text-ink-600 hover:text-ink-900 hover:cursor-pointer"
         onClick={closeSidebar}
       >
         <X />

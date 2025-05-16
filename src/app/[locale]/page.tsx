@@ -9,6 +9,7 @@ import buttonVariants from '@/components/ui/button/styles';
 import CollectionsGrid from '@/features/product/components/collections-grid';
 import CollectionsGridSkeleton from '@/features/product/components/collections-grid/collections-grid-skeleton';
 import ProductGrid from '@/features/product/components/product-grid';
+import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 import { getLatestArrivals } from '@/features/product/server-actions';
 import { cn } from '@/lib/utils/cn';
@@ -19,9 +20,9 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-      <Suspense fallback={<ProductGridSkeleton items={8} />}>
-        <ProductGrid
-          fetchItems={async () => await getLatestArrivals()}
+
+      <section className="section-wrapper">
+        <ProductGridHeader
           title={translate('latestArrivals')}
           headerAction={
             <Link
@@ -37,12 +38,16 @@ export default async function Home() {
               {translate('viewAll')}
             </Link>
           }
-          maxItems={8}
         />
-      </Suspense>
+        <Suspense fallback={<ProductGridSkeleton items={8} />}>
+          <ProductGrid fetchItems={async () => await getLatestArrivals()} />
+        </Suspense>
+      </section>
+
       <Suspense fallback={<CollectionsGridSkeleton />}>
         <CollectionsGrid />
       </Suspense>
+
       <FeaturesSection />
     </>
   );

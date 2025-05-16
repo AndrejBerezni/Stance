@@ -21,7 +21,7 @@ export default function CartControl({
     <div
       role="group"
       aria-label="Quantity selector"
-      className="rounded-lg bg-disabled border-[1px] border-border flex px-1.5 py-2 w-[125px] items-center"
+      className="bg-disabled border-border flex w-[125px] items-center rounded-lg border-[1px] px-1.5 py-2"
     >
       <Button
         variant="ghost"
@@ -31,7 +31,7 @@ export default function CartControl({
       >
         <Minus size={20} />
       </Button>
-      <span className="text-sm font-medium mx-auto w-[49px] flex justify-center items-center">
+      <span className="mx-auto flex w-[49px] items-center justify-center text-sm font-medium">
         {amount}
       </span>
       <Button

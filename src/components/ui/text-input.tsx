@@ -46,16 +46,16 @@ export default function TextInput({
   ...props
 }: TextInputProps) {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col">
       {label && (
-        <label htmlFor={id} className="font-medium text-ink-700 text-sm">
+        <label htmlFor={id} className="text-ink-700 text-sm font-medium">
           {label}
         </label>
       )}
       <div className="relative w-full">
         {Icon && (
           <Icon
-            className="absolute top-1/2 -translate-y-1/2 left-3.5 text-ink-500"
+            className="text-ink-500 absolute top-1/2 left-3.5 -translate-y-1/2"
             size={18}
           />
         )}
@@ -68,7 +68,7 @@ export default function TextInput({
           placeholder={placeholder}
           disabled={disabled}
           className={cn(
-            'w-full text-sm py-2.5 text-ink-900 bg-ink-50 placeholder:text-ink-500 disabled:text-ink-400 border-border rounded-md border-[1px] pr-8 focus:outline-[2px]  disabled:border-disabled ',
+            'text-ink-900 bg-ink-50 placeholder:text-ink-500 disabled:text-ink-400 border-border disabled:border-disabled w-full rounded-md border-[1px] py-2.5 pr-8 text-sm focus:outline-[2px]',
             {
               'pl-10': Icon,
               'pl-3.5': !Icon,
@@ -81,9 +81,10 @@ export default function TextInput({
         />
         {value.length > 0 && (
           <button
+            type="button"
             aria-label="Clear input"
             onClick={clearInput}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-ink-500 hover:cursor-pointer hover:text-ink-900"
+            className="text-ink-500 hover:text-ink-900 absolute top-1/2 right-2 -translate-y-1/2 hover:cursor-pointer"
           >
             <CircleX size={18} />
           </button>

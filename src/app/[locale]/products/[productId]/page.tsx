@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 
 import ProductDetailsSection from '@/features/product/components/product-details-section';
 import ProductGrid from '@/features/product/components/product-grid';
+import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
 import {
@@ -40,15 +41,19 @@ export default async function Product({
     <>
       <ProductDetailsSection product={product} color={color} />
       <ProductSpecificationsSection />
-      <Suspense fallback={<ProductGridSkeleton items={4} />}>
-        <ProductGrid
-          fetchItems={async () =>
-            await getRelatedProductCards(product.product_id, product.collection)
-          }
-          title={translate('inCollection')}
-          maxItems={4}
-        />
-      </Suspense>
+      <section className="section-wrapper">
+        <ProductGridHeader title={translate('inCollection')} />
+        <Suspense fallback={<ProductGridSkeleton items={4} />}>
+          <ProductGrid
+            fetchItems={async () =>
+              await getRelatedProductCards(
+                product.product_id,
+                product.collection
+              )
+            }
+          />
+        </Suspense>
+      </section>
     </>
   );
 }

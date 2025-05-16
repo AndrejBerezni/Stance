@@ -19,10 +19,11 @@ export default function Tabs({ tabs }: TabsProps) {
     <div>
       <div
         role="tablist"
-        className="flex border-b-[1px] no-scrollbar overflow-x-scroll"
+        className="no-scrollbar flex overflow-x-scroll border-b-[1px]"
       >
         {tabs.map((tab, index) => (
           <button
+            type="button"
             key={index}
             role="tab"
             aria-selected={activeIndex === index}
@@ -30,7 +31,7 @@ export default function Tabs({ tabs }: TabsProps) {
             id={`tab-${index}`}
             onClick={() => setActiveIndex(index)}
             className={cn(
-              'px-2 pb-3 pt-0 border-b-[1px] hover:cursor-pointer',
+              'border-b-[1px] px-2 pt-0 pb-3 hover:cursor-pointer',
               {
                 'text-primary border-b-primary': activeIndex === index,
                 'text-ink-600 border-b-transparent': activeIndex !== index,

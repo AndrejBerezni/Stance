@@ -13,9 +13,17 @@ export default async function ProductInfo({
     const accordionItems = info.map((section) => ({
       id: `${productId}-${section.title}`,
       title: section.title,
-      content: section.description,
+      content: (
+        <ul className="list-inside list-disc">
+          {section.description.map((line) => (
+            <li key={line} className="text-ink-600">
+              {line}
+            </li>
+          ))}
+        </ul>
+      ),
     }));
 
-    return <Accordion items={accordionItems} />;
+    return <Accordion items={accordionItems} className="mt-6" />;
   }
 }

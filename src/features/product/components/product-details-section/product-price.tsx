@@ -21,7 +21,7 @@ export default function ProductPrice({
   invalid criteria is entered, item will always be present, and therefore the
   following line will display skeleton until that is all handled.
   */
-  if (!item) return <Skeleton className="h-9 w-1/2 mb-2" />;
+  if (!item) return <Skeleton className="mb-2 h-9 w-1/2" />;
 
   /* We are checking discount only after we have the item: */
 
@@ -35,12 +35,12 @@ export default function ProductPrice({
 
   return (
     <>
-      <p className="text-3xl font-medium mb-2">
+      <p className="mb-2 text-3xl font-medium">
         {onDiscount
           ? formatPrice(item.sale_price ?? 0)
           : formatPrice(item.list_price ?? 0)}
         {onDiscount && (
-          <span className="line-through text-lg text-ink-400 ml-2">
+          <span className="text-ink-400 ml-2 text-lg line-through">
             {formatPrice(item.list_price ?? 0)}
           </span>
         )}

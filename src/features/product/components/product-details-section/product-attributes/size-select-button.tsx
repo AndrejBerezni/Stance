@@ -27,10 +27,10 @@ export default function SizeSelectButton({
   return (
     <Button
       variant="secondary"
-      className={cn('w-16 h-12 uppercase focus:outline-none shadow-none', {
+      className={cn('h-12 w-16 uppercase shadow-none focus:outline-none', {
         'border-primary': selected,
         'border-border': !selected,
-        'text-ink-400 bg-disabled ': !size.inStock,
+        'text-ink-400 bg-disabled': !size.inStock,
         'border-none': !size.inStock && !selected,
       })}
       onClick={handleSelect}

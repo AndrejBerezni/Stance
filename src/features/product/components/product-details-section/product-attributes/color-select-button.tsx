@@ -38,10 +38,11 @@ export default function ColorSelectButton({
 }: ColorSelectButtonProps) {
   const translate = useTranslations('colors');
   return (
-    <div className="relative flex items-center justify-center h-[56px] w-[56px]">
+    <div className="relative flex h-[56px] w-[56px] items-center justify-center">
       {/* Displaying tooltip with color name for color-blind users */}
       <Tooltip content={translate(color.name)} position="bottom">
         <button
+          type="button"
           onClick={handleSelect}
           role="radio"
           aria-label={`${color.name} color${!color.inStock ? ' (out of stock)' : ''}`}
@@ -53,13 +54,23 @@ export default function ColorSelectButton({
             })
           )}
         >
-          {selected && color.inStock && <Check size={26} />}
+          {selected && color.inStock && (
+            <Check
+              size={26}
+              className={cn({
+                'text-background':
+                  color.name !== 'white' && color.name !== 'black',
+                'text-ink-900 dark:text-background': color.name === 'white',
+                'text-background dark:text-ink-900': color.name === 'black',
+              })}
+            />
+          )}
         </button>
       </Tooltip>
 
       {/* Diagonal line over the button if color is out of stock */}
       {!color.inStock && (
-        <div className="absolute pointer-events-none top-1/2 -rotate-45 left-1 w-[48px] h-0.5 bg-ink-600"></div>
+        <div className="bg-ink-600 pointer-events-none absolute top-1/2 left-1 h-0.5 w-[48px] -rotate-45"></div>
       )}
     </div>
   );

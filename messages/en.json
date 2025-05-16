@@ -84,6 +84,7 @@
     "allRights": "All rights reserved."
   },
   "colors": {
+    "colors": "Colors",
     "chooseColor": "Choose color",
     "white": "White",
     "pink": "Pink",
@@ -95,5 +96,22 @@
     "brown": "Brown",
     "red": "Red",
     "blue": "Blue"
+  },
+  "filterAndSort": {
+    "sortBy": "Sort by",
+    "filter": "Filter",
+    "category": "Category",
+    "collections": "Collections",
+    "colors": "Colors",
+    "rating": "Rating",
+    "newest": "Newest",
+    "bestRating": "Best rating",
+    "mostPopular": "Most popular",
+    "priceLow": "Price: Low to high",
+    "priceHigh": "Price: High to low",
+    "nothingFound": "Nothing found just yet",
+    "adjustFilters": "Adjust your filters a bit, and let's see what we can find!",
+    "resetFilters": "Reset filters",
+    "clearAll": "Clear all"
   }
 }

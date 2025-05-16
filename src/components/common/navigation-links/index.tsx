@@ -25,7 +25,7 @@ export default function NavigationLinks({
       { id: 'shop-all-link', href: '/products', text: translate('shopAll') },
       {
         id: 'latest-arrivals-link',
-        href: '/latest-arrivals',
+        href: '/products?collection=latestArrivals',
         text: translate('latestArrivals'),
       },
     ],
@@ -40,7 +40,7 @@ export default function NavigationLinks({
             key={link.id}
             href={link.href}
             className={cn(
-              'active:text-primary text-sm lg:text-base hover:text-ink-900 disabled:text-disabled link-focus',
+              'active:text-primary hover:text-ink-900 disabled:text-disabled link-focus text-sm lg:text-base',
               {
                 'text-ink-900': pathname === link.href,
                 'text-ink-600': pathname !== link.href,
