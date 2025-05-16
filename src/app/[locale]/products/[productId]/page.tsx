@@ -34,7 +34,7 @@ export default async function Product({
   );
 
   if (needsRedirect) {
-    redirect(`/${productId}?${updatedParams.toString()}`);
+    redirect(`/products/${productId}?${updatedParams.toString()}`);
   }
 
   return (

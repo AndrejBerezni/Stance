@@ -12,7 +12,7 @@ export default function MultipleSelectFilter({
   name,
   filterValues,
 }: MultipleSelectFilterProps) {
-  const { appendOrDeleteSearchParam, currentValuesArray } =
+  const { appendOrDeleteSearchParam, currentValuesArray, isPending } =
     useModifySearchParam(name);
 
   return (
@@ -28,9 +28,10 @@ export default function MultipleSelectFilter({
               <input
                 id={item.label}
                 type="checkbox"
+                disabled={isPending}
                 checked={currentValuesArray.includes(item.value)}
                 onChange={() => appendOrDeleteSearchParam(item.value)}
-                className="checked:bg-primary checked:border-primary border-ink-300 bg-background focus:border-primary focus:outline-primary/12 h-4 w-4 cursor-pointer appearance-none rounded border-[1px] transition-colors duration-200 focus:outline-2"
+                className="checked:bg-primary disabled:bg-ink-300 checked:border-primary disabled:border-ink-300 border-ink-300 bg-background focus:border-primary focus:outline-primary/12 h-4 w-4 cursor-pointer appearance-none rounded border-[1px] transition-all duration-200 focus:outline-2"
               />
               {currentValuesArray.includes(item.value) && (
                 <Check

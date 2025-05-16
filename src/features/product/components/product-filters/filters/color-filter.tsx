@@ -11,7 +11,7 @@ import { AvailableColor } from '../../product-details-section/product-attributes
 
 export default function ColorFilter({ colors }: { colors: FilterItem[] }) {
   const translate = useTranslations('colors');
-  const { appendOrDeleteSearchParam, currentValuesArray } =
+  const { appendOrDeleteSearchParam, currentValuesArray, isPending } =
     useModifySearchParam('color');
 
   return (
@@ -27,11 +27,12 @@ export default function ColorFilter({ colors }: { colors: FilterItem[] }) {
                 type="button"
                 title={translate(color.value) ?? color.value}
                 onClick={() => appendOrDeleteSearchParam(color.value)}
+                disabled={isPending}
                 role="checkbox"
                 aria-label={translate(color.value) ?? color.value}
                 aria-checked={selected}
                 className={cn(
-                  'flex items-center justify-center',
+                  'flex items-center justify-center transition-opacity duration-500 disabled:opacity-50 disabled:hover:cursor-default',
                   colorButtonVariants({
                     color: color.value as AvailableColor,
                   })

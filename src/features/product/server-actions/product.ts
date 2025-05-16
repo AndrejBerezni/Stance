@@ -50,6 +50,7 @@ export const getProductImages = async (
   productId: string,
   color: string
 ): Promise<ProductImage[] | undefined> => {
+  // await new Promise((resolve) => setTimeout(resolve, 500));
   const images = productImages.filter(
     (image) => image.product_id === productId && image.color === color
   );
@@ -116,16 +117,29 @@ export const getRelatedProductCards = async (
   });
 };
 
-export const getLatestArrivals = async (): Promise<
-  ProductCard[] | undefined
-> => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  const latestProducts = products
-    .sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    )
-    .slice(0, 8);
+export const getLatestArrivals = async (p?: {
+  collection?: string | string[] | undefined;
+  category?: string | string[] | undefined;
+  color?: string | string[] | undefined;
+  rating?: string | undefined;
+}): Promise<ProductCard[] | undefined> => {
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
+  let latestProducts;
+  if (p?.collection === 'latestArrivals') {
+    latestProducts = products
+      .sort(
+        (a, b) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      )
+      .slice(0, 8);
+  } else {
+    latestProducts = products
+      .sort(
+        (a, b) =>
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      )
+      .slice(0, 8);
+  }
 
   return latestProducts.map((related) => {
     // Map images by color

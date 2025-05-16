@@ -1,5 +1,4 @@
 'use client';
-import { useMemo } from 'react';
 
 import { ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -14,24 +13,20 @@ export default function ProductSort() {
   const translate = useTranslations('filterAndSort');
   const { setSearchParam, currentValue } = useModifySearchParam('sort');
 
-  const sortButtons = useMemo(
-    () =>
-      [
-        { value: 'date', label: translate('newest') },
-        { value: 'rating', label: translate('bestRating') },
-        { value: 'popular', label: translate('mostPopular') },
-        { value: 'price-asc', label: translate('priceLow') },
-        { value: 'price-desc', label: translate('priceHigh') },
-      ].map((button) => (
-        <SortButton
-          key={`${button.value}-sort-item`}
-          label={button.label}
-          selected={currentValue === button.value}
-          handleSort={() => setSearchParam(button.value)}
-        />
-      )),
-    [currentValue]
-  );
+  const sortButtons = [
+    { value: 'date', label: translate('newest') },
+    { value: 'rating', label: translate('bestRating') },
+    { value: 'popular', label: translate('mostPopular') },
+    { value: 'price-asc', label: translate('priceLow') },
+    { value: 'price-desc', label: translate('priceHigh') },
+  ].map((button) => (
+    <SortButton
+      key={`${button.value}-sort-item`}
+      label={button.label}
+      selected={currentValue === button.value}
+      handleSort={() => setSearchParam(button.value)}
+    />
+  ));
 
   return (
     <DropdownMenu

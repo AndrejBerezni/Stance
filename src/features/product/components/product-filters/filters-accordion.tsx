@@ -1,12 +1,13 @@
+'use client';
 import { useMemo } from 'react';
 
 import { useTranslations } from 'next-intl';
 
 import Accordion from '@/components/ui/accordion';
 
+import { IFilters } from '../../types';
 import ColorFilter from './filters/color-filter';
 import MultipleSelectFilter from './filters/multiple-select-filter';
-import { IFilters } from '../../types';
 import RatingFilter from './filters/rating-filter';
 
 interface FiltersAccordionProps {
@@ -15,6 +16,7 @@ interface FiltersAccordionProps {
 
 export default function FiltersAccordion({ filters }: FiltersAccordionProps) {
   const translate = useTranslations('filterAndSort');
+
   const filterItems = useMemo(
     () => [
       {

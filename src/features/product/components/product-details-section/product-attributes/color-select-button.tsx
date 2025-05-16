@@ -54,7 +54,17 @@ export default function ColorSelectButton({
             })
           )}
         >
-          {selected && color.inStock && <Check size={26} />}
+          {selected && color.inStock && (
+            <Check
+              size={26}
+              className={cn({
+                'text-background':
+                  color.name !== 'white' && color.name !== 'black',
+                'text-ink-900 dark:text-background': color.name === 'white',
+                'text-background dark:text-ink-900': color.name === 'black',
+              })}
+            />
+          )}
         </button>
       </Tooltip>
 
