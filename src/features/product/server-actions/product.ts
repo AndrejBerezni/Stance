@@ -123,7 +123,9 @@ export const getLatestArrivals = async (p?: {
   color?: string | string[] | undefined;
   rating?: string | undefined;
 }): Promise<ProductCard[] | undefined> => {
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  if (p?.collection === 'fresh') return [];
+
   let latestProducts;
   if (p?.collection === 'latestArrivals') {
     latestProducts = products

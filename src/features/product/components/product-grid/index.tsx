@@ -6,13 +6,20 @@ import ProductCard from '../product-card';
 interface ProductGridProps {
   fetchItems: () => Promise<IProductCard[] | undefined>;
   fullWidth?: boolean;
+  noResults?: React.ReactNode;
 }
 
 export default async function ProductGrid({
   fetchItems,
   fullWidth = true,
+  noResults,
 }: ProductGridProps) {
   const items = await fetchItems();
+
+  if (items && items.length === 0 && noResults) {
+    return noResults;
+  }
+
   if (items) {
     return (
       <ul

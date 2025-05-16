@@ -108,6 +108,10 @@
     "bestRating": "Melhor avaliação",
     "mostPopular": "Mais popular",
     "priceLow": "Preço: do menor para o maior",
-    "priceHigh": "Preço: do maior para o menor"
+    "priceHigh": "Preço: do maior para o menor",
+    "nothingFound": "Ainda não foi encontrado nada",
+    "adjustFilters": "Ajusta um pouco os teus filtros e vamos ver o que conseguimos encontrar!",
+    "resetFilters": "Repor filtros",
+    "clearAll": "Limpar tudo"
   }
 }

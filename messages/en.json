@@ -108,6 +108,10 @@
     "bestRating": "Best rating",
     "mostPopular": "Most popular",
     "priceLow": "Price: Low to high",
-    "priceHigh": "Price: High to low"
+    "priceHigh": "Price: High to low",
+    "nothingFound": "Nothing found just yet",
+    "adjustFilters": "Adjust your filters a bit, and let's see what we can find!",
+    "resetFilters": "Reset filters",
+    "clearAll": "Clear all"
   }
 }
