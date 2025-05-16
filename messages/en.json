@@ -103,6 +103,11 @@
     "category": "Category",
     "collections": "Collections",
     "colors": "Colors",
-    "rating": "Rating"
+    "rating": "Rating",
+    "newest": "Newest",
+    "bestRating": "Best rating",
+    "mostPopular": "Most popular",
+    "priceLow": "Price: Low to high",
+    "priceHigh": "Price: High to low"
   }
 }

@@ -119,6 +119,7 @@ export const getRelatedProductCards = async (
 export const getLatestArrivals = async (): Promise<
   ProductCard[] | undefined
 > => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const latestProducts = products
     .sort(
       (a, b) =>

@@ -1,4 +1,7 @@
-import { TooltipPosition } from '@/components/ui/tooltip';
+import {
+  FloatingElementAlign,
+  FloatingElementPosition,
+} from '@/hooks/useFloatingElement';
 
 export interface Coordinates {
   top: number;
@@ -7,42 +10,60 @@ export interface Coordinates {
 
 const calculateCoordinates = (
   rect: DOMRect,
-  position: TooltipPosition
+  position: FloatingElementPosition,
+  align: FloatingElementAlign = 'center'
 ): Coordinates => {
   const { top, left, width, height } = rect;
 
-  // Get the scroll position
   const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
   const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-  // Calculate positions with scroll offsets
+  let computedTop = 0;
+  let computedLeft = 0;
+
   switch (position) {
     case 'top':
-      return {
-        top: top + scrollY,
-        left: left + width / 2 + scrollX,
-      };
+      computedTop = top + scrollY;
+      break;
     case 'bottom':
-      return {
-        top: top + height + scrollY,
-        left: left + width / 2 + scrollX,
-      };
+      computedTop = top + height + scrollY;
+      break;
     case 'left':
-      return {
-        top: top + height / 2 + scrollY,
-        left: left + scrollX,
-      };
     case 'right':
-      return {
-        top: top + height / 2 + scrollY,
-        left: left + width + scrollX,
-      };
-    default:
-      return {
-        top: top + height + scrollY,
-        left: left + width / 2 + scrollX,
-      };
+      // vertical alignment
+      if (align === 'top') {
+        computedTop = top + scrollY;
+      } else if (align === 'bottom') {
+        computedTop = top + height + scrollY;
+      } else {
+        computedTop = top + height / 2 + scrollY;
+      }
+      break;
   }
-};
 
+  switch (position) {
+    case 'left':
+      computedLeft = left + scrollX;
+      break;
+    case 'right':
+      computedLeft = left + width + scrollX;
+      break;
+    case 'top':
+    case 'bottom':
+    default:
+      if (align === 'left') {
+        computedLeft = left + scrollX;
+      } else if (align === 'right') {
+        computedLeft = left + width + scrollX;
+      } else {
+        computedLeft = left + width / 2 + scrollX;
+      }
+      break;
+  }
+
+  return {
+    top: computedTop,
+    left: computedLeft,
+  };
+};
 export default calculateCoordinates;

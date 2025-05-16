@@ -103,6 +103,11 @@
     "category": "Categoria",
     "collections": "Coleções",
     "colors": "Cores",
-    "rating": "Avaliação"
+    "rating": "Avaliação",
+    "newest": "Mais recente",
+    "bestRating": "Melhor avaliação",
+    "mostPopular": "Mais popular",
+    "priceLow": "Preço: do menor para o maior",
+    "priceHigh": "Preço: do maior para o menor"
   }
 }
