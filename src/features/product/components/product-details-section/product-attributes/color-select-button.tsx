@@ -37,8 +37,12 @@ export default function ColorSelectButton({
   selected,
 }: ColorSelectButtonProps) {
   const translate = useTranslations('colors');
+
   return (
-    <div className="relative flex h-[56px] w-[56px] items-center justify-center">
+    <div
+      className="relative flex h-[56px] w-[56px] items-center justify-center"
+      data-testid={`${color.name}-select`}
+    >
       {/* Displaying tooltip with color name for color-blind users */}
       <Tooltip content={translate(color.name)} position="bottom">
         <button
@@ -53,6 +57,7 @@ export default function ColorSelectButton({
               selected,
             })
           )}
+          data-testid={`${color.name}-button`}
         >
           {selected && color.inStock && (
             <Check
@@ -63,6 +68,7 @@ export default function ColorSelectButton({
                 'text-ink-900 dark:text-background': color.name === 'white',
                 'text-background dark:text-ink-900': color.name === 'black',
               })}
+              data-testid="check-icon"
             />
           )}
         </button>
@@ -70,7 +76,10 @@ export default function ColorSelectButton({
 
       {/* Diagonal line over the button if color is out of stock */}
       {!color.inStock && (
-        <div className="bg-ink-600 pointer-events-none absolute top-1/2 left-1 h-0.5 w-[48px] -rotate-45"></div>
+        <div
+          className="bg-ink-600 pointer-events-none absolute top-1/2 left-1 h-0.5 w-[48px] -rotate-45"
+          data-testid="out-of-stock"
+        ></div>
       )}
     </div>
   );

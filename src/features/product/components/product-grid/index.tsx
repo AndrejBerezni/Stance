@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils/cn';
 
-import { ProductCard as IProductCard } from '../../types';
+import { IProductCard } from '../../types';
 import ProductCard from '../product-card';
 
 interface ProductGridProps {

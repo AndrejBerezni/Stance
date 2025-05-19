@@ -10,7 +10,7 @@ export default function Brand() {
         width={32}
         height={32}
       />
-      <span className="font-bold">StyleNest</span>
+      <span className="font-bold">Stance</span>
     </Link>
   );
 }

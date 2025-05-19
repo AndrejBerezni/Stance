@@ -1,12 +1,11 @@
 'use client';
-
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import ProductCardColors from './product-card-colors';
 import ProductCardHeader from './product-card-header';
 import ProductCardImage from './product-card-image';
 import ProductCardPrice from './product-card-price';
-import { ProductCard as IProductCard } from '../../types';
+import { IProductCard } from '../../types';
 import { generateProductLink } from '../../utils';
 
 export default function ProductCard({ cardData }: { cardData: IProductCard }) {
