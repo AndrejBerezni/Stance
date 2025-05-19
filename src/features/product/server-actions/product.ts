@@ -15,7 +15,7 @@ import products from '@/lib/temp-data/products.json';
 
 import {
   InventoryItem,
-  ProductCard,
+  IProductCard,
   ProductImage,
   ProductInfo,
   ProductWithInventory,
@@ -75,7 +75,7 @@ export const getProductRating = async (productId: string) => {
 export const getRelatedProductCards = async (
   productId: string,
   collection: string
-): Promise<ProductCard[]> => {
+): Promise<IProductCard[]> => {
   const relatedProducts = products
     .filter((p) => p.collection === collection && p.product_id !== productId)
     .slice(0, 4);
@@ -122,7 +122,7 @@ export const getLatestArrivals = async (p?: {
   category?: string | string[] | undefined;
   color?: string | string[] | undefined;
   rating?: string | undefined;
-}): Promise<ProductCard[] | undefined> => {
+}): Promise<IProductCard[] | undefined> => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   if (p?.collection === 'fresh') return [];
 
