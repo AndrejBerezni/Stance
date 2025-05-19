@@ -39,6 +39,7 @@ export default function ProductCardColors({
           className="flex h-6 w-6 items-center justify-center"
           onClick={() => setDisplayedColor(color)}
           title={translate(color)}
+          data-testid={`select-${translate(color)}-color-button`}
         >
           <span
             className={cn(

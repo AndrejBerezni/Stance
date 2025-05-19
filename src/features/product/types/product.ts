@@ -13,7 +13,7 @@ export interface ProductWithInventory extends Product {
   inventory: InventoryItem[];
 }
 
-export interface ProductCard {
+export interface IProductCard {
   product: Product;
   images: Record<string, string>;
   prices: Record<string, { list_price: number; sale_price: number | null }>;
