@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { KeyboardEvent, useId, useState } from 'react';
 
 import { cn } from '@/lib/utils/cn';
 
@@ -20,11 +20,44 @@ export default function Tabs({ tabs, defaultValue }: TabsProps) {
   const [activeTab, setActiveTab] = useState<string>(
     defaultValue ?? tabs[0].value
   );
+
+  const setActiveTabUsingIndex = (index: number) => {
+    const newActiveTab = tabs[index].value;
+    setActiveTab(newActiveTab);
+
+    document.getElementById(`${tabsId}-tab-${newActiveTab}`)?.focus();
+  };
+
+  const handleKeyInput = (event: KeyboardEvent) => {
+    switch (event.code) {
+      case 'ArrowLeft': {
+        const index = tabs.findIndex((tab) => tab.value === activeTab);
+        setActiveTabUsingIndex((index - 1 + tabs.length) % tabs.length);
+        break;
+      }
+      case 'ArrowRight': {
+        const index = tabs.findIndex((tab) => tab.value === activeTab);
+        setActiveTabUsingIndex((index + 1) % tabs.length);
+        break;
+      }
+      case 'Home': {
+        setActiveTabUsingIndex(0);
+        break;
+      }
+      case 'End': {
+        setActiveTabUsingIndex(tabs.length - 1);
+        break;
+      }
+      default:
+        break;
+    }
+  };
   return (
     <div>
       <div
         role="tablist"
         className="no-scrollbar flex overflow-x-scroll border-b-[1px]"
+        onKeyDown={(e) => handleKeyInput(e)}
       >
         {tabs.map(({ label, value }) => {
           const isActive = activeTab === value;
@@ -34,6 +67,7 @@ export default function Tabs({ tabs, defaultValue }: TabsProps) {
               key={value}
               type="button"
               role="tab"
+              tabIndex={isActive ? 0 : -1}
               aria-selected={isActive}
               aria-controls={`${tabsId}-tab-panel-${value}`}
               onClick={() => setActiveTab(value)}
@@ -59,6 +93,7 @@ export default function Tabs({ tabs, defaultValue }: TabsProps) {
             aria-labelledby={`${tabsId}-tab-${value}`}
             className="py-4"
             hidden={value !== activeTab}
+            tabIndex={0}
           >
             {panel}
           </div>
