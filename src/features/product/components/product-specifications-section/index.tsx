@@ -104,20 +104,24 @@ export default function ProductSpecificationsSection() {
   const tabs: Tab[] = useMemo(
     () => [
       {
+        value: 'sustainability',
         label: translate('sustainability'),
-        content: <SpecificationTab spec={specifications.sustainability} />,
+        panel: <SpecificationTab spec={specifications.sustainability} />,
       },
       {
+        value: 'comfort',
         label: translate('comfort'),
-        content: <SpecificationTab spec={specifications.comfort} />,
+        panel: <SpecificationTab spec={specifications.comfort} />,
       },
       {
+        value: 'durability',
         label: translate('durability'),
-        content: <SpecificationTab spec={specifications.durability} />,
+        panel: <SpecificationTab spec={specifications.durability} />,
       },
       {
+        value: 'versatility',
         label: translate('versatility'),
-        content: <SpecificationTab spec={specifications.versatility} />,
+        panel: <SpecificationTab spec={specifications.versatility} />,
       },
     ],
     [specifications, translate]
