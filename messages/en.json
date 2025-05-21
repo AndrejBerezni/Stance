@@ -21,6 +21,19 @@
     "easyExchanges": "Easy Exchanges",
     "easyExchangesText": "If your purchase isn't quite right, pass it on to a friend who might love it, and let us know. We're happy to facilitate an exchange to ensure you have the perfect item to complement your lifestyle."
   },
+  "notFoundPage": {
+    "notFound": "Not found",
+    "cantFindPage": "We can't find the page",
+    "noPageText": "Sorry, the page you are looking for doesn't exist or has been moved.",
+    "backHome": "Back to Home"
+  },
+  "errorPage": {
+    "errorOccurred": "An unexpected error occurred",
+    "error": "Error",
+    "explanation": "Please try reloading the page. If the problem continues, try again later.",
+    "reload": "Reload Page",
+    "backHome": "Back to Home"
+  },
   "productPage": {
     "availableSizes": "Available Sizes",
     "availableColors": "Available Colors",
