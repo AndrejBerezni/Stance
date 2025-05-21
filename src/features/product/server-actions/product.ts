@@ -1,181 +1,104 @@
 'use server';
 
-/* 
-TO BE IMPLEMENTED: while building UI, we are using dummy data,
-and therefore we are writing these dummy server actions,
-not paying much attention to the way they are written or executed,
-which later we will replace with appropriate data fetching
-*/
+import sql from '@/lib/db/connect';
 
-import rawInventory from '@/lib/temp-data/inventory.json';
-import productImages from '@/lib/temp-data/product-images.json';
-import rawProductsInformation from '@/lib/temp-data/product-info.json';
-import reviews from '@/lib/temp-data/product-reviews.json';
-import products from '@/lib/temp-data/products.json';
-
-import {
-  InventoryItem,
-  IProductCard,
-  ProductImage,
-  ProductInfo,
-  ProductWithInventory,
-} from '../types';
-
-const inventoryList = rawInventory as InventoryItem[];
-const productsInformation = rawProductsInformation as ProductInfo[];
+import { ExtendedProduct, IProductCard } from '../types';
 
 export const getProduct = async (
   productId: string
-): Promise<ProductWithInventory | undefined> => {
-  const product = products.find((product) => product.product_id === productId);
-  if (!product) return undefined;
+): Promise<ExtendedProduct | null> => {
+  try {
+    const result = (await sql`
+      SELECT 
+        p.product_id,
+        p.name,
+        p.description AS product_description,
+        p.category,
+        p.collection,
+        p.created_at,
+        p.sizing_convention,
+        p.available_colors,
+        p.stripe_id,
+        p.number_of_reviews,
+        p.rating,
 
-  const inventory = inventoryList.filter(
-    (item) => item.product_id === productId
-  );
+        -- Aggregate product_info as array
+        COALESCE(
+          (
+            SELECT json_agg(
+              jsonb_build_object(
+                'product_id', pi.product_id,
+                'title', pi.title,
+                'description', pi.description
+              )
+            )
+            FROM product_info pi
+            WHERE pi.product_id = p.product_id
+          ),
+          '[]'
+        ) AS product_info,
 
-  return { ...product, inventory };
-};
+        -- Aggregate inventory
+        COALESCE(
+          (
+            SELECT json_agg(
+              jsonb_build_object(
+                'sku', i.sku,
+                'product_id', i.product_id,
+                'color', i.color,
+                'size', i.size,
+                'list_price', i.list_price,
+                'discount', i.discount,
+                'discount_percentage', i.discount_percentage,
+                'sale_price', i.sale_price,
+                'sold', i.sold,
+                'stock', i.stock
+              )
+            )
+            FROM inventory i
+            WHERE i.product_id = p.product_id
+          ),
+          '[]'
+        ) AS inventory,
 
-export const getProductInfo = async (
-  productId: string
-): Promise<ProductInfo[] | undefined> => {
-  const productInfo: ProductInfo[] = productsInformation.filter(
-    (product) => product.product_id === productId
-  );
-  return productInfo.length > 0 ? productInfo : undefined;
-};
+        -- Aggregate images
+        COALESCE(
+          (
+            SELECT json_agg(
+              jsonb_build_object(
+                'product_id', img.product_id,
+                'color', img.color,
+                'image_url', img.image_url
+              )
+            )
+            FROM product_images img
+            WHERE img.product_id = p.product_id
+          ),
+          '[]'
+        ) AS images
 
-export const getProductImages = async (
-  productId: string,
-  color: string
-): Promise<ProductImage[] | undefined> => {
-  // await new Promise((resolve) => setTimeout(resolve, 500));
-  const images = productImages.filter(
-    (image) => image.product_id === productId && image.color === color
-  );
-  return images.length > 0 ? images : undefined;
-};
+      FROM products p
+      WHERE p.product_id = ${productId}
+    `) as ExtendedProduct[];
 
-export const getProductRating = async (productId: string) => {
-  const productReviews = reviews.filter(
-    (review) => review.product_id === productId
-  );
-  let rating = '0';
-  if (productReviews.length > 0) {
-    rating = (
-      productReviews.reduce((acc, cur) => acc + cur.rating, 0) /
-      productReviews.length
-    ).toFixed(1);
+    if (result.length === 0) {
+      throw new Error('Product not found');
+    }
+
+    return result[0];
+  } catch (error) {
+    console.error(
+      `Error fetching product with ID ${productId}:`,
+      (error as Error).message
+    ); // TO DO: implement error tracking system and then log error to it
+
+    return null;
   }
-
-  return { rating, total: productReviews.length };
 };
 
 export const getRelatedProductCards = async (
   productId: string,
   collection: string
 ): Promise<IProductCard[]> => {
-  const relatedProducts = products
-    .filter((p) => p.collection === collection && p.product_id !== productId)
-    .slice(0, 4);
-
-  return relatedProducts.map((related) => {
-    // Map images by color
-    const imageMap: Record<string, string> = {};
-    related.available_colors.forEach((color) => {
-      const img = productImages.find(
-        (i) => i.product_id === related.product_id && i.color === color
-      );
-      if (img) {
-        imageMap[color] = img.image_url;
-      }
-    });
-
-    // Map prices by color
-    const priceMap: Record<
-      string,
-      { list_price: number; sale_price: number | null }
-    > = {};
-    related.available_colors.forEach((color) => {
-      const inv = rawInventory.find(
-        (i) => i.product_id === related.product_id && i.color === color
-      );
-      if (inv) {
-        priceMap[color] = {
-          list_price: inv.list_price,
-          sale_price: inv.sale_price,
-        };
-      }
-    });
-
-    return {
-      product: related,
-      images: imageMap,
-      prices: priceMap,
-    };
-  });
-};
-
-export const getLatestArrivals = async (p?: {
-  collection?: string | string[] | undefined;
-  category?: string | string[] | undefined;
-  color?: string | string[] | undefined;
-  rating?: string | undefined;
-}): Promise<IProductCard[] | undefined> => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  if (p?.collection === 'fresh') return [];
-
-  let latestProducts;
-  if (p?.collection === 'latestArrivals') {
-    latestProducts = products
-      .sort(
-        (a, b) =>
-          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-      )
-      .slice(0, 8);
-  } else {
-    latestProducts = products
-      .sort(
-        (a, b) =>
-          new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-      )
-      .slice(0, 8);
-  }
-
-  return latestProducts.map((related) => {
-    // Map images by color
-    const imageMap: Record<string, string> = {};
-    related.available_colors.forEach((color) => {
-      const img = productImages.find(
-        (i) => i.product_id === related.product_id && i.color === color
-      );
-      if (img) {
-        imageMap[color] = img.image_url;
-      }
-    });
-
-    // Map prices by color
-    const priceMap: Record<
-      string,
-      { list_price: number; sale_price: number | null }
-    > = {};
-    related.available_colors.forEach((color) => {
-      const inv = rawInventory.find(
-        (i) => i.product_id === related.product_id && i.color === color
-      );
-      if (inv) {
-        priceMap[color] = {
-          list_price: inv.list_price,
-          sale_price: inv.sale_price,
-        };
-      }
-    });
-
-    return {
-      product: related,
-      images: imageMap,
-      prices: priceMap,
-    };
-  });
+  return [];
 };

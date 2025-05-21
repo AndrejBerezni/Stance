@@ -4,19 +4,12 @@ export interface Product {
   description: string;
   category: string;
   collection: string;
-  created_at: string;
+  created_at: Date;
   sizing_convention: string | null;
   available_colors: string[];
-}
-
-export interface ProductWithInventory extends Product {
-  inventory: InventoryItem[];
-}
-
-export interface IProductCard {
-  product: Product;
-  images: Record<string, string>;
-  prices: Record<string, { list_price: number; sale_price: number | null }>;
+  stripe_id: string | null;
+  number_of_reviews: number;
+  rating: number;
 }
 
 export interface InventoryItem {
@@ -44,4 +37,15 @@ export interface ProductImage {
   product_id: string;
   color: string;
   image_url: string;
+}
+export interface ExtendedProduct extends Product {
+  inventory: InventoryItem[];
+  images: ProductImage[];
+  product_info: ProductInfo[];
+}
+
+export interface IProductCard {
+  product: Product;
+  images: Record<string, string>;
+  prices: Record<string, { list_price: number; sale_price: number | null }>;
 }

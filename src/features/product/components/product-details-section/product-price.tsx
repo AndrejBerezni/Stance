@@ -5,16 +5,20 @@ import Badge from '@/components/ui/badge';
 import Skeleton from '@/components/ui/skeleton';
 
 import useInventory from '../../hooks/useInventory';
-import { ProductWithInventory } from '../../types';
+import { InventoryItem } from '../../types';
 import { formatPrice, getDiscountText } from '../../utils';
 
+interface ProductPriceProps {
+  inventory: InventoryItem[];
+  sizingConvention: string | null;
+}
+
 export default function ProductPrice({
-  product,
-}: {
-  product: ProductWithInventory;
-}) {
+  inventory,
+  sizingConvention,
+}: ProductPriceProps) {
   const translate = useTranslations('productPage');
-  const { item } = useInventory(product);
+  const { item } = useInventory(inventory, sizingConvention);
 
   /* Item will be absent until hook for determining item finishes running.
   Since we are handling redirecting to existing item in cases where

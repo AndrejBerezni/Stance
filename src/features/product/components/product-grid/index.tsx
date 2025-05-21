@@ -20,7 +20,7 @@ export default async function ProductGrid({
     return noResults;
   }
 
-  if (items) {
+  if (items && items.length > 0) {
     return (
       <ul
         className={cn('grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4', {

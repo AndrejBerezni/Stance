@@ -7,16 +7,20 @@ import CartControl from '@/features/cart/components/cart-control';
 import useAddToCart from '@/features/cart/hooks/useAddToCart';
 
 import useInventory from '../../hooks/useInventory';
-import { ProductWithInventory } from '../../types';
+import { InventoryItem } from '../../types';
 
 interface AddToCartProps {
-  product: ProductWithInventory;
+  inventory: InventoryItem[];
+  sizingConvention: string | null;
 }
 
-export default function AddToCart({ product }: AddToCartProps) {
+export default function AddToCart({
+  inventory,
+  sizingConvention,
+}: AddToCartProps) {
   const translate = useTranslations('productPage');
 
-  const { item, max, disabled } = useInventory(product);
+  const { item, max, disabled } = useInventory(inventory, sizingConvention);
   const {
     amount,
     increment: handleIncrement,

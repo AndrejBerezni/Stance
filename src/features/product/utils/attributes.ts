@@ -1,4 +1,4 @@
-import { Product, ProductWithInventory } from '../types';
+import { Product, ExtendedProduct } from '../types';
 
 export const getSizes = (sizing_convention: string | null) => {
   if (sizing_convention === null) return null;
@@ -35,7 +35,7 @@ in order to have default inventory item selected,
 instead of having 'add to cart' button disabled until user selects something */
 export const setDefaultColorAndSize = async (
   searchParams: Promise<{ color: string; size: string | undefined }>,
-  product: ProductWithInventory
+  product: ExtendedProduct
 ) => {
   let { color, size } = await searchParams;
   let needsRedirect = false;

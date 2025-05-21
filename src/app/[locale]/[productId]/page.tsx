@@ -25,7 +25,6 @@ export default async function Product({
   const { productId } = await params;
 
   const product = await getProduct(productId);
-
   if (!product) redirect('/products');
 
   const { color, needsRedirect, updatedParams } = await setDefaultColorAndSize(
