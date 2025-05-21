@@ -21,6 +21,12 @@
     "easyExchanges": "Trocas Simples",
     "easyExchangesText": "Se a sua compra não for exatamente o que esperava, ofereça-a a um amigo que possa apreciá-la e avise-nos. Teremos todo o gosto em facilitar uma troca para garantir que tenha o artigo perfeito para complementar o seu estilo de vida."
   },
+  "notFoundPage": {
+    "notFound": "Não encontrado",
+    "cantFindPage": "Não conseguimos encontrar a página",
+    "noPageText": "Lamentamos, mas a página que procura não existe ou foi movida.",
+    "backHome": "Voltar à página inicial"
+  },
   "productPage": {
     "availableSizes": "Tamanhos Disponíveis",
     "availableColors": "Cores Disponíveis",
