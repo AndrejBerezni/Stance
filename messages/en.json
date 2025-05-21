@@ -27,6 +27,13 @@
     "noPageText": "Sorry, the page you are looking for doesn't exist or has been moved.",
     "backHome": "Back to Home"
   },
+  "errorPage": {
+    "errorOccurred": "An unexpected error occurred",
+    "error": "Error",
+    "explanation": "Please try reloading the page. If the problem continues, try again later.",
+    "reload": "Reload Page",
+    "backHome": "Back to Home"
+  },
   "productPage": {
     "availableSizes": "Available Sizes",
     "availableColors": "Available Colors",

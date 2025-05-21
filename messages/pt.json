@@ -27,6 +27,13 @@
     "noPageText": "Lamentamos, mas a página que procura não existe ou foi movida.",
     "backHome": "Voltar à página inicial"
   },
+  "errorPage": {
+    "errorOccurred": "Ocorreu um erro inesperado",
+    "error": "Erro",
+    "explanation": "Por favor, tente recarregar a página. Se o problema continuar, tente novamente mais tarde.",
+    "reload": "Recarregar página",
+    "backHome": "Voltar à página inicial"
+  },
   "productPage": {
     "availableSizes": "Tamanhos Disponíveis",
     "availableColors": "Cores Disponíveis",
