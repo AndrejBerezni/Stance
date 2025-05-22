@@ -1,18 +1,12 @@
-'use server';
-
-import collectionsData from '@/lib/temp-data/collections.json';
+import sql from '@/lib/db/connect';
 
 import { Collection } from '../types';
 
 export const getLatestCollections = async (): Promise<
   Collection[] | undefined
 > => {
-  const collections = collectionsData
-    .sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    )
-    .slice(0, 3);
+  const collections = (await sql`
+  SELECT * FROM collections ORDER BY created_at DESC LIMIT 3;`) as Collection[];
 
   if (!collections) return;
 

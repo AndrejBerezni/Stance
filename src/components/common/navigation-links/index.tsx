@@ -25,7 +25,7 @@ export default function NavigationLinks({
       { id: 'shop-all-link', href: '/products', text: translate('shopAll') },
       {
         id: 'latest-arrivals-link',
-        href: '/products?collection=latestArrivals',
+        href: '/products?sort=date',
         text: translate('latestArrivals'),
       },
     ],

@@ -5,13 +5,17 @@ interface ProductCardImageProps {
   href: string;
   src: string;
   alt: string;
+  index: number;
 }
 
 export default function ProductCardImage({
   href,
   src,
   alt,
+  index,
 }: ProductCardImageProps) {
+  const priority = index <= 3;
+  console.log(src, priority);
   return (
     <Link href={href}>
       <div className="relative h-[300px] w-full overflow-hidden rounded-xl">
@@ -21,7 +25,8 @@ export default function ProductCardImage({
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 280px"
           className="object-cover object-center duration-300 hover:scale-105"
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          priority={priority}
         />
       </div>
     </Link>

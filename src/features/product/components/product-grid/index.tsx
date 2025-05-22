@@ -38,12 +38,12 @@ export default async function ProductGrid({
             }
           )}
         >
-          {products.map((product) => {
+          {products.map((product, index) => {
             if (excludeProductId && product.product_id === excludeProductId)
               return null;
             return (
               <li key={`${product.product_id}-related-card`}>
-                <ProductCard cardData={product} />
+                <ProductCard cardData={product} index={index} />
               </li>
             );
           })}

@@ -1,42 +1,35 @@
-'use server';
-import categoriesData from '@/lib/temp-data/categories.json';
-import collectionsData from '@/lib/temp-data/collections.json';
-import colorsData from '@/lib/temp-data/colors.json';
+import { NeonQueryPromise } from '@neondatabase/serverless';
 
-import { IFilters } from '../types';
+import available_colors from '@/lib/colors';
+import sql from '@/lib/db/connect';
+
+import { FilterItem, IFilters } from '../types';
 
 export const getFilters = async (): Promise<IFilters> => {
   const filters: IFilters = {
     collections: [],
     categories: [],
-    colors: [],
+    colors: [...available_colors],
   };
+  const [collections, categories] = await Promise.all([
+    sql`SELECT collection_id value, name label FROM collections;` as NeonQueryPromise<
+      false,
+      false,
+      Record<string, any>[]
+    >,
+    sql`SELECT category_id value, name label FROM categories;` as NeonQueryPromise<
+      false,
+      false,
+      Record<string, any>[]
+    >,
+  ]);
 
-  const collections = collectionsData.map((collection) => ({
-    label: collection.name,
-    value: collection.collection_id,
-  }));
   if (collections && collections.length > 0) {
-    filters.collections = [
-      ...collections,
-      { label: 'Latest Arrivals', value: 'latestArrivals' },
-    ];
+    filters.collections = [...collections] as FilterItem[];
   }
 
-  const categories = categoriesData.map((cat) => ({
-    label: cat.name,
-    value: cat.category_id,
-  }));
   if (categories && categories.length > 0) {
-    filters.categories = categories;
-  }
-
-  const colors = colorsData.map((color) => ({
-    label: color,
-    value: color,
-  }));
-  if (colors && colors.length > 0) {
-    filters.colors = colors;
+    filters.categories = [...categories] as FilterItem[];
   }
 
   return filters;
