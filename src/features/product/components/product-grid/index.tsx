@@ -1,39 +1,54 @@
 import { cn } from '@/lib/utils/cn';
 
-import { IProductCard } from '../../types';
+import { getProducts } from '../../data';
 import ProductCard from '../product-card';
 
 interface ProductGridProps {
-  fetchItems: () => Promise<IProductCard[] | undefined>;
+  searchParams: Record<string, string>;
   fullWidth?: boolean;
   noResults?: React.ReactNode;
+  header?: React.ReactNode;
+  excludeProductId?: string;
 }
 
 export default async function ProductGrid({
-  fetchItems,
+  searchParams,
   fullWidth = true,
   noResults,
+  header,
+  excludeProductId,
 }: ProductGridProps) {
-  const items = await fetchItems();
+  const response = await getProducts(searchParams);
+  const products = response.data;
 
-  if (items && items.length === 0 && noResults) {
+  if (products && products.length === 0 && noResults) {
     return noResults;
   }
 
-  if (items && items.length > 0) {
+  if (products && products.length > 0) {
     return (
-      <ul
-        className={cn('grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4', {
-          'xl:grid-cols-4': fullWidth,
-          'xl:grid-cols-3': !fullWidth,
-        })}
-      >
-        {items.map((product) => (
-          <li key={`${product.product.product_id}-related-card`}>
-            <ProductCard cardData={product} />
-          </li>
-        ))}
-      </ul>
+      <>
+        {header}
+        <ul
+          className={cn(
+            'grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4',
+            {
+              'xl:grid-cols-4': fullWidth,
+              'xl:grid-cols-3': !fullWidth,
+            }
+          )}
+        >
+          {products.map((product) => {
+            if (excludeProductId && product.product_id === excludeProductId)
+              return null;
+            return (
+              <li key={`${product.product_id}-related-card`}>
+                <ProductCard cardData={product} />
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   }
 }

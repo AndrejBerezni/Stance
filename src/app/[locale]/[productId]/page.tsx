@@ -8,10 +8,7 @@ import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
-import {
-  getProduct,
-  getRelatedProductCards,
-} from '@/features/product/server-actions';
+import { getProduct } from '@/features/product/data';
 import { setDefaultColorAndSize } from '@/features/product/utils';
 
 export default async function Product({
@@ -41,15 +38,11 @@ export default async function Product({
       <ProductDetailsSection product={product} color={color} />
       <ProductSpecificationsSection />
       <section className="section-wrapper">
-        <ProductGridHeader title={translate('inCollection')} />
         <Suspense fallback={<ProductGridSkeleton items={4} />}>
           <ProductGrid
-            fetchItems={async () =>
-              await getRelatedProductCards(
-                product.product_id,
-                product.collection
-              )
-            }
+            searchParams={{ collection: product.collection, limit: '4' }}
+            excludeProductId={product.product_id}
+            header={<ProductGridHeader title={translate('inCollection')} />}
           />
         </Suspense>
       </section>

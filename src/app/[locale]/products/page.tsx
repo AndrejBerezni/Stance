@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import NoResultsFound from '@/features/product/components/product-filters/no-results-found';
 import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
-import { getLatestArrivals } from '@/features/product/server-actions';
 
 export default async function ProductsPage({
   searchParams,
@@ -21,7 +20,7 @@ export default async function ProductsPage({
         fallback={<ProductGridSkeleton items={6} fullWidth={false} />}
       >
         <ProductGrid
-          fetchItems={async () => await getLatestArrivals(resolvedParams)}
+          searchParams={resolvedParams}
           fullWidth={false}
           noResults={<NoResultsFound />}
         />

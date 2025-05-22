@@ -1,4 +1,4 @@
-import { Product, ExtendedProduct } from '../types';
+import { ExtendedProduct } from '../types';
 
 export const getSizes = (sizing_convention: string | null) => {
   if (sizing_convention === null) return null;
@@ -67,22 +67,24 @@ export const setDefaultColorAndSize = async (
 };
 
 export const generateProductLink = (
-  product: Product,
+  product_id: string,
+  available_colors: string[],
+  sizing_convention: string | null,
   selectedColor?: string
 ): string => {
   const searchParams = new URLSearchParams();
 
-  const color = selectedColor ?? product.available_colors[0];
+  const color = selectedColor ?? available_colors[0];
   if (color) {
     searchParams.set('color', color);
   }
 
-  if (product.sizing_convention) {
-    const availableSizes = getSizes(product.sizing_convention);
+  if (sizing_convention) {
+    const availableSizes = getSizes(sizing_convention);
     if (availableSizes && availableSizes.length > 0) {
       searchParams.set('size', availableSizes[0]);
     }
   }
 
-  return `/${product.product_id}?${searchParams.toString()}`;
+  return `/${product_id}?${searchParams.toString()}`;
 };

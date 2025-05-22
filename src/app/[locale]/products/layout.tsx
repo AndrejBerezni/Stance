@@ -1,6 +1,6 @@
 import ProductFilters from '@/features/product/components/product-filters';
 import ProductSort from '@/features/product/components/product-sort';
-import { getFilters } from '@/features/product/server-actions/filters';
+import { getFilters } from '@/features/product/data/filters';
 
 export default async function ProductsLayout({
   children,

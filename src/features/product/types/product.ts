@@ -10,6 +10,7 @@ export interface Product {
   stripe_id: string | null;
   number_of_reviews: number;
   rating: number;
+  list_price: number;
 }
 
 export interface InventoryItem {
@@ -48,4 +49,14 @@ export interface IProductCard {
   product: Product;
   images: Record<string, string>;
   prices: Record<string, { list_price: number; sale_price: number | null }>;
+}
+
+export interface ProductsResponse {
+  data: ExtendedProduct[];
+  meta: {
+    page: number;
+    totalPages: number;
+    pageSize: number;
+    totalItems: number;
+  };
 }
