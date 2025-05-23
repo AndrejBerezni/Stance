@@ -1,3 +1,4 @@
+import Pagination from '@/components/common/pagination';
 import { cn } from '@/lib/utils/cn';
 
 import { getProducts } from '../../data';
@@ -9,6 +10,7 @@ interface ProductGridProps {
   noResults?: React.ReactNode;
   header?: React.ReactNode;
   excludeProductId?: string;
+  hasPagination?: boolean;
 }
 
 export default async function ProductGrid({
@@ -17,9 +19,11 @@ export default async function ProductGrid({
   noResults,
   header,
   excludeProductId,
+  hasPagination = false,
 }: ProductGridProps) {
   const response = await getProducts(searchParams);
   const products = response.data;
+  const { page, totalPages } = response.meta;
 
   if (products && products.length === 0 && noResults) {
     return noResults;
@@ -48,6 +52,9 @@ export default async function ProductGrid({
             );
           })}
         </ul>
+        {hasPagination && (
+          <Pagination totalPages={totalPages} currentPage={page} />
+        )}
       </>
     );
   }

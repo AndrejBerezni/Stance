@@ -12,7 +12,7 @@ import { AvailableColor } from '../../product-details-section/product-attributes
 export default function ColorFilter({ colors }: { colors: FilterItem[] }) {
   const translate = useTranslations('colors');
   const { appendOrDeleteSearchParam, currentValuesArray, isPending } =
-    useModifySearchParam('color');
+    useModifySearchParam({ param: 'color', pageResetOnChange: true });
 
   return (
     <fieldset>

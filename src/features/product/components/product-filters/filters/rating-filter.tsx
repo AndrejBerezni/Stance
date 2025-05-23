@@ -3,8 +3,10 @@ import useModifySearchParam from '@/hooks/useModifySearchParam';
 import { cn } from '@/lib/utils/cn';
 
 export default function RatingFilter() {
-  const { setSearchParam, currentValue, isPending } =
-    useModifySearchParam('rating');
+  const { setSearchParam, currentValue, isPending } = useModifySearchParam({
+    param: 'rating',
+    pageResetOnChange: true,
+  });
 
   return (
     <div className={cn({ 'opacity-50': isPending })}>

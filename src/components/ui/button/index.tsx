@@ -14,6 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'destructive';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   iconOnly?: boolean;
+  submit?: boolean;
   className?: string;
   children: React.ReactNode;
 }
@@ -22,6 +23,7 @@ export default function Button({
   size = 'md',
   variant = 'primary',
   iconOnly = false,
+  submit = false,
   className,
   children,
   ...props
@@ -29,6 +31,7 @@ export default function Button({
   return (
     <button
       {...props}
+      type={submit ? 'submit' : 'button'}
       className={cn(buttonVariants({ variant, size, iconOnly, className }))}
     >
       {children}

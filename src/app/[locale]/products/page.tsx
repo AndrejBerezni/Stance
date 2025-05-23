@@ -23,6 +23,7 @@ export default async function ProductsPage({
           searchParams={resolvedParams}
           fullWidth={false}
           noResults={<NoResultsFound />}
+          hasPagination
         />
       </Suspense>
     </section>
