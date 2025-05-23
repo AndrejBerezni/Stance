@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import { ProductImage } from '@/features/product/types';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 export default function CurrentImage({ image }: { image: ProductImage }) {
   return (
@@ -18,6 +19,8 @@ export default function CurrentImage({ image }: { image: ProductImage }) {
           className="object-cover object-center"
           priority
           loading="eager"
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
         />
       </div>
     </>

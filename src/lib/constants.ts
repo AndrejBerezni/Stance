@@ -36,3 +36,6 @@ export const AVAILABLE_COLORS = [
   { label: 'red', value: 'red' },
   { label: 'blue', value: 'blue' },
 ];
+
+export const BLUR_DATA_URL =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGklEQVR42mNkMLprzEABYBw1YNSAUQOGiwEAW70UMTDBxMMAAAAASUVORK5CYII=';

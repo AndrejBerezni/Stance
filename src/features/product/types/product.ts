@@ -11,6 +11,7 @@ export interface Product {
   number_of_reviews: number;
   rating: number;
   list_price: number;
+  updated_at: Date;
 }
 
 export interface InventoryItem {

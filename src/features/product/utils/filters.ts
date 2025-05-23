@@ -1,4 +1,4 @@
-import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '@/lib/utils/constants';
+import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '@/lib/constants';
 
 const addSort = (sort: string | undefined): string => {
   switch (sort) {

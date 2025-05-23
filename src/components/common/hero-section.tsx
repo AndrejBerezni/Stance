@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
+import { BLUR_DATA_URL } from '@/lib/constants';
+
 import Button from '../ui/button';
 
 export default async function HeroSection() {
@@ -27,6 +29,10 @@ export default async function HeroSection() {
         width={696}
         height={526}
         className="w-full rounded-2xl"
+        priority
+        loading="eager"
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
       />
     </section>
   );

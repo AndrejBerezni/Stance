@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { ProductImage } from '@/features/product/types';
+import { BLUR_DATA_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils/cn';
 
 import { thumbnailVariants } from './styles';
@@ -33,6 +34,8 @@ export default function Thumbnail({
         className={cn('object-cover object-center duration-300', {
           'group-hover:scale-105': !selected,
         })}
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
       />
     </div>
   );

@@ -16,7 +16,7 @@ export const multipleProductsQuery = ({
   sql`SELECT 
     p.product_id,
     p.name,
-    p.description AS product_description,
+    p.description,
     p.category,
     p.collection,
     p.created_at,
@@ -25,6 +25,7 @@ export const multipleProductsQuery = ({
     p.stripe_id,
     p.number_of_reviews,
     p.rating,
+    p.updated_at,
 
     (
       SELECT json_agg(
@@ -81,7 +82,7 @@ export const singleProductQuery = (productId: string) => sql`
       SELECT 
         p.product_id,
         p.name,
-        p.description AS product_description,
+        p.description,
         p.category,
         p.collection,
         p.created_at,
@@ -90,6 +91,7 @@ export const singleProductQuery = (productId: string) => sql`
         p.stripe_id,
         p.number_of_reviews,
         p.rating,
+        p.updated_at,
 
         -- Aggregate product_info as array
         COALESCE(
@@ -149,3 +151,9 @@ export const singleProductQuery = (productId: string) => sql`
       FROM products p
       WHERE p.product_id = ${productId}
     `;
+
+export const sitemapProductsQuery = () =>
+  sql`SELECT product_id, updated_at FROM products`;
+
+export const metadataProductQuery = (productId: string) =>
+  sql`SELECT name, description, category FROM products WHERE product_id=${productId}`;

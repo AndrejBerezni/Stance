@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { BLUR_DATA_URL } from '@/lib/constants';
+
 interface ProductCardImageProps {
   href: string;
   src: string;
@@ -27,6 +29,8 @@ export default function ProductCardImage({
           className="object-cover object-center duration-300 hover:scale-105"
           loading={priority ? 'eager' : 'lazy'}
           priority={priority}
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
         />
       </div>
     </Link>

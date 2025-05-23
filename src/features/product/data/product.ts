@@ -6,21 +6,25 @@ import { ExtendedProduct, ProductsResponse } from '../types';
 import { convertSearchParamsToFilters } from '../utils';
 import {
   countProductsQuery,
+  metadataProductQuery,
   multipleProductsQuery,
   singleProductQuery,
+  sitemapProductsQuery,
 } from './queries/product';
 
 export const getProduct = async (
   productId: string
 ): Promise<ExtendedProduct | null> => {
   try {
-    const result = (await singleProductQuery(productId)) as ExtendedProduct[];
+    const productResult = (await singleProductQuery(
+      productId
+    )) as ExtendedProduct[];
 
-    if (result.length === 0) {
+    if (productResult.length === 0) {
       throw new Error('Product not found');
     }
 
-    return result[0];
+    return productResult[0];
   } catch (error) {
     console.error(
       `Error fetching product with ID ${productId}:`,
@@ -62,7 +66,10 @@ export const getProducts = async (
       },
     };
   } catch (error) {
-    console.error(`Error fetching products:`, (error as Error).message);
+    if (error instanceof Error) {
+      console.error(`Error fetching products:`, error.message);
+    }
+
     return {
       data: [] as ExtendedProduct[],
       meta: {
@@ -72,5 +79,32 @@ export const getProducts = async (
         totalItems: 0,
       },
     };
+  }
+};
+
+export const getProductsForSiteMap = async () => {
+  try {
+    return await sitemapProductsQuery();
+  } catch (error) {
+    if (error instanceof Error)
+      console.error(`Error fetching products:`, error.message);
+  }
+};
+
+export const getProductForMetadata = async (productId: string) => {
+  try {
+    const productResult = await metadataProductQuery(productId);
+
+    if (productResult.length === 0) {
+      throw new Error('Product not found');
+    }
+
+    return productResult[0];
+  } catch (error) {
+    if (error instanceof Error)
+      console.error(
+        `Error fetching product with id ${productId}:`,
+        error.message
+      );
   }
 };

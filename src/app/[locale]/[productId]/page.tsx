@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
@@ -8,8 +9,29 @@ import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
-import { getProduct } from '@/features/product/data';
+import { getProduct, getProductForMetadata } from '@/features/product/data';
 import { setDefaultColorAndSize } from '@/features/product/utils';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ productId: string }>;
+}): Promise<Metadata> {
+  const { productId } = await params;
+  const product = await getProductForMetadata(productId);
+
+  if (!product) {
+    return {
+      title: 'Product Not Found',
+      description: 'The requested product could not be found.',
+    };
+  }
+
+  return {
+    title: product.name,
+    description: product.description,
+  };
+}
 
 export default async function Product({
   params,
@@ -33,8 +55,25 @@ export default async function Product({
     redirect(`/${productId}?${updatedParams.toString()}`);
   }
 
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    productID: product.product_id,
+    name: product.name,
+    description: product.description,
+    category: product.category,
+    color: product.available_colors.join(' '),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productJsonLd),
+        }}
+      />
+
       <ProductDetailsSection product={product} color={color} />
       <ProductSpecificationsSection />
       <section className="section-wrapper">

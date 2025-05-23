@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
+import { BLUR_DATA_URL } from '@/lib/constants';
+
 import { getLatestCollections } from '../../data';
 import { Collection as ICollection } from '../../types';
 
@@ -17,6 +19,8 @@ function Collection({ collection }: { collection: ICollection }) {
         fill
         sizes="(max-width: 768px) 100vw, 45vw"
         className="object-cover object-center duration-300 group-hover:scale-105"
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
       />
       <div className="text-background absolute bottom-4 left-4 z-20 dark:text-shadow-[0_0_4px_white]">
         <h3 className="text-sm">{collection.name}</h3>
