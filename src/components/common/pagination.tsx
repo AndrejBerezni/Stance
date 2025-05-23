@@ -60,7 +60,7 @@ export default function Pagination({
 
         <span
           aria-live="polite"
-          className="'bg-background border-disabled mx-2 flex h-full items-center rounded-md border-[1px] px-2 text-xl font-medium text-nowrap shadow-sm"
+          className="bg-background border-disabled mx-2 flex h-full items-center rounded-md border-[1px] px-2 text-xl font-medium text-nowrap shadow-sm"
         >
           {currentPage >= 1 ? currentPage : 1} / {totalPages}
         </span>

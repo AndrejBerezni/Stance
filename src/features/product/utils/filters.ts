@@ -18,11 +18,14 @@ export const convertSearchParamsToFilters = (
   searchParams: Record<string, string | string[]>
 ) => {
   const sort = addSort(searchParams.sort as string | undefined);
-  const page = searchParams.page ? +searchParams.page : DEFAULT_PAGE_NUMBER;
+
+  const rawPage = searchParams.page ? +searchParams.page : DEFAULT_PAGE_NUMBER;
+  const page = rawPage >= DEFAULT_PAGE_NUMBER ? rawPage : DEFAULT_PAGE_NUMBER;
+
   const limit = searchParams.limit ? +searchParams.limit : DEFAULT_PAGE_SIZE;
 
-  const calculatedOffset = (page - 1) * limit;
-  const offset = calculatedOffset >= 0 ? calculatedOffset : 0;
+  const rawOffset = (page - 1) * limit;
+  const offset = rawOffset >= 0 ? rawOffset : 0;
 
   const whereClauses: string[] = [];
 

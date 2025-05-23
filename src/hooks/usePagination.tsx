@@ -1,5 +1,4 @@
 'use client';
-import { useCallback } from 'react';
 
 import useModifySearchParam from './useModifySearchParam';
 
@@ -17,10 +16,25 @@ export default function usePagination({
     scroll: true,
   });
 
-  const goToFirst = useCallback(() => setPage('1'), []);
-  const goToPrevious = () => setPage(String(currentPage - 1));
-  const goToNext = () => setPage(String(currentPage + 1));
-  const goToLast = () => setPage(String(totalPages));
+  const goToFirst = () => setPage('1');
+
+  const goToPrevious = () => {
+    if (currentPage > 1) {
+      setPage(String(currentPage - 1));
+    }
+  };
+
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      setPage(String(currentPage + 1));
+    }
+  };
+
+  const goToLast = () => {
+    if (totalPages > 0) {
+      setPage(String(totalPages));
+    }
+  };
 
   return {
     isFirstPage: currentPage <= 1,
