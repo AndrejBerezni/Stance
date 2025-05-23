@@ -4,6 +4,7 @@ import { Noto_Sans } from 'next/font/google';
 import '../globals.css';
 import MainLayout from '@/components/common/main-layout';
 import ProvidersWrapper from '@/lib/providers';
+import { baseUrl } from '@/lib/utils/url';
 
 const notoSans = Noto_Sans({
   variable: '--font-noto-sans',
@@ -13,6 +14,13 @@ const notoSans = Noto_Sans({
 export const metadata: Metadata = {
   title: 'Stance',
   description: 'Clothing web shop',
+  keywords: 'e-commerce, web shop, clothing, clothes, urban, modern, stance',
+  openGraph: {
+    title: 'Stance',
+    description: 'Clothing web shop',
+    type: 'website',
+    url: baseUrl,
+  },
 };
 
 export function generateStaticParams() {
