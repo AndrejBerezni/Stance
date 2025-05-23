@@ -1,30 +1,14 @@
+import { CLOTHES_SIZES, SHOES_SIZES } from '@/lib/utils/constants';
+
 import { ExtendedProduct } from '../types';
 
 export const getSizes = (sizing_convention: string | null) => {
   if (sizing_convention === null) return null;
   switch (sizing_convention) {
     case 'clothes':
-      return ['xs', 'sm', 'md', 'lg', 'xl'];
+      return CLOTHES_SIZES;
     case 'shoes':
-      return [
-        '4',
-        '4.5',
-        '5',
-        '5.5',
-        '6',
-        '6.5',
-        '7',
-        '7.5',
-        '8',
-        '8.5',
-        '9',
-        '9.5',
-        '10',
-        '10.5',
-        '11',
-        '11.5',
-        '12',
-      ];
+      return SHOES_SIZES;
     default:
       return null;
   }

@@ -26,7 +26,12 @@ export const getInventoryPrice = (
   inventory: InventoryItem[],
   color: string
 ) => {
+  if (!inventory.length) {
+    return { list_price: 0, sale_price: null };
+  }
+
   const item = inventory.find((item) => item.color === color);
+
   return item
     ? { list_price: item.list_price, sale_price: item.sale_price }
     : {

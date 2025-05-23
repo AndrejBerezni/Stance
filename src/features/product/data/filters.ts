@@ -1,35 +1,29 @@
-import { NeonQueryPromise } from '@neondatabase/serverless';
+'use server';
 
-import available_colors from '@/lib/colors';
 import sql from '@/lib/db/connect';
+import { AVAILABLE_COLORS } from '@/lib/utils/constants';
 
 import { FilterItem, IFilters } from '../types';
+import { getlAllCategoriesQuery } from './queries/categories';
+import { getAllConnectionsQuery } from './queries/collections';
 
 export const getFilters = async (): Promise<IFilters> => {
   const filters: IFilters = {
     collections: [],
     categories: [],
-    colors: [...available_colors],
+    colors: [...AVAILABLE_COLORS],
   };
-  const [collections, categories] = await Promise.all([
-    sql`SELECT collection_id value, name label FROM collections;` as NeonQueryPromise<
-      false,
-      false,
-      Record<string, any>[]
-    >,
-    sql`SELECT category_id value, name label FROM categories;` as NeonQueryPromise<
-      false,
-      false,
-      Record<string, any>[]
-    >,
+  const [collectionsResult, categoriesResult] = await sql.transaction([
+    getAllConnectionsQuery(),
+    getlAllCategoriesQuery(),
   ]);
 
-  if (collections && collections.length > 0) {
-    filters.collections = [...collections] as FilterItem[];
+  if (collectionsResult && collectionsResult.length > 0) {
+    filters.collections = [...collectionsResult] as FilterItem[];
   }
 
-  if (categories && categories.length > 0) {
-    filters.categories = [...categories] as FilterItem[];
+  if (categoriesResult && categoriesResult.length > 0) {
+    filters.categories = [...categoriesResult] as FilterItem[];
   }
 
   return filters;

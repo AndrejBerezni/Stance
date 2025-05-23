@@ -7,7 +7,7 @@ import ProductGridSkeleton from '@/features/product/components/product-grid/prod
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<Record<string, string>>;
+  searchParams: Promise<Record<string, string | string[]>>;
 }) {
   const resolvedParams = await searchParams;
   // until moving to React-Query to fetch data on client and handle loading state, we recreate suspense boundary by assigning new key

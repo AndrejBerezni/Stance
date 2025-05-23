@@ -45,12 +45,6 @@ export interface ExtendedProduct extends Product {
   product_info: ProductInfo[];
 }
 
-export interface IProductCard {
-  product: Product;
-  images: Record<string, string>;
-  prices: Record<string, { list_price: number; sale_price: number | null }>;
-}
-
 export interface ProductsResponse {
   data: ExtendedProduct[];
   meta: {

@@ -1,3 +1,5 @@
+import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from '@/lib/utils/constants';
+
 const addSort = (sort: string | undefined): string => {
   switch (sort) {
     case 'rating':
@@ -13,11 +15,11 @@ const addSort = (sort: string | undefined): string => {
 };
 
 export const convertSearchParamsToFilters = (
-  searchParams: Record<string, string>
+  searchParams: Record<string, string | string[]>
 ) => {
   const sort = addSort(searchParams.sort as string | undefined);
-  const page = searchParams.page ? +searchParams.page : 1;
-  const limit = searchParams.limit ? +searchParams.limit : 9;
+  const page = searchParams.page ? +searchParams.page : DEFAULT_PAGE_NUMBER;
+  const limit = searchParams.limit ? +searchParams.limit : DEFAULT_PAGE_SIZE;
   const offset = (page - 1) * limit;
 
   const whereClauses: string[] = [];

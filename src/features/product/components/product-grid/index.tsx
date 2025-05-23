@@ -4,7 +4,7 @@ import { getProducts } from '../../data';
 import ProductCard from '../product-card';
 
 interface ProductGridProps {
-  searchParams: Record<string, string>;
+  searchParams: Record<string, string | string[]>;
   fullWidth?: boolean;
   noResults?: React.ReactNode;
   header?: React.ReactNode;

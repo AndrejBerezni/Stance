@@ -14,7 +14,7 @@ export default function ImageGallery({
 }: ImageGalleryProps) {
   const images = productImages.filter((image) => image.color === color);
 
-  if (!images) return <NoImagesFound />;
+  if (!images || images.length === 0) return <NoImagesFound />;
 
   return <ImageGalleryContent images={images} />;
 }

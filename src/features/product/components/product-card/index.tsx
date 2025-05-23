@@ -35,7 +35,7 @@ export default function ProductCard({ cardData, index }: ProductCardProps) {
         sizing_convention,
         displayedColor
       ),
-    [displayedColor]
+    [product_id, available_colors, sizing_convention, displayedColor]
   );
 
   const price = useMemo(

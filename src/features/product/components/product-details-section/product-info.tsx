@@ -7,10 +7,7 @@ interface ProductInfoProps {
   info: IProductInfo[];
 }
 
-export default async function ProductInfo({
-  productId,
-  info,
-}: ProductInfoProps) {
+export default function ProductInfo({ productId, info }: ProductInfoProps) {
   if (info) {
     const accordionItems = info.map((section) => ({
       id: `${productId}-${section.title}`,

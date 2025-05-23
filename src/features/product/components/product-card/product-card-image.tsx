@@ -15,7 +15,7 @@ export default function ProductCardImage({
   index,
 }: ProductCardImageProps) {
   const priority = index <= 3;
-  console.log(src, priority);
+
   return (
     <Link href={href}>
       <div className="relative h-[300px] w-full overflow-hidden rounded-xl">
