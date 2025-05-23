@@ -1,4 +1,4 @@
-'use server';
+'server only';
 
 import { Collection } from '../types';
 import { getLatestCollectionsQuery } from './queries/collections';
