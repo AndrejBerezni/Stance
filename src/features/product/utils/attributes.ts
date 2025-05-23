@@ -1,30 +1,14 @@
-import { Product, ProductWithInventory } from '../types';
+import { CLOTHES_SIZES, SHOES_SIZES } from '@/lib/utils/constants';
+
+import { ExtendedProduct } from '../types';
 
 export const getSizes = (sizing_convention: string | null) => {
   if (sizing_convention === null) return null;
   switch (sizing_convention) {
     case 'clothes':
-      return ['xs', 'sm', 'md', 'lg', 'xl'];
+      return CLOTHES_SIZES;
     case 'shoes':
-      return [
-        '4',
-        '4.5',
-        '5',
-        '5.5',
-        '6',
-        '6.5',
-        '7',
-        '7.5',
-        '8',
-        '8.5',
-        '9',
-        '9.5',
-        '10',
-        '10.5',
-        '11',
-        '11.5',
-        '12',
-      ];
+      return SHOES_SIZES;
     default:
       return null;
   }
@@ -35,7 +19,7 @@ in order to have default inventory item selected,
 instead of having 'add to cart' button disabled until user selects something */
 export const setDefaultColorAndSize = async (
   searchParams: Promise<{ color: string; size: string | undefined }>,
-  product: ProductWithInventory
+  product: ExtendedProduct
 ) => {
   let { color, size } = await searchParams;
   let needsRedirect = false;
@@ -67,22 +51,24 @@ export const setDefaultColorAndSize = async (
 };
 
 export const generateProductLink = (
-  product: Product,
+  product_id: string,
+  available_colors: string[],
+  sizing_convention: string | null,
   selectedColor?: string
 ): string => {
   const searchParams = new URLSearchParams();
 
-  const color = selectedColor ?? product.available_colors[0];
+  const color = selectedColor ?? available_colors[0];
   if (color) {
     searchParams.set('color', color);
   }
 
-  if (product.sizing_convention) {
-    const availableSizes = getSizes(product.sizing_convention);
+  if (sizing_convention) {
+    const availableSizes = getSizes(sizing_convention);
     if (availableSizes && availableSizes.length > 0) {
       searchParams.set('size', availableSizes[0]);
     }
   }
 
-  return `/${product.product_id}?${searchParams.toString()}`;
+  return `/${product_id}?${searchParams.toString()}`;
 };

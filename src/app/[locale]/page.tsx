@@ -11,7 +11,6 @@ import CollectionsGridSkeleton from '@/features/product/components/collections-g
 import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
-import { getLatestArrivals } from '@/features/product/server-actions';
 import { cn } from '@/lib/utils/cn';
 
 export default async function Home() {
@@ -22,25 +21,29 @@ export default async function Home() {
       <HeroSection />
 
       <section className="section-wrapper">
-        <ProductGridHeader
-          title={translate('latestArrivals')}
-          headerAction={
-            <Link
-              href="/products"
-              className={cn(
-                buttonVariants({
-                  variant: 'secondary',
-                  size: 'sm',
-                  iconOnly: false,
-                })
-              )}
-            >
-              {translate('viewAll')}
-            </Link>
-          }
-        />
-        <Suspense fallback={<ProductGridSkeleton items={8} />}>
-          <ProductGrid fetchItems={async () => await getLatestArrivals()} />
+        <Suspense fallback={<ProductGridSkeleton items={8} withHeader />}>
+          <ProductGrid
+            searchParams={{ sort: 'created-at', limit: '8' }}
+            header={
+              <ProductGridHeader
+                title={translate('latestArrivals')}
+                headerAction={
+                  <Link
+                    href="/products"
+                    className={cn(
+                      buttonVariants({
+                        variant: 'secondary',
+                        size: 'sm',
+                        iconOnly: false,
+                      })
+                    )}
+                  >
+                    {translate('viewAll')}
+                  </Link>
+                }
+              />
+            }
+          />
         </Suspense>
       </section>
 

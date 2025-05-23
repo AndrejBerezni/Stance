@@ -16,7 +16,6 @@ export default function ProductSort() {
   const sortButtons = [
     { value: 'date', label: translate('newest') },
     { value: 'rating', label: translate('bestRating') },
-    { value: 'popular', label: translate('mostPopular') },
     { value: 'price-asc', label: translate('priceLow') },
     { value: 'price-desc', label: translate('priceHigh') },
   ].map((button) => (

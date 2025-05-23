@@ -1,14 +1,18 @@
+'use client';
 import { useEffect, useState } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 
-import { InventoryItem, ProductWithInventory } from '../types';
+import { InventoryItem } from '../types';
 
 /* This hook is used to determine, based on color and size,
 whether item can be added to cart, what is the maximum number of items,
 and to provide cart with sku for that product */
 
-export default function useInventory(product: ProductWithInventory) {
+export default function useInventory(
+  inventory: InventoryItem[],
+  sizing_convention: string | null
+) {
   const [disabled, setDisabled] = useState<boolean>(false);
   const [max, setMax] = useState<number>(1);
   const [item, setItem] = useState<InventoryItem | null>(null);
@@ -18,10 +22,10 @@ export default function useInventory(product: ProductWithInventory) {
   useEffect(() => {
     const color = searchParams.get('color');
     const size = searchParams.get('size');
-    const newItem = product.inventory.find(
+    const newItem = inventory.find(
       (item) =>
         item.color === color &&
-        (!product.sizing_convention ? true : item.size?.toString() === size) // handling also products that don't have size (like sunglasses, socks...)
+        (!sizing_convention ? true : item.size?.toString() === size) // handling also products that don't have size (like sunglasses, socks...)
     );
     if (!newItem) {
       setItem(null);
@@ -32,7 +36,7 @@ export default function useInventory(product: ProductWithInventory) {
       setItem(newItem);
       setMax(newMax);
     }
-  }, [searchParams, product]);
+  }, [searchParams, inventory, sizing_convention]);
 
   return { item, max, disabled };
 }

@@ -21,3 +21,21 @@ export const getDiscountText = (item: InventoryItem) => {
   }
   return '';
 };
+
+export const getInventoryPrice = (
+  inventory: InventoryItem[],
+  color: string
+) => {
+  if (!inventory.length) {
+    return { list_price: 0, sale_price: null };
+  }
+
+  const item = inventory.find((item) => item.color === color);
+
+  return item
+    ? { list_price: item.list_price, sale_price: item.sale_price }
+    : {
+        list_price: inventory[0].list_price,
+        sale_price: inventory[0].sale_price,
+      };
+};

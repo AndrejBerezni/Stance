@@ -3,12 +3,11 @@ import { Suspense } from 'react';
 import NoResultsFound from '@/features/product/components/product-filters/no-results-found';
 import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
-import { getLatestArrivals } from '@/features/product/server-actions';
 
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<Record<string, string>>;
+  searchParams: Promise<Record<string, string | string[]>>;
 }) {
   const resolvedParams = await searchParams;
   // until moving to React-Query to fetch data on client and handle loading state, we recreate suspense boundary by assigning new key
@@ -21,7 +20,7 @@ export default async function ProductsPage({
         fallback={<ProductGridSkeleton items={6} fullWidth={false} />}
       >
         <ProductGrid
-          fetchItems={async () => await getLatestArrivals(resolvedParams)}
+          searchParams={resolvedParams}
           fullWidth={false}
           noResults={<NoResultsFound />}
         />

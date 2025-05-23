@@ -1,19 +1,20 @@
+import { ProductImage } from '@/features/product/types';
+
 import ImageGalleryContent from './image-gallery-content';
 import NoImagesFound from './no-images-found';
-import { getProductImages } from '../../../server-actions';
 
 interface ImageGalleryProps {
-  productId: string;
+  productImages: ProductImage[];
   color: string;
 }
 
-export default async function ImageGallery({
-  productId,
+export default function ImageGallery({
+  productImages,
   color,
 }: ImageGalleryProps) {
-  const images = await getProductImages(productId, color);
+  const images = productImages.filter((image) => image.color === color);
 
-  if (!images) return <NoImagesFound />;
+  if (!images || images.length === 0) return <NoImagesFound />;
 
   return <ImageGalleryContent images={images} />;
 }

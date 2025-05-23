@@ -1,14 +1,13 @@
 import Accordion from '@/components/ui/accordion';
 
-import { getProductInfo } from '../../server-actions';
+import { ProductInfo as IProductInfo } from '../../types';
 
-export default async function ProductInfo({
-  productId,
-}: {
+interface ProductInfoProps {
   productId: string;
-}) {
-  const info = await getProductInfo(productId);
+  info: IProductInfo[];
+}
 
+export default function ProductInfo({ productId, info }: ProductInfoProps) {
   if (info) {
     const accordionItems = info.map((section) => ({
       id: `${productId}-${section.title}`,

@@ -56,11 +56,6 @@ export default function FooterLinks() {
         title: `${translate('shop')} ${translate('collections')}`,
         links: [
           {
-            id: 'latest-link',
-            href: '/products?collection=latestArrivals',
-            text: translate('latestArrivals'),
-          },
-          {
             id: 'urban-link',
             href: '/products?collection=urban',
             text: translate('urban'),

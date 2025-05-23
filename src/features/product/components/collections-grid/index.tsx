@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
-import { getLatestCollections } from '../../server-actions';
+import { getLatestCollections } from '../../data';
 import { Collection as ICollection } from '../../types';
 
 function Collection({ collection }: { collection: ICollection }) {
