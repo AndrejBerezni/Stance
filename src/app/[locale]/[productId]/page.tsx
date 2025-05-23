@@ -20,7 +20,12 @@ export async function generateMetadata({
   const { productId } = await params;
   const product = await getProductForMetadata(productId);
 
-  if (!product) return redirect('/products');
+  if (!product) {
+    return {
+      title: 'Product Not Found',
+      description: 'The requested product could not be found.',
+    };
+  }
 
   return {
     title: product.name,

@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: product.updated_at,
         alternates: {
           languages: {
-            pt: `${baseUrl}/pt/${product}`,
+            pt: `${baseUrl}/pt/${product.product_id}`,
           },
         },
       })
