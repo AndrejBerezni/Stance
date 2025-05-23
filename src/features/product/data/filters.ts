@@ -4,8 +4,8 @@ import sql from '@/lib/db/connect';
 import { AVAILABLE_COLORS } from '@/lib/utils/constants';
 
 import { FilterItem, IFilters } from '../types';
-import { getlAllCategoriesQuery } from './queries/categories';
-import { getAllConnectionsQuery } from './queries/collections';
+import { getCategoriesFilterQuery } from './queries/categories';
+import { getCollectionsFilterQuery } from './queries/collections';
 
 export const getFilters = async (): Promise<IFilters> => {
   const filters: IFilters = {
@@ -14,8 +14,8 @@ export const getFilters = async (): Promise<IFilters> => {
     colors: [...AVAILABLE_COLORS],
   };
   const [collectionsResult, categoriesResult] = await sql.transaction([
-    getAllConnectionsQuery(),
-    getlAllCategoriesQuery(),
+    getCollectionsFilterQuery(),
+    getCategoriesFilterQuery(),
   ]);
 
   if (collectionsResult && collectionsResult.length > 0) {

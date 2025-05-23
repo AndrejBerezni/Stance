@@ -2,13 +2,13 @@ import { NeonQueryPromise } from '@neondatabase/serverless';
 
 import sql from '@/lib/db/connect';
 
-import { Collection } from '../../types';
+import { Collection, FilterItem } from '../../types';
 
-export const getAllConnectionsQuery = () =>
-  sql`SELECT collection_id value, name label FROM collections;` as NeonQueryPromise<
+export const getCollectionsFilterQuery = () =>
+  sql`SELECT collection_id AS value, name AS label FROM collections;` as NeonQueryPromise<
     false,
     false,
-    Record<string, any>[]
+    FilterItem[]
   >;
 
 export const getLatestCollectionsQuery = () =>
