@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
-import { BLUR_DATA_URL } from '@/lib/utils/constants';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 import { getLatestCollections } from '../../data';
 import { Collection as ICollection } from '../../types';

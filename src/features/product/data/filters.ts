@@ -1,7 +1,7 @@
 'server only';
 
+import { AVAILABLE_COLORS } from '@/lib/constants';
 import sql from '@/lib/db/connect';
-import { AVAILABLE_COLORS } from '@/lib/utils/constants';
 
 import { FilterItem, IFilters } from '../types';
 import { getCategoriesFilterQuery } from './queries/categories';

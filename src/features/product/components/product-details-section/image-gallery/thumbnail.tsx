@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
 import { ProductImage } from '@/features/product/types';
+import { BLUR_DATA_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils/cn';
-import { BLUR_DATA_URL } from '@/lib/utils/constants';
 
 import { thumbnailVariants } from './styles';
 

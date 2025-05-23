@@ -8,6 +8,7 @@ import {
   countProductsQuery,
   multipleProductsQuery,
   singleProductQuery,
+  sitemapProductsQuery,
 } from './queries/product';
 
 export const getProduct = async (
@@ -62,7 +63,10 @@ export const getProducts = async (
       },
     };
   } catch (error) {
-    console.error(`Error fetching products:`, (error as Error).message);
+    if (error instanceof Error) {
+      console.error(`Error fetching products:`, error.message);
+    }
+
     return {
       data: [] as ExtendedProduct[],
       meta: {
@@ -72,5 +76,14 @@ export const getProducts = async (
         totalItems: 0,
       },
     };
+  }
+};
+
+export const getProductsForSiteMap = async () => {
+  try {
+    return await sitemapProductsQuery();
+  } catch (error) {
+    if (error instanceof Error)
+      console.error(`Error fetching products:`, error.message);
   }
 };

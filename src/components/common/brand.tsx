@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BLUR_DATA_URL } from '@/lib/utils/constants';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 export default function Brand() {
   return (

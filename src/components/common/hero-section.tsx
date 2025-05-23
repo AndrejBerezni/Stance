@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
-import { BLUR_DATA_URL } from '@/lib/utils/constants';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 import Button from '../ui/button';
 

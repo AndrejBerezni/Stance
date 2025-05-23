@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import { ProductImage } from '@/features/product/types';
-import { BLUR_DATA_URL } from '@/lib/utils/constants';
+import { BLUR_DATA_URL } from '@/lib/constants';
 
 export default function CurrentImage({ image }: { image: ProductImage }) {
   return (

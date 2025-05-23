@@ -11,7 +11,7 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'E-commerce App',
+  title: 'Stance',
   description: 'Clothing web shop',
 };
 

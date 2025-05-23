@@ -1,4 +1,4 @@
-import { CLOTHES_SIZES, SHOES_SIZES } from '@/lib/utils/constants';
+import { CLOTHES_SIZES, SHOES_SIZES } from '@/lib/constants';
 
 import { ExtendedProduct } from '../types';
 
