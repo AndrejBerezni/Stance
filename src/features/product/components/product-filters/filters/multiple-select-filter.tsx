@@ -13,7 +13,7 @@ export default function MultipleSelectFilter({
   filterValues,
 }: MultipleSelectFilterProps) {
   const { appendOrDeleteSearchParam, currentValuesArray, isPending } =
-    useModifySearchParam(name);
+    useModifySearchParam({ param: name, pageResetOnChange: true });
 
   return (
     <fieldset>

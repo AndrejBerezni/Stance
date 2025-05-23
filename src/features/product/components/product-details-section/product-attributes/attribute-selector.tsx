@@ -23,8 +23,9 @@ export default function AttributeSelector<T>({
   getOptionValue,
   renderOption,
 }: AttributeSelectorProps<T>) {
-  const { setSearchParam: handleSelect, currentValue } =
-    useModifySearchParam(attribute);
+  const { setSearchParam: handleSelect, currentValue } = useModifySearchParam({
+    param: attribute,
+  });
 
   return (
     <div className="flex flex-col gap-4">

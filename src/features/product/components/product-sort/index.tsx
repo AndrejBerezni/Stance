@@ -11,7 +11,10 @@ import SortButton from './sort-button';
 
 export default function ProductSort() {
   const translate = useTranslations('filterAndSort');
-  const { setSearchParam, currentValue } = useModifySearchParam('sort');
+  const { setSearchParam, currentValue } = useModifySearchParam({
+    param: 'sort',
+    pageResetOnChange: true,
+  });
 
   const sortButtons = [
     { value: 'date', label: translate('newest') },

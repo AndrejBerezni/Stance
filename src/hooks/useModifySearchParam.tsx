@@ -2,7 +2,17 @@ import { useEffect, useState, useTransition } from 'react';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-export default function useModifySearchParam(param: string) {
+interface UseModifySearchParamProps {
+  param: string;
+  pageResetOnChange?: boolean;
+  scroll?: boolean;
+}
+
+export default function useModifySearchParam({
+  param,
+  pageResetOnChange = false,
+  scroll = true,
+}: UseModifySearchParamProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -34,8 +44,9 @@ export default function useModifySearchParam(param: string) {
 
     startTransition(() => {
       const params = new URLSearchParams(searchParams);
+      if (param !== 'page' && pageResetOnChange) params.set('page', '1');
       params.set(param, value);
-      replace(`${pathname}?${params.toString()}`, { scroll: false });
+      replace(`${pathname}?${params.toString()}`, { scroll });
     });
   };
 
@@ -52,13 +63,14 @@ export default function useModifySearchParam(param: string) {
 
     startTransition(() => {
       const params = new URLSearchParams(searchParams);
+      if (param !== 'page' && pageResetOnChange) params.set('page', '1');
       if (params.has(param, value)) {
         params.delete(param, value);
       } else {
         params.append(param, value);
       }
 
-      replace(`${pathname}?${params.toString()}`, { scroll: false });
+      replace(`${pathname}?${params.toString()}`, { scroll });
     });
   };
 
