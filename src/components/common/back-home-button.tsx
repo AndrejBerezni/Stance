@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { cn } from '@/lib/utils/cn';
 
@@ -8,10 +8,11 @@ import buttonVariants from '../ui/button/styles';
 
 export default function BackHomeButton() {
   const translate = useTranslations('notFoundPage');
+  const locale = useLocale();
 
   return (
     <Link
-      href={`/`}
+      href={`/${locale}`}
       className={cn(buttonVariants({ variant: 'primary', size: 'md' }))}
     >
       {translate('backHome')}

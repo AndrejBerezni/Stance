@@ -1,6 +1,8 @@
 'use client';
 import React, { useMemo, useState } from 'react';
 
+import { useLocale } from 'next-intl';
+
 import ProductCardColors from './product-card-colors';
 import ProductCardHeader from './product-card-header';
 import ProductCardImage from './product-card-image';
@@ -27,9 +29,12 @@ export default function ProductCard({ cardData, index }: ProductCardProps) {
     available_colors[0]
   );
 
+  const locale = useLocale();
+
   const href = useMemo(
     () =>
       generateProductLink(
+        locale,
         product_id,
         available_colors,
         sizing_convention,

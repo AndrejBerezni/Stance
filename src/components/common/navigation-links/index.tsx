@@ -3,7 +3,7 @@ import { HTMLAttributes, useMemo } from 'react';
 
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { useSidebar } from '@/lib/providers/sidebar-provider';
 import { cn } from '@/lib/utils/cn';
@@ -20,11 +20,18 @@ export default function NavigationLinks({
   const translate = useTranslations('navigation');
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
+
+  const locale = useLocale();
+
   const { closeSidebar } = useSidebar();
 
   const links = useMemo(
     () => [
-      { id: 'shop-all-link', href: '/products', text: translate('shopAll') },
+      {
+        id: 'shop-all-link',
+        href: `/products`,
+        text: translate('shopAll'),
+      },
       {
         id: 'latest-arrivals-link',
         href: '/products?sort=date',
@@ -40,7 +47,7 @@ export default function NavigationLinks({
         {links.map((link) => (
           <Link
             key={link.id}
-            href={link.href}
+            href={`/${locale}${link.href}`}
             className={cn(
               'active:text-primary hover:text-ink-900 disabled:text-disabled link-focus text-sm lg:text-base',
               {
