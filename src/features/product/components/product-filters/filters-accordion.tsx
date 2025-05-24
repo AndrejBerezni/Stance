@@ -50,7 +50,7 @@ export default function FiltersAccordion({ filters }: FiltersAccordionProps) {
         content: <RatingFilter />,
       },
     ],
-    [filters]
+    [filters, translate]
   );
 
   return <Accordion items={filterItems} />;

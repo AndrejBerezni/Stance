@@ -29,7 +29,7 @@ export default function NavigationLinks({
         text: translate('latestArrivals'),
       },
     ],
-    []
+    [translate]
   );
 
   return (

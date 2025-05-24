@@ -1,16 +1,11 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
+
+import { Link } from '@/i18n/navigation';
 
 export default function Brand() {
-  const locale = useLocale();
   return (
-    <Link
-      href="/"
-      locale={locale}
-      className="link-focus flex items-center gap-1"
-    >
+    <Link href="/" className="link-focus flex items-center gap-1">
       <Image
         src="/logo.svg"
         alt="Brand logo with text"

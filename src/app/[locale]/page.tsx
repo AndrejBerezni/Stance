@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 
-import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
 import FeaturesSection from '@/components/common/features-section';
@@ -11,6 +10,7 @@ import CollectionsGridSkeleton from '@/features/product/components/collections-g
 import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
+import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
 
 export default async function Home() {
