@@ -51,7 +51,7 @@ export default async function FeaturesSection() {
         {features.map((feature) => (
           <article key={feature.id} className="flex flex-col items-center">
             <IconContainer className="mb-5"> {feature.icon}</IconContainer>
-            <h4 className="mb-2 text-xl font-semibold">{feature.title}</h4>
+            <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
             <p className="text-ink-600">{feature.description}</p>
           </article>
         ))}

@@ -24,6 +24,7 @@ export default async function ProductsPage({
           fullWidth={false}
           noResults={<NoResultsFound />}
           hasPagination
+          withPriorityLoading
         />
       </Suspense>
     </section>

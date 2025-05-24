@@ -14,6 +14,7 @@ export default function SidebarTrigger() {
       smallScreenOnly
       aria-expanded={isOpen}
       aria-controls="sidebar"
+      aria-label="Toggle sidebar"
     >
       <Menu size={32} />
     </NavbarButton>

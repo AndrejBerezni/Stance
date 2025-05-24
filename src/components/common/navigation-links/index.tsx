@@ -45,19 +45,20 @@ export default function NavigationLinks({
     <nav onClick={closeSidebar}>
       <ul {...props}>
         {links.map((link) => (
-          <Link
-            key={link.id}
-            href={`/${locale}${link.href}`}
-            className={cn(
-              'active:text-primary hover:text-ink-900 disabled:text-disabled link-focus text-sm lg:text-base',
-              {
-                'text-ink-900': pathname === link.href,
-                'text-ink-600': pathname !== link.href,
-              }
-            )}
-          >
-            {link.text}
-          </Link>
+          <li key={link.id}>
+            <Link
+              href={`/${locale}${link.href}`}
+              className={cn(
+                'active:text-primary hover:text-ink-900 disabled:text-disabled link-focus text-sm lg:text-base',
+                {
+                  'text-ink-900': pathname === link.href,
+                  'text-ink-600': pathname !== link.href,
+                }
+              )}
+            >
+              {link.text}
+            </Link>
+          </li>
         ))}
       </ul>
     </nav>

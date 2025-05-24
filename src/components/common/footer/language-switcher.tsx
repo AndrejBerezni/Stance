@@ -16,27 +16,26 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <ul className="flex gap-0" role="radiogroup">
+    <div className="flex gap-0" role="radiogroup">
       {locales.map((locale) => (
-        <li
+        <button
           key={`${locale}-select`}
-          className="border-l-[1px] px-2 first:border-l-0"
-        >
-          <button
-            type="button"
-            role="radio"
-            aria-checked={locale === currentLocale}
-            aria-label={`Select ${locale} language`}
-            onClick={() => handleLocaleChange(locale)}
-            className={cn('text-xs uppercase hover:cursor-pointer', {
+          type="button"
+          role="radio"
+          aria-checked={locale === currentLocale}
+          aria-label={`Select ${locale} language`}
+          onClick={() => handleLocaleChange(locale)}
+          className={cn(
+            'border-l-[1px] px-2 text-xs uppercase first:border-l-0 hover:cursor-pointer',
+            {
               'text-ink-500 hover:text-ink-700': locale !== currentLocale,
               'text-ink-700 font-semibold': locale === currentLocale,
-            })}
-          >
-            {locale}
-          </button>
-        </li>
+            }
+          )}
+        >
+          {locale}
+        </button>
       ))}
-    </ul>
+    </div>
   );
 }

@@ -25,7 +25,7 @@ export default function CartButton() {
   // TO BE IMPLEMENTED: useCart hook that we will use on this button
 
   return (
-    <NavbarButton>
+    <NavbarButton aria-label="Cart button">
       <ShoppingBag size={24} />
       {TEMP_ITEMS > 0 && <NumberOfItems items={TEMP_ITEMS} />}
     </NavbarButton>
