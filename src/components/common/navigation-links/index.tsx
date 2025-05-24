@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
+import { useSidebar } from '@/lib/providers/sidebar-provider';
 import { cn } from '@/lib/utils/cn';
 
 /* Since NavigationLinks is reusable component (at the moment of it's creation it is being used on navbar and sidebar),
@@ -19,6 +20,7 @@ export default function NavigationLinks({
   const translate = useTranslations('navigation');
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
+  const { closeSidebar } = useSidebar();
 
   const links = useMemo(
     () => [
@@ -33,7 +35,7 @@ export default function NavigationLinks({
   );
 
   return (
-    <nav>
+    <nav onClick={closeSidebar}>
       <ul {...props}>
         {links.map((link) => (
           <Link
