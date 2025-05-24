@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { cn } from '@/lib/utils/cn';
 
@@ -10,6 +10,7 @@ import buttonVariants from '../ui/button/styles';
 
 export default function ErrorSection({ reset }: { reset: () => void }) {
   const translate = useTranslations('errorPage');
+  const locale = useLocale();
 
   return (
     <section className="flex min-h-[70vh] w-full items-center justify-center rounded-t-lg bg-[url(/images/abstract-background.jpg)] bg-cover">
@@ -31,6 +32,7 @@ export default function ErrorSection({ reset }: { reset: () => void }) {
           </Button>
           <Link
             href="/"
+            locale={locale}
             className={cn(buttonVariants({ variant: 'secondary', size: 'md' }))}
           >
             {translate('backHome')}

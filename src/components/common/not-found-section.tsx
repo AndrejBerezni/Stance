@@ -1,9 +1,6 @@
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import { cn } from '@/lib/utils/cn';
-
-import buttonVariants from '../ui/button/styles';
+import BackHomeButton from './back-home-button';
 
 export default function NotFoundSection() {
   const translate = useTranslations('notFoundPage');
@@ -21,12 +18,7 @@ export default function NotFoundSection() {
         <p className="text-ink-600 mb-8 text-lg md:mb-16 md:text-xl">
           {translate('noPageText')}
         </p>
-        <Link
-          href="/"
-          className={cn(buttonVariants({ variant: 'primary', size: 'md' }))}
-        >
-          {translate('backHome')}
-        </Link>
+        <BackHomeButton />
       </div>
     </section>
   );
