@@ -34,7 +34,7 @@ export default async function Home({
                 title={translate('latestArrivals')}
                 headerAction={
                   <Link
-                    href={`${locale}/products`}
+                    href={`/${locale}/products`}
                     className={cn(
                       buttonVariants({
                         variant: 'secondary',

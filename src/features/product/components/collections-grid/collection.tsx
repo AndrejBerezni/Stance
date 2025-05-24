@@ -16,7 +16,7 @@ export default function Collection({
   const locale = useLocale();
   return (
     <Link
-      href={`/${locale}/products?collection=${collection.collection_id}`}
+      href={`/${locale}/products?collection=${encodeURIComponent(collection.collection_id)}`}
       className="group relative col-span-1 min-h-[276px] overflow-hidden rounded-xl first:row-span-2"
     >
       <Image
