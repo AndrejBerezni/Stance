@@ -1,7 +1,7 @@
 'use client';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
 
 import buttonVariants from '../ui/button/styles';

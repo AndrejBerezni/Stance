@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
-
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 
 export default function Brand() {
   return (
