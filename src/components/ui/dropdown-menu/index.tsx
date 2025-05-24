@@ -56,6 +56,7 @@ export default function DropdownMenu({
     <>
       <div
         ref={targetRef}
+        role="button"
         aria-haspopup="menu"
         aria-expanded={visible}
         aria-controls={id}

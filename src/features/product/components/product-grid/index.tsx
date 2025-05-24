@@ -11,6 +11,7 @@ interface ProductGridProps {
   header?: React.ReactNode;
   excludeProductId?: string;
   hasPagination?: boolean;
+  withPriorityLoading?: boolean;
 }
 
 export default async function ProductGrid({
@@ -20,6 +21,7 @@ export default async function ProductGrid({
   header,
   excludeProductId,
   hasPagination = false,
+  withPriorityLoading = false,
 }: ProductGridProps) {
   const response = await getProducts(searchParams);
   const products = response.data;
@@ -47,7 +49,10 @@ export default async function ProductGrid({
               return null;
             return (
               <li key={`${product.product_id}-related-card`}>
-                <ProductCard cardData={product} index={index} />
+                <ProductCard
+                  cardData={product}
+                  priorityLoad={withPriorityLoading && index < 3}
+                />
               </li>
             );
           })}

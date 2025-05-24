@@ -12,10 +12,13 @@ import { generateProductLink, getInventoryPrice } from '../../utils';
 
 interface ProductCardProps {
   cardData: ExtendedProduct;
-  index: number; // passing index to pass to image component to add priority load for first 4 images
+  priorityLoad: boolean;
 }
 
-export default function ProductCard({ cardData, index }: ProductCardProps) {
+export default function ProductCard({
+  cardData,
+  priorityLoad,
+}: ProductCardProps) {
   const {
     product_id,
     name,
@@ -57,7 +60,12 @@ export default function ProductCard({ cardData, index }: ProductCardProps) {
 
   return (
     <article>
-      <ProductCardImage src={image} alt={name} href={href} index={index} />
+      <ProductCardImage
+        src={image}
+        alt={name}
+        href={href}
+        priorityLoad={priorityLoad}
+      />
       <div className="flex flex-col gap-3 py-4">
         <ProductCardHeader
           displayedColor={displayedColor}
