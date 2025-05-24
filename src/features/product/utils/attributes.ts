@@ -51,6 +51,7 @@ export const setDefaultColorAndSize = async (
 };
 
 export const generateProductLink = (
+  locale: string,
   product_id: string,
   available_colors: string[],
   sizing_convention: string | null,
@@ -70,5 +71,5 @@ export const generateProductLink = (
     }
   }
 
-  return `/${product_id}?${searchParams.toString()}`;
+  return `/${locale}/${product_id}?${searchParams.toString()}`;
 };

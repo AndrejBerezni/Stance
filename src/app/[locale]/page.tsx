@@ -13,8 +13,13 @@ import ProductGridHeader from '@/features/product/components/product-grid/produc
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 import { cn } from '@/lib/utils/cn';
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const translate = await getTranslations('home');
+  const { locale } = await params;
 
   return (
     <>
@@ -29,7 +34,7 @@ export default async function Home() {
                 title={translate('latestArrivals')}
                 headerAction={
                   <Link
-                    href="/products"
+                    href={`/${locale}/products`}
                     className={cn(
                       buttonVariants({
                         variant: 'secondary',

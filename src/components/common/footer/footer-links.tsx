@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface LinksColumnProps {
   title: string;
@@ -30,6 +30,7 @@ function LinksColumn({ title, links }: LinksColumnProps) {
 
 export default function FooterLinks() {
   const translate = useTranslations('footer');
+  const locale = useLocale();
   const links = useMemo(
     () => [
       {
@@ -37,17 +38,17 @@ export default function FooterLinks() {
         links: [
           {
             id: 'unisex-link',
-            href: '/products?category=unisex',
+            href: `/${locale}/products?category=unisex`,
             text: translate('unisex'),
           },
           {
             id: 'women-link',
-            href: '/products?category=women',
+            href: `/${locale}/products?category=women`,
             text: translate('women'),
           },
           {
             id: 'men-link',
-            href: '/products?category=men',
+            href: `/${locale}/products?category=men`,
             text: translate('men'),
           },
         ],
@@ -57,23 +58,23 @@ export default function FooterLinks() {
         links: [
           {
             id: 'urban-link',
-            href: '/products?collection=urban',
+            href: `/${locale}/products?collection=urban`,
             text: translate('urban'),
           },
           {
             id: 'cozy-link',
-            href: '/products?collection=cozy',
+            href: `/${locale}/products?collection=cozy`,
             text: translate('cozy'),
           },
           {
             id: 'fresh-link',
-            href: '/products?collection=fresh',
+            href: `/${locale}/products?collection=fresh`,
             text: translate('fresh'),
           },
         ],
       },
     ],
-    [translate]
+    [translate, locale]
   );
   return (
     <div className="grid flex-1 grid-cols-1 gap-8 md:grid-cols-2 xl:flex xl:justify-evenly">
