@@ -20,7 +20,7 @@ export default function ProductRating({
   return (
     <div className="mt-3 flex items-center gap-2">
       <p className="text-xl">{rating}</p>
-      <StarRating locked rating={Number(rating)} />
+      <StarRating locked rating={rating} />
       <ReviewsAction
         productId={productId}
         total={numberOfReviews}

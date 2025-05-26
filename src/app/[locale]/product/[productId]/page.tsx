@@ -9,7 +9,10 @@ import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridHeader from '@/features/product/components/product-grid/product-grid-header';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 import ProductSpecificationsSection from '@/features/product/components/product-specifications-section';
-import { getProduct, getProductForMetadata } from '@/features/product/data';
+import {
+  getProduct,
+  getProductForMetadata,
+} from '@/features/product/data/server';
 import { setDefaultColorAndSize } from '@/features/product/utils';
 
 export async function generateMetadata({

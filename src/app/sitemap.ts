@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { getProductsForSiteMap } from '@/features/product/data';
+import { getProductsForSiteMap } from '@/features/product/data/server';
 import { baseUrl } from '@/lib/utils/url';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

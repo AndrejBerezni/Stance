@@ -14,7 +14,7 @@ export const reviewsPerProductQuery = ({
   sql`SELECT *
     FROM product_reviews
     WHERE product_id=${productId}
-    SORT BY ${sort}
+    ORDER BY ${sort}
     DESC LIMIT ${limit}
     OFFSET ${offset}`;
 
@@ -23,3 +23,11 @@ export const numberOfReviewsQuery = (
 ) => sql`SELECT number_of_reviews
      FROM products
      WHERE product_id=${productId}`;
+
+export const ratingStatisticsQuery = (
+  productId: string
+) => sql`SELECT rating, COUNT(*) AS count
+FROM product_reviews
+WHERE product_id =${productId}
+GROUP BY rating
+ORDER BY rating DESC;`;

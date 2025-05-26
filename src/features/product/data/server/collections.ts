@@ -1,7 +1,7 @@
 'server only';
 
-import { Collection } from '../types';
-import { getLatestCollectionsQuery } from './queries/collections';
+import { Collection } from '../../types';
+import { getLatestCollectionsQuery } from '../queries/collections';
 
 export const getLatestCollections = async (): Promise<
   Collection[] | undefined

@@ -8,7 +8,7 @@ export interface Review {
 }
 
 export interface ReviewsResponse {
-  data: Review[];
+  data: { reviews: Review[]; statistics: Record<string, any> };
   meta: {
     page: number;
     totalPages: number;

@@ -2,15 +2,15 @@
 
 import sql from '@/lib/db/connect';
 
-import { ExtendedProduct, ProductsResponse } from '../types';
-import { convertSearchParamsToFilters } from '../utils';
+import { ExtendedProduct, ProductsResponse } from '../../types';
+import { convertSearchParamsToFilters } from '../../utils';
 import {
   countProductsQuery,
   metadataProductQuery,
   multipleProductsQuery,
   singleProductQuery,
   sitemapProductsQuery,
-} from './queries/product';
+} from '../queries/product';
 
 export const getProduct = async (
   productId: string
@@ -53,7 +53,7 @@ export const getProducts = async (
       }
     );
 
-    const totalItems = Number(countResult[0].total);
+    const totalItems = parseInt(countResult[0].total);
     const totalPages = Math.ceil(totalItems / limit);
 
     return {

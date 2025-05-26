@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
 import Collection from './collection';
-import { getLatestCollections } from '../../data';
+import { getLatestCollections } from '../../data/server';
 
 export default async function CollectionsGrid() {
   const translate = await getTranslations('home');

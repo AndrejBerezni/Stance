@@ -1,7 +1,7 @@
 import Pagination from '@/components/common/pagination';
 import { cn } from '@/lib/utils/cn';
 
-import { getProducts } from '../../data';
+import { getProducts } from '../../data/server';
 import ProductCard from '../product-card';
 
 interface ProductGridProps {
