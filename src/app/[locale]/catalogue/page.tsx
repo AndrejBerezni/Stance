@@ -10,7 +10,7 @@ export default async function CataloguePage({
   searchParams: Promise<Record<string, string | string[]>>;
 }) {
   const resolvedParams = await searchParams;
-  // until moving to React-Query to fetch data on client and handle loading state, we recreate suspense boundary by assigning new key
+  // we recreate suspense boundary by assigning new key to show skeleton while loading new items
   const reloadKey = JSON.stringify(resolvedParams);
 
   return (

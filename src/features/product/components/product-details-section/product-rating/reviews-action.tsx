@@ -17,7 +17,6 @@ export default function ReviewsAction({
 }: ReviewsActionProps) {
   const translate = useTranslations('productPage');
   const locale = useLocale();
-
   const noReviews = total === 0;
 
   if (reviewsOpen) {
