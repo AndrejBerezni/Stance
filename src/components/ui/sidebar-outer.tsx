@@ -1,9 +1,9 @@
-interface ModalOuterProps {
+interface SidebarOuterProps {
   closeModal: () => void;
   show: boolean;
 }
 
-export default function ModalOuter({ closeModal, show }: ModalOuterProps) {
+export default function SidebarOuter({ closeModal, show }: SidebarOuterProps) {
   if (show)
     return (
       <div

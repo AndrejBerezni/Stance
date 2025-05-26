@@ -40,5 +40,10 @@ export const routing = defineRouting({
       en: '/product/[productId]/reviews',
       pt: '/produto/[productId]/avaliacoes',
     },
+
+    '/product/[productId]/add-review': {
+      en: '/product/[productId]/add-reviews',
+      pt: '/produto/[productId]/addicionar-avaliacao',
+    },
   },
 });

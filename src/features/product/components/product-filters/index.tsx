@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import ModalOuter from '@/components/common/modal/modal-outer';
+import SidebarOuter from '@/components/ui/sidebar-outer';
 import useIsDesktop from '@/hooks/useIsDesktop';
 import { cn } from '@/lib/utils/cn';
 
@@ -47,7 +47,7 @@ export default function ProductFilters({ filters }: ProductFiltersProps) {
         <div className="bg-border h-[1px] w-full"></div>
         <ClearFilters />
       </aside>
-      <ModalOuter closeModal={handleClose} show={!isDesktop && isOpen} />
+      <SidebarOuter closeModal={handleClose} show={!isDesktop && isOpen} />
     </>
   );
 }

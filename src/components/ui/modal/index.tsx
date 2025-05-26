@@ -8,5 +8,6 @@ interface ModalProps extends ModalImplementationProps {
 
 export default function Modal({ open, ...props }: ModalProps) {
   if (!open) return null;
+
   return <ModalImplementation {...props} />;
 }

@@ -1,36 +1,31 @@
 'use client';
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
 
 import StarRating from '@/components/ui/star-rating';
 
-import LeaveFirstReview from './leave-first-review';
-import SeeAllReviews from './see-all-reviews';
+import ReviewsAction from './reviews-action';
 
 interface ProductRatingProps {
   productId: string;
   numberOfReviews: number;
   rating: number;
+  reviewsOpen?: boolean;
 }
 
 export default function ProductRating({
   productId,
   numberOfReviews,
   rating,
+  reviewsOpen = false,
 }: ProductRatingProps) {
-  const locale = useLocale();
   return (
     <div className="mt-3 flex items-center gap-2">
       <p className="text-xl">{rating}</p>
       <StarRating locked rating={Number(rating)} />
-      {numberOfReviews === 0 ? (
-        <LeaveFirstReview />
-      ) : (
-        <SeeAllReviews total={numberOfReviews} />
-      )}
-      <Link href={`/${locale}/product/${productId}/reviews`}>
-        {`/${locale}/product/${productId}/reviews`}
-      </Link>
+      <ReviewsAction
+        productId={productId}
+        total={numberOfReviews}
+        reviewsOpen={reviewsOpen}
+      />
     </div>
   );
 }
