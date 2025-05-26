@@ -33,7 +33,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Product({
+export default async function ProductPage({
   params,
   searchParams,
 }: {
@@ -44,7 +44,7 @@ export default async function Product({
   const { productId } = await params;
 
   const product = await getProduct(productId);
-  if (!product) redirect('/products');
+  if (!product) redirect('/catalogue');
 
   const { color, needsRedirect, updatedParams } = await setDefaultColorAndSize(
     searchParams,
@@ -52,7 +52,7 @@ export default async function Product({
   );
 
   if (needsRedirect) {
-    redirect(`/${productId}?${updatedParams.toString()}`);
+    redirect(`/product/${productId}?${updatedParams.toString()}`);
   }
 
   const productJsonLd = {

@@ -4,7 +4,7 @@ import NoResultsFound from '@/features/product/components/product-filters/no-res
 import ProductGrid from '@/features/product/components/product-grid';
 import ProductGridSkeleton from '@/features/product/components/product-grid/product-grid-skeleton';
 
-export default async function ProductsPage({
+export default async function CataloguePage({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string | string[]>>;

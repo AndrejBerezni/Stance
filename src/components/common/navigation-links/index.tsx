@@ -29,12 +29,12 @@ export default function NavigationLinks({
     () => [
       {
         id: 'shop-all-link',
-        href: `/products`,
+        href: `/catalogue`,
         text: translate('shopAll'),
       },
       {
         id: 'latest-arrivals-link',
-        href: '/products?sort=date',
+        href: '/catalogue?sort=date',
         text: translate('latestArrivals'),
       },
     ],

@@ -10,11 +10,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (products) {
     products.forEach((product) =>
       productRoutes.push({
-        url: `${baseUrl}/en/${product.product_id}`,
+        url: `${baseUrl}/en/product/${product.product_id}`,
         lastModified: product.updated_at,
         alternates: {
           languages: {
-            pt: `${baseUrl}/pt/${product.product_id}`,
+            pt: `${baseUrl}/pt/produto/${product.product_id}`,
           },
         },
       })
@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     },
     {
-      url: `${baseUrl}/en/products`,
+      url: `${baseUrl}/en/catalogue`,
       lastModified: new Date(),
       alternates: {
         languages: {

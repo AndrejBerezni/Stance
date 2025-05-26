@@ -39,7 +39,11 @@ export default async function ProductDetailsSection({
             inventory={inventory}
             sizingConvention={sizing_convention}
           />
-          <ProductRating numberOfReviews={number_of_reviews} rating={rating} />
+          <ProductRating
+            productId={productId}
+            numberOfReviews={number_of_reviews}
+            rating={rating}
+          />
         </div>
 
         <p className="text-ink-600">{description}</p>

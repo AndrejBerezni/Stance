@@ -71,5 +71,5 @@ export const generateProductLink = (
     }
   }
 
-  return `/${locale}/${product_id}?${searchParams.toString()}`;
+  return `/${locale}/product/${product_id}?${searchParams.toString()}`;
 };
