@@ -2,6 +2,8 @@ export interface Review {
   id: number;
   product_id: string;
   user_id: string;
+  user_name: string;
+  user_avatar: string;
   rating: number;
   content: string;
   created_at: Date;

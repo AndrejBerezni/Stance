@@ -2,15 +2,16 @@
 
 import { useQuery } from '@tanstack/react-query';
 
+import OverallRating from './overall-rating';
+import ReviewsList from './reviews-list';
 import { fetchReviewsForProduct } from '../../data/client';
-import { Review } from '../../types';
 
 interface ReviewsProps {
   productId: string;
 }
 
 export default function Reviews({ productId }: ReviewsProps) {
-  const { data } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ['reviews'],
     queryFn: async () =>
       await fetchReviewsForProduct({
@@ -20,13 +21,18 @@ export default function Reviews({ productId }: ReviewsProps) {
         page: 1,
       }),
   });
+
+  if (error) {
+    console.log(error.message);
+    return <div>{error.message}</div>;
+  }
   if (data) {
+    console.log('data:', data);
     return (
-      <>
-        {data.data.reviews.map((review: Review) => (
-          <p key={review.id}>{review.content}</p>
-        ))}
-      </>
+      <div className="grid grid-cols-1 xl:grid-cols-3">
+        <OverallRating />
+        <ReviewsList reviews={data.data.reviews} />
+      </div>
     );
   }
 }

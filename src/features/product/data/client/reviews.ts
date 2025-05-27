@@ -16,11 +16,12 @@ export const fetchReviewsForProduct = async ({
     page: page.toString(),
   });
 
-  const response = await fetch(`/api/reviews?${params}`);
+  const responsePromise = await fetch(`/api/reviews?${params}`);
+  const response = await responsePromise.json();
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch reviews');
+  if (response.error) {
+    throw new Error(response.error);
   }
 
-  return response.json();
+  return response;
 };

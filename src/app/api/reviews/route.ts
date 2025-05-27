@@ -1,4 +1,3 @@
-// app/api/reviews/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
 import { getReviewsForProduct } from '@/features/product/data/server';
@@ -13,10 +12,10 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1');
 
     if (!productId) {
-      return NextResponse.json(
-        { error: 'Product ID is required' },
-        { status: 400 }
-      );
+      return NextResponse.json({
+        error: 'Product ID is required',
+        status: 400,
+      });
     }
 
     const result = await getReviewsForProduct({
@@ -29,9 +28,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(result);
   } catch (error) {
     console.error('API Error:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch reviews' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch reviews', status: 500 });
   }
 }
