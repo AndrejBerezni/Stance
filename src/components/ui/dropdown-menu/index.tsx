@@ -1,9 +1,10 @@
-import { useEffect, useId, useRef } from 'react';
+import { useId, useRef } from 'react';
 
 import useFloatingElement, {
   FloatingElementAlign,
   FloatingElementPosition,
 } from '@/hooks/useFloatingElement';
+import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { cn } from '@/lib/utils/cn';
 
 import Portal from '../portal';
@@ -34,23 +35,11 @@ export default function DropdownMenu({
       delay,
     });
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node;
-      if (
-        visible &&
-        !targetRef.current?.contains(target) &&
-        !menuRef.current?.contains(target)
-      ) {
-        hideElement();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [visible, hideElement, targetRef, menuRef]);
+  useOnClickOutside({
+    refs: [targetRef, menuRef],
+    handleClick: hideElement,
+    visible,
+  });
 
   return (
     <>

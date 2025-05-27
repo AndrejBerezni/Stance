@@ -38,17 +38,17 @@ export default function FooterLinks() {
         links: [
           {
             id: 'unisex-link',
-            href: `/${locale}/products?category=unisex`,
+            href: `/${locale}/catalogue?category=unisex`,
             text: translate('unisex'),
           },
           {
             id: 'women-link',
-            href: `/${locale}/products?category=women`,
+            href: `/${locale}/catalogue?category=women`,
             text: translate('women'),
           },
           {
             id: 'men-link',
-            href: `/${locale}/products?category=men`,
+            href: `/${locale}/catalogue?category=men`,
             text: translate('men'),
           },
         ],
@@ -58,17 +58,17 @@ export default function FooterLinks() {
         links: [
           {
             id: 'urban-link',
-            href: `/${locale}/products?collection=urban`,
+            href: `/${locale}/catalogue?collection=urban`,
             text: translate('urban'),
           },
           {
             id: 'cozy-link',
-            href: `/${locale}/products?collection=cozy`,
+            href: `/${locale}/catalogue?collection=cozy`,
             text: translate('cozy'),
           },
           {
             id: 'fresh-link',
-            href: `/${locale}/products?collection=fresh`,
+            href: `/${locale}/catalogue?collection=fresh`,
             text: translate('fresh'),
           },
         ],

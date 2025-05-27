@@ -23,7 +23,7 @@ export default async function Home({
 
   return (
     <>
-      <HeroSection />
+      <HeroSection locale={locale} />
 
       <section className="section-wrapper">
         <Suspense fallback={<ProductGridSkeleton items={8} withHeader />}>
@@ -34,7 +34,7 @@ export default async function Home({
                 title={translate('latestArrivals')}
                 headerAction={
                   <Link
-                    href={`/${locale}/products`}
+                    href={`/${locale}/catalogue`}
                     className={cn(
                       buttonVariants({
                         variant: 'secondary',

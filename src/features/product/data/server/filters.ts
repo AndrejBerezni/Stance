@@ -3,9 +3,9 @@
 import { AVAILABLE_COLORS } from '@/lib/constants';
 import sql from '@/lib/db/connect';
 
-import { FilterItem, IFilters } from '../types';
-import { getCategoriesFilterQuery } from './queries/categories';
-import { getCollectionsFilterQuery } from './queries/collections';
+import { FilterItem, IFilters } from '../../types';
+import { getCategoriesFilterQuery } from '../queries/categories';
+import { getCollectionsFilterQuery } from '../queries/collections';
 
 export const getFilters = async (): Promise<IFilters> => {
   const filters: IFilters = {

@@ -21,9 +21,29 @@ export const routing = defineRouting({
       pt: '/',
     },
 
-    '/products': {
-      en: '/products',
-      pt: '/produtos',
+    '/catalogue': {
+      en: '/catalogue',
+      pt: '/catalogo',
+    },
+
+    '/product': {
+      en: '/product',
+      pt: '/produto',
+    },
+
+    '/product/[productId]': {
+      en: '/product/[productId]',
+      pt: '/produto/[productId]',
+    },
+
+    '/product/[productId]/reviews': {
+      en: '/product/[productId]/reviews',
+      pt: '/produto/[productId]/avaliacoes',
+    },
+
+    '/product/[productId]/add-review': {
+      en: '/product/[productId]/add-review',
+      pt: '/produto/[productId]/addicionar-avaliacao',
     },
   },
 });

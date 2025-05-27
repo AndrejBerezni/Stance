@@ -41,6 +41,7 @@
     "addToCart": "Add to Cart",
     "seeAll": "See all",
     "reviews": "reviews",
+    "basedOn": "Based on",
     "discount": "OFF",
     "noReviews": "No reviews yet.",
     "beFirst": "Be the first.",
@@ -126,5 +127,14 @@
     "adjustFilters": "Adjust your filters a bit, and let's see what we can find!",
     "resetFilters": "Reset filters",
     "clearAll": "Clear all"
+  },
+  "reviews": {
+    "overallRating": "Overall Rating",
+    "excellent": "Excellent",
+    "good": "Good",
+    "average": "Average",
+    "belowAverage": "Below Average",
+    "poor": "Poor",
+    "loadMore": "Load more"
   }
 }

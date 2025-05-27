@@ -1,8 +1,8 @@
 import ProductFilters from '@/features/product/components/product-filters';
 import ProductSort from '@/features/product/components/product-sort';
-import { getFilters } from '@/features/product/data/filters';
+import { getFilters } from '@/features/product/data/server';
 
-export default async function ProductsLayout({
+export default async function CatalogueLayout({
   children,
 }: {
   children: React.ReactNode;

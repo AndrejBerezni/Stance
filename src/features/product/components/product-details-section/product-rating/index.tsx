@@ -1,26 +1,31 @@
+'use client';
+
 import StarRating from '@/components/ui/star-rating';
 
-import LeaveFirstReview from './leave-first-review';
-import SeeAllReviews from './see-all-reviews';
+import ReviewsAction from './reviews-action';
 
 interface ProductRatingProps {
+  productId?: string;
   numberOfReviews: number;
   rating: number;
+  reviewsOpen?: boolean;
 }
 
 export default function ProductRating({
+  productId,
   numberOfReviews,
   rating,
+  reviewsOpen = false,
 }: ProductRatingProps) {
   return (
     <div className="mt-3 flex items-center gap-2">
       <p className="text-xl">{rating}</p>
-      <StarRating locked rating={Number(rating)} />
-      {numberOfReviews === 0 ? (
-        <LeaveFirstReview />
-      ) : (
-        <SeeAllReviews total={numberOfReviews} />
-      )}
+      <StarRating locked rating={rating} />
+      <ReviewsAction
+        productId={productId}
+        total={numberOfReviews}
+        reviewsOpen={reviewsOpen}
+      />
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { useSidebar } from '@/lib/providers/sidebar-provider';
 import { cn } from '@/lib/utils/cn';
 
-import ModalOuter from '../modal/modal-outer';
+import SidebarOuter from '../../ui/sidebar-outer';
 import NavigationLinks from '../navigation-links';
 import SidebarHeader from './sidebar-header';
 
@@ -26,7 +26,7 @@ export default function Sidebar() {
         <SidebarHeader />
         <NavigationLinks className="flex flex-col gap-8 p-3" />
       </aside>
-      <ModalOuter closeModal={closeSidebar} show={isOpen} />
+      <SidebarOuter closeModal={closeSidebar} show={isOpen} />
     </>
   );
 }
