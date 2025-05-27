@@ -134,6 +134,7 @@
     "good": "Bom",
     "average": "Médio",
     "belowAverage": "Abaixo da Média",
-    "poor": "Fraco"
+    "poor": "Fraco",
+    "loadMore": "Carregue mais"
   }
 }

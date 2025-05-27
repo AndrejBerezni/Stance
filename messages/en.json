@@ -134,6 +134,7 @@
     "good": "Good",
     "average": "Average",
     "belowAverage": "Below Average",
-    "poor": "Poor"
+    "poor": "Poor",
+    "loadMore": "Load more"
   }
 }

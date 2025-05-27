@@ -32,7 +32,7 @@ export default function OverallRating({
           (item: StatisticsItem) => item.rating === rating
         );
         const count = statisticsItem?.count ?? 0;
-        console.log(count, rating);
+
         return {
           grade: GradeMap.get(rating),
           percentage: Math.floor((count / total.number_of_reviews) * 100),

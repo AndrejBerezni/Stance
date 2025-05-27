@@ -1,10 +1,12 @@
+import { memo } from 'react';
+
 import StarRating from '@/components/ui/star-rating';
 import CustomerAvatar from '@/features/customer/components/customer-avatar';
 
 import { Review } from '../../types';
 import { formatDate } from '../../utils';
 
-export default function ReviewCard({ review }: { review: Review }) {
+function ReviewCard({ review }: { review: Review }) {
   return (
     <article className="flex flex-col gap-4">
       <div className="flex gap-4">
@@ -23,3 +25,5 @@ export default function ReviewCard({ review }: { review: Review }) {
     </article>
   );
 }
+
+export default memo(ReviewCard);
