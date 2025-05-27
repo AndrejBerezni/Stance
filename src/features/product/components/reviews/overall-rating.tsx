@@ -42,7 +42,7 @@ export default function OverallRating({
   );
 
   return (
-    <section className="flex flex-col gap-6">
+    <section className="bg-background top-0 z-30 flex h-fit flex-col gap-6 xl:sticky">
       <div>
         <h2 className="text-xl font-semibold">{translate('overallRating')}</h2>
         <ProductRating

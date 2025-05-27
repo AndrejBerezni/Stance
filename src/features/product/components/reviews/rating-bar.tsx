@@ -20,7 +20,7 @@ export default function RatingBar({ grade, percentage }: RatingBarProps) {
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label={`${percentage}% of all reviews are rated ${grade}`}
-        className="h-3 flex-1 rounded-full bg-gray-200"
+        className="h-3 flex-1 rounded-full bg-gray-200 xl:min-w-50"
         aria-hidden="true"
       >
         <div

@@ -27,10 +27,10 @@ export default function ModalImplementation({
       <div
         role="dialog"
         ref={modalRef}
-        className="bg-background z-20 h-full w-full max-w-[1008px] rounded-md px-6 pb-6 xl:px-8 xl:pb-8"
+        className="bg-background z-20 flex h-full w-full max-w-[1008px] flex-col rounded-md px-6 pb-6 xl:px-8 xl:pb-8"
       >
         <ModalHeader title={title} handleClose={back} />
-        {children}
+        <div className="no-scrollbar relative overflow-scroll">{children}</div>
       </div>
     </div>,
     document.body

@@ -26,12 +26,13 @@ export default function Reviews({ productId }: ReviewsProps) {
   if (isLoading) return <ReviewsSkeleton />;
 
   if (error) {
-    return <div>{error.message}</div>;
+    // This error will be caught by error boundary and error page will be displayed
+    throw new Error(error.message);
   }
+
   if (data) {
-    console.log('data:', data);
     return (
-      <div className="grid grid-cols-1 gap-10 xl:grid-cols-3 xl:gap-8">
+      <div className="flex flex-col gap-10 xl:flex-row xl:gap-8">
         <OverallRating
           statistics={data.data.statistics}
           total={data.data.total}

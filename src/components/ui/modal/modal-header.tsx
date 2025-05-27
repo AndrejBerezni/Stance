@@ -6,7 +6,7 @@ interface ModalHeaderProps {
 
 export default function ModalHeader({ title, handleClose }: ModalHeaderProps) {
   return (
-    <div className="flex py-6">
+    <div className="bg-background z-40 flex py-6">
       {title && <h1 className="text-xl font-semibold">{title}</h1>}
       <button
         type="button"
