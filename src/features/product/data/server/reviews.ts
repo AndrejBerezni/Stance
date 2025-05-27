@@ -1,8 +1,14 @@
 'server only';
 import sql from '@/lib/db/connect';
 
-import { Review, ReviewsResponse } from '../../types';
 import {
+  Review,
+  ReviewsResponse,
+  StatisticsItem,
+  TotalReviews,
+} from '../../types';
+import {
+  numberOfReviewsQuery,
   ratingStatisticsQuery,
   reviewsPerProductQuery,
 } from '../queries/reviews';
@@ -21,25 +27,26 @@ export const getReviewsForProduct = async ({
   try {
     const offset = (page - 1) * limit;
 
-    const [reviewsResult, statisticsResult] = await sql.transaction([
-      reviewsPerProductQuery({
-        productId,
-        sort,
-        limit,
-        offset,
-      }),
-      ratingStatisticsQuery(productId),
-    ]);
+    const [reviewsResult, statisticsResult, totalResult] =
+      await sql.transaction([
+        reviewsPerProductQuery({
+          productId,
+          sort,
+          limit,
+          offset,
+        }),
+        ratingStatisticsQuery(productId),
+        numberOfReviewsQuery(productId),
+      ]);
 
-    const totalItems = statisticsResult.reduce((acc, cur) => {
-      return acc + cur.count;
-    }, 0);
+    const totalItems = totalResult[0].number_of_reviews;
     const totalPages = Math.ceil(totalItems / limit);
 
     return {
       data: {
         reviews: reviewsResult as Review[],
-        statistics: statisticsResult,
+        statistics: statisticsResult as StatisticsItem[],
+        total: totalResult[0] as TotalReviews,
       },
       meta: {
         page,
@@ -57,6 +64,7 @@ export const getReviewsForProduct = async ({
       data: {
         reviews: [],
         statistics: [],
+        total: { number_of_reviews: 0, rating: 0 },
       },
       meta: {
         page: 1,

@@ -12,7 +12,7 @@ interface ReviewsProps {
 
 export default function Reviews({ productId }: ReviewsProps) {
   const { data, error } = useQuery({
-    queryKey: ['reviews'],
+    queryKey: ['reviews', productId],
     queryFn: async () =>
       await fetchReviewsForProduct({
         productId,
@@ -29,8 +29,11 @@ export default function Reviews({ productId }: ReviewsProps) {
   if (data) {
     console.log('data:', data);
     return (
-      <div className="grid grid-cols-1 xl:grid-cols-3">
-        <OverallRating />
+      <div className="grid grid-cols-1 gap-10 xl:grid-cols-3 xl:gap-8">
+        <OverallRating
+          statistics={data.data.statistics}
+          total={data.data.total}
+        />
         <ReviewsList reviews={data.data.reviews} />
       </div>
     );

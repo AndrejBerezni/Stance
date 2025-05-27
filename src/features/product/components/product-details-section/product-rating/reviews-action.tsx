@@ -5,7 +5,7 @@ import buttonVariants from '@/components/ui/button/styles';
 import { cn } from '@/lib/utils/cn';
 
 interface ReviewsActionProps {
-  productId: string;
+  productId?: string;
   total: number;
   reviewsOpen: boolean;
 }
@@ -29,21 +29,23 @@ export default function ReviewsAction({
     );
   }
 
-  return (
-    <div className="flex gap-1 text-sm">
-      {noReviews && <p>{translate('noReviews')}</p>}
-      <Link
-        href={
-          noReviews
-            ? `/${locale}/product/${productId}/add-review`
-            : `/${locale}/product/${productId}/reviews`
-        }
-        className={cn(buttonVariants({ variant: 'link' }), 'text-sm')}
-      >
-        {noReviews
-          ? translate('beFirst')
-          : `${translate('seeAll')} ${total} ${translate('reviews')}`}
-      </Link>
-    </div>
-  );
+  if (productId) {
+    return (
+      <div className="flex gap-1 text-sm">
+        {noReviews && <p>{translate('noReviews')}</p>}
+        <Link
+          href={
+            noReviews
+              ? `/${locale}/product/${productId}/add-review`
+              : `/${locale}/product/${productId}/reviews`
+          }
+          className={cn(buttonVariants({ variant: 'link' }), 'text-sm')}
+        >
+          {noReviews
+            ? translate('beFirst')
+            : `${translate('seeAll')} ${total} ${translate('reviews')}`}
+        </Link>
+      </div>
+    );
+  }
 }

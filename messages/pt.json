@@ -127,5 +127,13 @@
     "adjustFilters": "Ajusta um pouco os teus filtros e vamos ver o que conseguimos encontrar!",
     "resetFilters": "Repor filtros",
     "clearAll": "Limpar tudo"
+  },
+  "reviews": {
+    "overallRating": "Classificação Geral",
+    "excellent": "Excelente",
+    "good": "Bom",
+    "average": "Médio",
+    "belowAverage": "Abaixo da Média",
+    "poor": "Fraco"
   }
 }

@@ -127,5 +127,13 @@
     "adjustFilters": "Adjust your filters a bit, and let's see what we can find!",
     "resetFilters": "Reset filters",
     "clearAll": "Clear all"
+  },
+  "reviews": {
+    "overallRating": "Overall Rating",
+    "excellent": "Excellent",
+    "good": "Good",
+    "average": "Average",
+    "belowAverage": "Below Average",
+    "poor": "Poor"
   }
 }

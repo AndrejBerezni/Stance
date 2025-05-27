@@ -13,17 +13,21 @@ export default function CustomerAvatar({
   customer,
 }: CustomerAvatarProps) {
   return (
-    <Image
-      src={src ?? '/images/no-image.jpg'}
-      alt={`${customer}'s avatar`}
-      width={48}
-      height={48}
-      placeholder="blur"
-      blurDataURL={BLUR_DATA_URL}
-      className={cn('rounded-full', {
+    <div
+      className={cn('relative overflow-hidden rounded-full', {
         'h-18 w-18': size === 'md',
         'h-12 w-12': size === 'sm',
       })}
-    />
+    >
+      <Image
+        src={src ?? '/images/no-image.jpg'}
+        alt={`${customer}'s avatar`}
+        fill
+        sizes="48px"
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
+        className="object-cover object-center"
+      />
+    </div>
   );
 }

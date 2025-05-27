@@ -30,7 +30,7 @@ export const reviewsPerProductQuery = ({
 
 export const numberOfReviewsQuery = (
   productId: string
-) => sql`SELECT number_of_reviews
+) => sql`SELECT number_of_reviews, rating
      FROM products
      WHERE product_id=${productId}`;
 

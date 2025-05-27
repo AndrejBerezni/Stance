@@ -5,7 +5,7 @@ import StarRating from '@/components/ui/star-rating';
 import ReviewsAction from './reviews-action';
 
 interface ProductRatingProps {
-  productId: string;
+  productId?: string;
   numberOfReviews: number;
   rating: number;
   reviewsOpen?: boolean;
