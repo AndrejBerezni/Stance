@@ -13,7 +13,7 @@ export default async function ReviewsPage({
   const queryClient = getQueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['reviews'],
+    queryKey: ['reviews', productId],
     queryFn: async () =>
       await fetchReviewsForProduct({
         productId,

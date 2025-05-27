@@ -7,7 +7,13 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     const productId = searchParams.get('productId');
-    const sort = searchParams.get('sort') as 'rating' | 'created_at';
+
+    const sortParam = searchParams.get('sort');
+    const sort =
+      sortParam === 'rating' || sortParam === 'created_at'
+        ? sortParam
+        : 'created_at';
+
     const limit = parseInt(searchParams.get('limit') || '10');
     const page = parseInt(searchParams.get('page') || '1');
 

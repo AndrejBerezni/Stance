@@ -15,13 +15,12 @@ export default function RatingBar({ grade, percentage }: RatingBarProps) {
     <div className="flex items-center gap-4">
       <span className="text-ink-600 w-32 font-medium">{translate(grade)}</span>
       <div
-        role="progresbar"
+        role="progressbar"
         aria-valuenow={percentage}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label={`${percentage}% of all reviews are rated ${grade}`}
         className="h-3 flex-1 rounded-full bg-gray-200 xl:min-w-50"
-        aria-hidden="true"
       >
         <div
           className={cn(barVariants({ grade }))}

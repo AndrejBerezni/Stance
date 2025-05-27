@@ -42,7 +42,7 @@ export const routing = defineRouting({
     },
 
     '/product/[productId]/add-review': {
-      en: '/product/[productId]/add-reviews',
+      en: '/product/[productId]/add-review',
       pt: '/produto/[productId]/addicionar-avaliacao',
     },
   },

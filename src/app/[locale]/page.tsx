@@ -23,7 +23,7 @@ export default async function Home({
 
   return (
     <>
-      <HeroSection />
+      <HeroSection locale={locale} />
 
       <section className="section-wrapper">
         <Suspense fallback={<ProductGridSkeleton items={8} withHeader />}>

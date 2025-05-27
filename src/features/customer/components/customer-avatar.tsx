@@ -4,7 +4,7 @@ import { BLUR_DATA_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils/cn';
 interface CustomerAvatarProps {
   size?: 'sm' | 'md';
-  src: string;
+  src?: string | null;
   customer: string;
 }
 export default function CustomerAvatar({

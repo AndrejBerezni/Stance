@@ -57,7 +57,7 @@ export const getReviewsForProduct = async ({
     };
   } catch (error) {
     if (error instanceof Error) {
-      console.error(`Error fetching products:`, error.message);
+      console.error(`Error fetching reviews:`, error.message);
     }
 
     return {
@@ -69,7 +69,7 @@ export const getReviewsForProduct = async ({
       meta: {
         page: 1,
         totalPages: 1,
-        pageSize: 6,
+        pageSize: limit,
         totalItems: 0,
       },
     };

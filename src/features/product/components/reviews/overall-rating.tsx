@@ -7,7 +7,7 @@ import { Grade, TotalReviews, StatisticsItem } from '../../types';
 import ProductRating from '../product-details-section/product-rating';
 
 interface OverallRatingProps {
-  statistics: Record<string, any>;
+  statistics: StatisticsItem[];
   total: TotalReviews;
 }
 

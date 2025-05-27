@@ -1,3 +1,5 @@
+import { ReviewsResponse } from '../../types';
+
 export const fetchReviewsForProduct = async ({
   productId,
   sort,
@@ -8,7 +10,7 @@ export const fetchReviewsForProduct = async ({
   sort: 'rating' | 'created_at';
   limit: number;
   page: number;
-}) => {
+}): Promise<ReviewsResponse> => {
   const params = new URLSearchParams({
     productId,
     sort,
@@ -16,12 +18,12 @@ export const fetchReviewsForProduct = async ({
     page: page.toString(),
   });
 
-  const responsePromise = await fetch(`/api/reviews?${params}`);
-  const response = await responsePromise.json();
+  const response = await fetch(`/api/reviews?${params}`);
+  const data = await response.json();
 
-  if (response.error) {
-    throw new Error(response.error);
+  if (data.error) {
+    throw new Error(data.error);
   }
 
-  return response;
+  return data;
 };

@@ -37,7 +37,7 @@ export default function Reviews({ productId }: ReviewsProps) {
 
   if (!data) return <ReviewsSkeleton />;
 
-  if (data) {
+  if (data.pages.length > 0) {
     return (
       <div className="flex flex-col gap-10 xl:flex-row xl:gap-8">
         <OverallRating
