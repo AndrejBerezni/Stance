@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import OverallRating from './overall-rating';
 import ReviewsList from './reviews-list';
+import ReviewsSkeleton from './reviews-skeleton';
 import { fetchReviewsForProduct } from '../../data/client';
 
 interface ReviewsProps {
@@ -11,7 +12,7 @@ interface ReviewsProps {
 }
 
 export default function Reviews({ productId }: ReviewsProps) {
-  const { data, error } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ['reviews', productId],
     queryFn: async () =>
       await fetchReviewsForProduct({
@@ -22,8 +23,9 @@ export default function Reviews({ productId }: ReviewsProps) {
       }),
   });
 
+  if (isLoading) return <ReviewsSkeleton />;
+
   if (error) {
-    console.log(error.message);
     return <div>{error.message}</div>;
   }
   if (data) {
