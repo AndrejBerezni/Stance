@@ -1,28 +1,56 @@
 import { useEffect, useState } from 'react';
 
-// TO CONSIDER: This hook might handle both adding to cart and editing amount of items in the cart
+import { InventoryItem } from '@/features/product/types';
+import { useAppDispatch } from '@/hooks/redux-hooks';
+
+import { updateCartItem } from '../cart-slice';
+
+/* This hooks is used to handle increment/decrement items on product page, and then adding them to cart
+and handling amount of items in the cart when they are already added
+*/
 
 interface UseAddToCartParams {
-  sku: string;
+  item: InventoryItem | null;
   max: number;
   initialAmount: number;
   disabled?: boolean;
 }
 
 export default function useAddToCart({
-  sku,
+  item,
   max,
   initialAmount,
   disabled = false,
 }: UseAddToCartParams) {
+  const dispatch = useAppDispatch();
   // TO BE IMPLEMENTED: when we have cart store, this will handle adding products to cart, now we are just handling it for UI updates
   const [amount, setAmount] = useState<number>(initialAmount);
 
-  const handleIncrement = () => {
-    if (amount < max && !disabled) setAmount((prev) => prev + 1);
+  const handleIncrement = (cart?: boolean) => {
+    if (amount < max && !disabled && item) {
+      const newAmount = amount + 1;
+      setAmount(newAmount);
+      if (cart) {
+        dispatch(updateCartItem({ item, quantity: newAmount }));
+      }
+    }
   };
-  const handleDecrement = () => {
-    if (amount > 1 && !disabled) setAmount((prev) => prev - 1);
+
+  const handleDecrement = (cart?: boolean) => {
+    if (amount > 1 && !disabled && item) {
+      const newAmount = amount - 1;
+      setAmount(newAmount);
+      if (cart) {
+        dispatch(updateCartItem({ item, quantity: newAmount }));
+      }
+    }
+  };
+
+  const handleRemoveFromCart = () => {
+    if (amount >= 1 && item) {
+      setAmount(0);
+      dispatch(updateCartItem({ item, quantity: 0 }));
+    }
   };
 
   useEffect(() => {
@@ -32,14 +60,16 @@ export default function useAddToCart({
   }, [max]);
 
   const addToCart = () => {
-    // TO DO: cart logic
-    console.log(`${amount} of ${sku} added to cart.`);
+    if (item) {
+      dispatch(updateCartItem({ item, quantity: amount }));
+    }
   };
 
   return {
     amount,
     increment: handleIncrement,
     decrement: handleDecrement,
+    removeFromCart: handleRemoveFromCart,
     addToCart,
   };
 }

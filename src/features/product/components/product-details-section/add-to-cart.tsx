@@ -27,7 +27,7 @@ export default function AddToCart({
     decrement: handleDecrement,
     addToCart,
   } = useAddToCart({
-    sku: item?.sku ?? '',
+    item,
     max,
     initialAmount: 1,
     disabled: disabled || !item,

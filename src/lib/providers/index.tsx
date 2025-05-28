@@ -1,5 +1,6 @@
 import NextIntl from './next-intl-provider';
 import QueryProvider from './query-provider';
+import StoreProvider from './store-provider';
 import ThemeProvider from './theme-provider';
 
 interface ProvidersWrapperProps {
@@ -14,7 +15,9 @@ export default function ProvidersWrapper({
   return (
     <NextIntl locale={locale}>
       <ThemeProvider>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <StoreProvider>{children}</StoreProvider>
+        </QueryProvider>
       </ThemeProvider>
     </NextIntl>
   );
