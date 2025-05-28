@@ -4,7 +4,10 @@ import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 
+import useFocusOnFirstTabbableElement from '@/hooks/useFocusOnFirstTabbableElement';
+import useFocusTrap from '@/hooks/useFocusTrap';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
+import useOnKeyDown from '@/hooks/useOnKeyDown';
 
 import ModalHeader from './modal-header';
 
@@ -20,7 +23,13 @@ export default function ModalImplementation({
   const modalRef = useRef<HTMLDivElement>(null);
   const { back } = useRouter();
 
+  // Handle closing the modal
+  useOnKeyDown({ key: 'Escape', handleKeyDown: back });
   useOnClickOutside({ refs: modalRef, handleClick: back });
+
+  // Handle focus inside modal
+  useFocusOnFirstTabbableElement(modalRef);
+  useFocusTrap(modalRef);
 
   return createPortal(
     <div className="fixed top-0 left-0 z-10 flex h-screen w-screen items-center justify-center bg-black/50 px-4 py-16">

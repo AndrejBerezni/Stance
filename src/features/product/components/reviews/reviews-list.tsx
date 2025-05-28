@@ -20,8 +20,8 @@ export default function ReviewsList({
 }: ReviewsListProps) {
   const translate = useTranslations('reviews');
   return (
-    <section className="col-span-1 flex flex-col gap-6 pb-4 md:gap-8 xl:col-span-2">
-      <ul className="flex flex-col gap-6 md:gap-8">
+    <section className="flex flex-1 flex-col gap-6 pb-4 md:gap-8">
+      <ul className="flex w-full flex-col gap-6 md:gap-8">
         {reviews.map((review: Review) => (
           <li key={review.id}>
             <ReviewCard review={review} />
