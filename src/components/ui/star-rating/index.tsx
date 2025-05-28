@@ -36,7 +36,7 @@ export default function StarRating({
       {Array.from({ length: max }, (_, index) => index + 1).map((star) => (
         <span
           key={star}
-          tabIndex={0}
+          tabIndex={locked ? -1 : 0}
           onMouseEnter={() => {
             if (!locked) setHovered(star);
           }}

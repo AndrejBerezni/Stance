@@ -25,7 +25,7 @@ export default function ReviewsSkeleton() {
               <div className="flex flex-1 flex-col gap-1">
                 <div className="flex items-center justify-between">
                   <Skeleton className="h-6 w-20" />
-                  <Skeleton className="h-5 w-16" />
+                  <Skeleton className="ml-auto h-5 w-16" />
                 </div>
                 <Skeleton className="h-8 w-32" />
               </div>
