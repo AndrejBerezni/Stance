@@ -24,12 +24,7 @@ export default function AddToCart({
   const translate = useTranslations('productPage');
 
   const { item, max, disabled } = useInventory(inventory, sizingConvention);
-  const {
-    amount,
-    increment: handleIncrement,
-    decrement: handleDecrement,
-    addToCart,
-  } = useCart({
+  const { amount, increment, decrement, addToCart } = useCart({
     item,
     itemDetails,
     max,
@@ -46,8 +41,8 @@ export default function AddToCart({
         <CartControl
           max={disabled ? 1 : max}
           amount={amount}
-          handleIncrement={handleIncrement}
-          handleDecrement={handleDecrement}
+          handleIncrement={increment}
+          handleDecrement={decrement}
         />
       </div>
 
