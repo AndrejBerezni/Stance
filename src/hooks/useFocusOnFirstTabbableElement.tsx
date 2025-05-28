@@ -11,5 +11,5 @@ export default function useFocusOnFirstTabbableElement(
     if (firstElement instanceof HTMLElement) {
       firstElement.focus();
     }
-  }, []);
+  }, [elementRef]);
 }

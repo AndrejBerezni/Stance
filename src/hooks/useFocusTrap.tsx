@@ -13,6 +13,10 @@ export default function useFocusTrap(
     }
 
     const tabbableElements = getTabbableElements(elementRef);
+    if (tabbableElements.length === 0) {
+      return;
+    }
+
     const firstElement = tabbableElements[0];
     const lastElement = tabbableElements[tabbableElements.length - 1];
 

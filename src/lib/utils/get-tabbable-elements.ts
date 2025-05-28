@@ -6,7 +6,7 @@ const getTabbableElements = (elementRef: RefObject<HTMLElement | null>) => {
   }
 
   return elementRef.current.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    'button:not([disabled]), a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"]):not([disabled])'
   );
 };
 
