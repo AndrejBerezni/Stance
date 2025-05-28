@@ -136,5 +136,16 @@
     "belowAverage": "Below Average",
     "poor": "Poor",
     "loadMore": "Load more"
+  },
+  "cart": {
+    "shoppingCart": "Shopping Cart",
+    "remove": "Remove",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "addCoupon": "Add coupon code",
+    "free": "free",
+    "total": "Total",
+    "checkout": "Checkout"
   }
 }

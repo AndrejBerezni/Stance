@@ -136,5 +136,16 @@
     "belowAverage": "Abaixo da Média",
     "poor": "Fraco",
     "loadMore": "Carregue mais"
+  },
+  "cart": {
+    "shoppingCart": "Carrinho de Compras",
+    "remove": "Remover",
+    "summary": "Resumo da Encomenda",
+    "subtotal": "Subtotal",
+    "shipping": "Envio",
+    "addCoupon": "Adicionar código de cupão",
+    "free": "grátis",
+    "total": "Total",
+    "checkout": "Finalizar Compra"
   }
 }

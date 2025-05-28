@@ -4,52 +4,59 @@ import { InventoryItem } from '@/features/product/types';
 import { useAppDispatch } from '@/hooks/redux-hooks';
 
 import { updateCartItem } from '../cart-slice';
+import { CartItemDetails } from '../types';
 
 /* This hooks is used to handle increment/decrement items on product page, and then adding them to cart
 and handling amount of items in the cart when they are already added
 */
 
-interface UseAddToCartParams {
+interface UseCartParams {
   item: InventoryItem | null;
+  itemDetails: CartItemDetails;
   max: number;
   initialAmount: number;
   disabled?: boolean;
 }
 
-export default function useAddToCart({
+export default function useCart({
   item,
+  itemDetails,
   max,
   initialAmount,
   disabled = false,
-}: UseAddToCartParams) {
+}: UseCartParams) {
   const dispatch = useAppDispatch();
   // TO BE IMPLEMENTED: when we have cart store, this will handle adding products to cart, now we are just handling it for UI updates
   const [amount, setAmount] = useState<number>(initialAmount);
 
-  const handleIncrement = (cart?: boolean) => {
+  const increment = (cart?: 'cart') => {
     if (amount < max && !disabled && item) {
       const newAmount = amount + 1;
       setAmount(newAmount);
-      if (cart) {
-        dispatch(updateCartItem({ item, quantity: newAmount }));
+      if (cart === 'cart') {
+        dispatch(
+          updateCartItem({ item, details: itemDetails, quantity: newAmount })
+        );
       }
     }
   };
 
-  const handleDecrement = (cart?: boolean) => {
+  const decrement = (cart?: 'cart') => {
     if (amount > 1 && !disabled && item) {
       const newAmount = amount - 1;
       setAmount(newAmount);
-      if (cart) {
-        dispatch(updateCartItem({ item, quantity: newAmount }));
+      if (cart === 'cart') {
+        dispatch(
+          updateCartItem({ item, details: itemDetails, quantity: newAmount })
+        );
       }
     }
   };
 
-  const handleRemoveFromCart = () => {
+  const removeFromCart = () => {
     if (amount >= 1 && item) {
       setAmount(0);
-      dispatch(updateCartItem({ item, quantity: 0 }));
+      dispatch(updateCartItem({ item, details: itemDetails, quantity: 0 }));
     }
   };
 
@@ -61,15 +68,17 @@ export default function useAddToCart({
 
   const addToCart = () => {
     if (item) {
-      dispatch(updateCartItem({ item, quantity: amount }));
+      dispatch(
+        updateCartItem({ item, details: itemDetails, quantity: amount })
+      );
     }
   };
 
   return {
     amount,
-    increment: handleIncrement,
-    decrement: handleDecrement,
-    removeFromCart: handleRemoveFromCart,
+    increment,
+    decrement,
+    removeFromCart,
     addToCart,
   };
 }

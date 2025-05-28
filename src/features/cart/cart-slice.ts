@@ -3,9 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { CartItem } from './types';
 import calculateSummary from './utils/calculateSummary';
+import countTotalItems from './utils/countTotalItems';
 
 interface CartState {
   items: Record<string, CartItem>;
+  totalItems: number;
   summary: {
     subTotal: number;
     shipping: number;
@@ -17,6 +19,7 @@ interface CartState {
 
 const initialState: CartState = {
   items: {} as Record<string, CartItem>,
+  totalItems: 0,
   summary: {
     subTotal: 0,
     shipping: 0,
@@ -38,6 +41,8 @@ export const cartSlice = createSlice({
       } else {
         state.items[cartItem.item.sku] = cartItem;
       }
+
+      state.totalItems = countTotalItems(state.items);
 
       const { subTotal, shipping, total } = calculateSummary(
         state.items,
