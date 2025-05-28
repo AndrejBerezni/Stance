@@ -146,6 +146,9 @@
     "addCoupon": "Add coupon code",
     "free": "free",
     "total": "Total",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "emptyCart": "Your cart is empty",
+    "exploreCall": "Let's explore some products",
+    "explore": "Explore products"
   }
 }

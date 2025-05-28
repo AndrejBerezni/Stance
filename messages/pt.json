@@ -146,6 +146,9 @@
     "addCoupon": "Adicionar código de cupão",
     "free": "grátis",
     "total": "Total",
-    "checkout": "Finalizar Compra"
+    "checkout": "Finalizar Compra",
+    "emptyCart": "O seu carrinho está vazio",
+    "exploreCall": "Vamos explorar alguns produtos",
+    "explore": "Explorar produtos"
   }
 }
