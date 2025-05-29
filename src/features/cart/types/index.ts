@@ -10,3 +10,8 @@ export interface CartItem {
   details: CartItemDetails;
   quantity: number;
 }
+
+export interface Coupon {
+  code: string;
+  discount: number;
+}

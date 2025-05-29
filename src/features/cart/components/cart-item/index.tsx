@@ -31,7 +31,9 @@ export default function CartItem({ cartItem }: { cartItem: ICartItem }) {
         <h2 className="text-2xl font-medium">{cartItem.details.name}</h2>
         <p className="text-ink-600 font-medium">
           {translateColor(cartItem.item.color)}
-          {cartItem.item.size && ` • ${cartItem.item.size}`}
+          {cartItem.item.size && (
+            <span className="uppercase">{` • ${cartItem.item.size}`}</span>
+          )}
         </p>
         <p className="text-ink-600 text-sm">{cartItem.details.description}</p>
 

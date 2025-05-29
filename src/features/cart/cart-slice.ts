@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { CartItem } from './types';
+import { CartItem, Coupon } from './types';
 import calculateSummary from './utils/calculateSummary';
 import countTotalItems from './utils/countTotalItems';
 
@@ -11,8 +11,7 @@ interface CartState {
   summary: {
     subTotal: number;
     shipping: number;
-    coupon: string | null;
-    discount: number;
+    coupons: Coupon[];
     total: number;
   };
 }
@@ -23,8 +22,7 @@ const initialState: CartState = {
   summary: {
     subTotal: 0,
     shipping: 0,
-    coupon: null,
-    discount: 0,
+    coupons: [],
     total: 0,
   },
 };
@@ -46,7 +44,7 @@ export const cartSlice = createSlice({
 
       const { subTotal, shipping, total } = calculateSummary(
         state.items,
-        state.summary.discount
+        state.summary.coupons.reduce((acc, cur) => acc + cur.discount, 0)
       );
       state.summary.subTotal = subTotal;
       state.summary.shipping = shipping;
