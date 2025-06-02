@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import Separator from '@/components/ui/separator';
 import SidebarOuter from '@/components/ui/sidebar-outer';
 import useIsDesktop from '@/hooks/useIsDesktop';
 import { cn } from '@/lib/utils/cn';
@@ -44,7 +45,7 @@ export default function ProductFilters({ filters }: ProductFiltersProps) {
       >
         <ProductFiltersHeader handleClose={handleClose} />
         <FiltersAccordion filters={filters} />
-        <div className="bg-border h-[1px] w-full"></div>
+        <Separator />
         <ClearFilters />
       </aside>
       <SidebarOuter closeModal={handleClose} show={!isDesktop && isOpen} />
