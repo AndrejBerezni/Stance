@@ -8,6 +8,7 @@ import { RootState } from '@/lib/store';
 
 import AddCoupon from './add-coupon';
 import CartSummaryItem from './cart-summary-item';
+import { Coupon } from '../../types';
 
 export default function CartSummary() {
   const translate = useTranslations('cart');
@@ -30,7 +31,7 @@ export default function CartSummary() {
       isCoupon: false,
     },
 
-    ...summary.coupons.map((coupon) => ({
+    ...summary.coupons.map((coupon: Coupon) => ({
       id: coupon.code,
       label: coupon.code,
       amount: -coupon.discount,
