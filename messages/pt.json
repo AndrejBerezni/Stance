@@ -149,6 +149,9 @@
     "checkout": "Finalizar Compra",
     "emptyCart": "O seu carrinho está vazio",
     "exploreCall": "Vamos explorar alguns produtos",
-    "explore": "Explorar produtos"
+    "explore": "Explorar produtos",
+    "couponCode": "Código do cupão",
+    "couponPlaceholder": "Introduza o código do cupão",
+    "apply": "Aplicar"
   }
 }

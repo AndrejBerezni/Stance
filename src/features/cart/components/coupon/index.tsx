@@ -1,20 +1,26 @@
-import { useAppSelector } from '@/hooks/redux-hooks';
-import { RootState } from '@/lib/store';
 import { cn } from '@/lib/utils/cn';
 
 import AddCouponButton from './add-coupon-button';
+import AppliedCoupons from './applied-coupons';
+import CouponInput from './coupon-input';
+import useCoupons from '../../hooks/useCoupons';
 
 export default function Coupon() {
-  const coupons = useAppSelector(
-    (state: RootState) => state.cart.summary.coupons
-  );
+  const { isInputVisible, showInput } = useCoupons();
   return (
     <div
       className={cn('flex w-full flex-col', {
-        'justify-end': coupons.length === 0,
+        'justify-end': isInputVisible,
       })}
     >
-      {coupons.length === 0 ? <AddCouponButton /> : <p>handle coupons</p>}
+      {isInputVisible ? (
+        <div>
+          <CouponInput />
+          <AppliedCoupons />
+        </div>
+      ) : (
+        <AddCouponButton addFirstCoupon={showInput} />
+      )}
     </div>
   );
 }

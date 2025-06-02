@@ -22,7 +22,7 @@ const initialState: CartState = {
   summary: {
     subTotal: 0,
     shipping: 0,
-    coupons: [],
+    coupons: [{ code: 'Kiara<3', discount: 30 }],
     total: 0,
   },
 };

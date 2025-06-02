@@ -15,7 +15,7 @@ type AllowedInputTypes =
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
-  type: AllowedInputTypes;
+  type?: AllowedInputTypes;
   name: string;
   value: string;
   onValueChange: (value: string) => void;

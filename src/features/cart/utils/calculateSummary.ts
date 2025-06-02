@@ -9,7 +9,8 @@ const calculateSummary = (items: Record<string, CartItem>, discount = 0) => {
   }
 
   const shipping = subTotal === 0 ? 0 : subTotal > 50 ? 0 : 5;
-  const total = subTotal + shipping - discount;
+  const total =
+    subTotal + shipping - discount > 0 ? subTotal + shipping - discount : 0;
 
   return {
     subTotal,

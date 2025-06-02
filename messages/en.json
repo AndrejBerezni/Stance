@@ -149,6 +149,9 @@
     "checkout": "Checkout",
     "emptyCart": "Your cart is empty",
     "exploreCall": "Let's explore some products",
-    "explore": "Explore products"
+    "explore": "Explore products",
+    "couponCode": "Coupon code",
+    "couponPlaceholder": "Enter coupon code",
+    "apply": "Apply"
   }
 }

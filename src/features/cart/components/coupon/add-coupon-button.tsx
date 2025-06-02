@@ -3,11 +3,22 @@ import { useTranslations } from 'next-intl';
 
 import Button from '@/components/ui/button';
 
-export default function AddCouponButton() {
+interface AddCouponButtonProps {
+  addFirstCoupon: () => void;
+}
+
+export default function AddCouponButton({
+  addFirstCoupon,
+}: AddCouponButtonProps) {
   const translate = useTranslations('cart');
 
   return (
-    <Button variant="link" size="md" className="self-end max-[392px]:text-xs">
+    <Button
+      variant="link"
+      size="md"
+      className="self-end max-[392px]:text-xs"
+      onClick={addFirstCoupon}
+    >
       <TicketPercent className="max-[392px]:h-4" />
       {translate('addCoupon')}
     </Button>
