@@ -22,7 +22,11 @@ const initialState: CartState = {
   summary: {
     subTotal: 0,
     shipping: 0,
-    coupons: [{ code: 'Kiara<3', discount: 30 }],
+    coupons: [
+      { code: 'Kiara<3', discount: 30 },
+      { code: 'ANDREJ', discount: 1 },
+      { code: 'ARLINDA', discount: 1 },
+    ],
     total: 0,
   },
 };
@@ -50,9 +54,21 @@ export const cartSlice = createSlice({
       state.summary.shipping = shipping;
       state.summary.total = total;
     },
+    removeCoupon: (state, action: PayloadAction<Coupon>) => {
+      state.summary.coupons = state.summary.coupons.filter(
+        (coupon) => action.payload.code !== coupon.code
+      );
+      const { subTotal, shipping, total } = calculateSummary(
+        state.items,
+        state.summary.coupons.reduce((acc, cur) => acc + cur.discount, 0)
+      );
+      state.summary.subTotal = subTotal;
+      state.summary.shipping = shipping;
+      state.summary.total = total;
+    },
   },
 });
 
-export const { updateCartItem } = cartSlice.actions;
+export const { updateCartItem, removeCoupon } = cartSlice.actions;
 
 export default cartSlice.reducer;

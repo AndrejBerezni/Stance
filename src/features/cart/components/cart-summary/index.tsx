@@ -11,7 +11,7 @@ export default function CartSummary() {
   const translate = useTranslations('cart');
 
   return (
-    <article className="sticky top-0 flex h-fit flex-col gap-8 rounded-xl border p-8 xl:min-w-[400px]">
+    <article className="sticky top-0 flex h-fit flex-col gap-8 rounded-xl border p-8 xl:w-[400px]">
       <h2 className="text-2xl font-semibold">{translate('summary')}</h2>
       <CartSummaryItemsList />
       <Separator />

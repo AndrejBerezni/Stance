@@ -13,6 +13,7 @@
   --color-destructive: var(--destructive);
   --color-accent: var(--accent);
   --color-ink-50: var(--ink-50);
+  --color-ink-200: var(--ink-200);
   --color-ink-300: var(--ink-300);
   --color-ink-400: var(--ink-400);
   --color-ink-500: var(--ink-500);
@@ -36,6 +37,7 @@
   --ink-500: oklch(55.6% 0 0);
   --ink-400: oklch(70.8% 0 0);
   --ink-300: oklch(87% 0 0);
+  --ink-200: oklch(92.2% 0 0);
   --ink-50: oklch(98.5% 0 0);
   --primary: oklch(45.7% 0.24 277.023);
   --primary-hover: oklch(39.8% 0.195 277.366);
@@ -54,6 +56,7 @@
   --ink-500: oklch(55.6% 0 0);
   --ink-400: oklch(43.9% 0 0);
   --ink-300: oklch(37.1% 0 0);
+  --ink-200: oklch(26.9% 0 0);
   --ink-50: oklch(14.5% 0 0);
   --primary: oklch(67.3% 0.182 276.935);
   --primary-hover: oklch(58.5% 0.233 277.117);
