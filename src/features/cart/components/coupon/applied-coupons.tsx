@@ -4,7 +4,7 @@ import Button from '@/components/ui/button';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux-hooks';
 import { RootState } from '@/lib/store';
 
-import { removeCoupon } from '../../cart-slice';
+import { removeCoupon } from '../../redux/cart-slice';
 import { Coupon } from '../../types';
 
 export default function AppliedCoupons() {

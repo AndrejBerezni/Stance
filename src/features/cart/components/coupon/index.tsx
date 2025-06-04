@@ -1,25 +1,25 @@
 import { cn } from '@/lib/utils/cn';
 
-import AddCouponButton from './add-coupon-button';
+import AddCouponForm from './add-coupon-form';
 import AppliedCoupons from './applied-coupons';
-import CouponInput from './coupon-input';
+import ShowCouponFormButton from './show-coupon-form-button';
 import useCoupons from '../../hooks/useCoupons';
 
 export default function Coupon() {
-  const { isInputVisible, showInput } = useCoupons();
+  const { isFormVisible, showForm } = useCoupons();
   return (
     <div
       className={cn('flex w-full flex-col', {
-        'justify-end': isInputVisible,
+        'justify-end': isFormVisible,
       })}
     >
-      {isInputVisible ? (
-        <div>
-          <CouponInput />
+      {isFormVisible ? (
+        <div className="flex flex-col gap-2">
+          <AddCouponForm />
           <AppliedCoupons />
         </div>
       ) : (
-        <AddCouponButton addFirstCoupon={showInput} />
+        <ShowCouponFormButton addFirstCoupon={showForm} />
       )}
     </div>
   );

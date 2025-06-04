@@ -10,7 +10,7 @@ export default function ClearFilters() {
 
   if (filterCount > 0)
     return (
-      <Button variant="link" type="button" onClick={clearFilters} size="sm">
+      <Button variant="link" onClick={clearFilters} size="sm">
         {translate('clearAll')} ({filterCount})
       </Button>
     );

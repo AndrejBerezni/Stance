@@ -1,11 +1,11 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { CartItem, Coupon } from './types';
-import calculateSummary from './utils/calculateSummary';
-import countTotalItems from './utils/countTotalItems';
+import { CartItem, Coupon } from '../types';
+import { checkIfCouponAlreadyAdded, recalculateCartSummary } from './helpers';
+import countTotalItems from '../utils/countTotalItems';
 
-interface CartState {
+export interface CartState {
   items: Record<string, CartItem>;
   totalItems: number;
   summary: {
@@ -22,11 +22,7 @@ const initialState: CartState = {
   summary: {
     subTotal: 0,
     shipping: 0,
-    coupons: [
-      { code: 'Kiara<3', discount: 30 },
-      { code: 'ANDREJ', discount: 1 },
-      { code: 'ARLINDA', discount: 1 },
-    ],
+    coupons: [],
     total: 0,
   },
 };
@@ -45,30 +41,28 @@ export const cartSlice = createSlice({
       }
 
       state.totalItems = countTotalItems(state.items);
-
-      const { subTotal, shipping, total } = calculateSummary(
-        state.items,
-        state.summary.coupons.reduce((acc, cur) => acc + cur.discount, 0)
+      recalculateCartSummary(state);
+    },
+    addCoupon: (state, action: PayloadAction<Coupon>) => {
+      const couponAlreadyAdded = checkIfCouponAlreadyAdded(
+        state,
+        action.payload.code
       );
-      state.summary.subTotal = subTotal;
-      state.summary.shipping = shipping;
-      state.summary.total = total;
+
+      if (!couponAlreadyAdded) {
+        state.summary.coupons.push(action.payload);
+        recalculateCartSummary(state);
+      }
     },
     removeCoupon: (state, action: PayloadAction<Coupon>) => {
       state.summary.coupons = state.summary.coupons.filter(
         (coupon) => action.payload.code !== coupon.code
       );
-      const { subTotal, shipping, total } = calculateSummary(
-        state.items,
-        state.summary.coupons.reduce((acc, cur) => acc + cur.discount, 0)
-      );
-      state.summary.subTotal = subTotal;
-      state.summary.shipping = shipping;
-      state.summary.total = total;
+      recalculateCartSummary(state);
     },
   },
 });
 
-export const { updateCartItem, removeCoupon } = cartSlice.actions;
+export const { updateCartItem, addCoupon, removeCoupon } = cartSlice.actions;
 
 export default cartSlice.reducer;

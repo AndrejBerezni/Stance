@@ -13,6 +13,7 @@ type AllowedInputTypes =
   | 'url'
   | 'search';
 
+// Some of the props are already input attributes, but we are adding them to props to enforce using them
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   type?: AllowedInputTypes;
@@ -90,10 +91,8 @@ export default function TextInput({
           </button>
         )}
       </div>
-      <div className="h-5">
-        {!error && hint && <p className="text-ink-500 text-sm">{hint}</p>}
-        {error && <p className="text-destructive text-sm">{error}</p>}
-      </div>
+      {!error && hint && <p className="text-ink-500 text-sm">{hint}</p>}
+      {error && <p className="text-destructive text-sm">{error}</p>}
     </div>
   );
 }

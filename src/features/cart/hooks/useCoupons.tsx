@@ -7,11 +7,11 @@ export default function useCoupons() {
   const coupons = useAppSelector(
     (state: RootState) => state.cart.summary.coupons
   );
-  const [isInputVisible, setIsInputVisible] = useState<boolean>(
+  const [isFormVisible, setIsFormVisible] = useState<boolean>(
     coupons.length > 0
   );
 
-  const showInput = () => setIsInputVisible(true);
+  const showForm = () => setIsFormVisible(true);
 
-  return { isInputVisible, showInput };
+  return { isFormVisible, showForm };
 }

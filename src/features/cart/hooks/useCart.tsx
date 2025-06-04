@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { InventoryItem } from '@/features/product/types';
 import { useAppDispatch } from '@/hooks/redux-hooks';
 
-import { updateCartItem } from '../cart-slice';
+import { updateCartItem } from '../redux/cart-slice';
 import { CartItemDetails } from '../types';
 
 /* This hooks is used to handle increment/decrement items on product page, and then adding them to cart

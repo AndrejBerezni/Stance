@@ -21,7 +21,7 @@ export default function NoResultsFound() {
         <h2 className="text-xl font-medium">{translate('nothingFound')}</h2>
         <p>{translate('adjustFilters')}</p>
       </div>
-      <Button type="button" size="sm" onClick={clearFilters}>
+      <Button size="sm" onClick={clearFilters}>
         {translate('resetFilters')}
       </Button>
     </article>

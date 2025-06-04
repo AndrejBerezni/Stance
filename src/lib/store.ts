@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import cartReducer from '../features/cart/cart-slice';
+import cartReducer from '../features/cart/redux/cart-slice';
 
 const persistConfig = {
   key: 'root',

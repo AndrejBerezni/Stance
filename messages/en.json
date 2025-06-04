@@ -152,6 +152,7 @@
     "explore": "Explore products",
     "couponCode": "Coupon code",
     "couponPlaceholder": "Enter coupon code",
-    "apply": "Apply"
+    "apply": "Apply",
+    "invalidCoupon": "Invalid coupon code."
   }
 }

@@ -3,13 +3,13 @@ import { useTranslations } from 'next-intl';
 
 import Button from '@/components/ui/button';
 
-interface AddCouponButtonProps {
+interface ShowCouponFormButtonProps {
   addFirstCoupon: () => void;
 }
 
-export default function AddCouponButton({
+export default function ShowCouponFormButton({
   addFirstCoupon,
-}: AddCouponButtonProps) {
+}: ShowCouponFormButtonProps) {
   const translate = useTranslations('cart');
 
   return (
