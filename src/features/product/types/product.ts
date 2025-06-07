@@ -20,9 +20,11 @@ export interface InventoryItem {
   color: string;
   size: string | null;
   list_price: number;
+  list_price_stripe_id: string;
   discount: number | null;
   discount_percentage: number | null;
   sale_price: number | null;
+  sale_price_stripe_id: string | null;
   sold: number;
   stock: number;
 }

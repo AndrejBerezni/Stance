@@ -45,7 +45,10 @@
     "discount": "Desconto",
     "noReviews": "Nenhuma avaliação ainda.",
     "beFirst": "Seja o primeiro.",
-    "inCollection": "Nesta coleção"
+    "inCollection": "Nesta coleção",
+    "features": "Características",
+    "fabric": "Tecido e Cuidados",
+    "shipping": "Envio"
   },
   "productSpec": {
     "discover": "Descubra a elegância intemporal",
@@ -136,5 +139,23 @@
     "belowAverage": "Abaixo da Média",
     "poor": "Fraco",
     "loadMore": "Carregue mais"
+  },
+  "cart": {
+    "shoppingCart": "Carrinho de Compras",
+    "remove": "Remover",
+    "summary": "Resumo da Encomenda",
+    "subtotal": "Subtotal",
+    "shipping": "Envio",
+    "addCoupon": "Adicionar código de cupão",
+    "free": "grátis",
+    "total": "Total",
+    "checkout": "Finalizar Compra",
+    "emptyCart": "O seu carrinho está vazio",
+    "exploreCall": "Vamos explorar alguns produtos",
+    "explore": "Explorar produtos",
+    "couponCode": "Código do cupão",
+    "couponPlaceholder": "Introduza o código do cupão",
+    "apply": "Aplicar",
+    "invalidCoupon": "Código de cupão inválido."
   }
 }

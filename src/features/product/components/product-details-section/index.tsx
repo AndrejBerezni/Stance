@@ -55,7 +55,16 @@ export default async function ProductDetailsSection({
           currentColor={color}
         />
 
-        <AddToCart inventory={inventory} sizingConvention={sizing_convention} />
+        <AddToCart
+          inventory={inventory}
+          itemDetails={{
+            name,
+            description,
+            image_url:
+              images.find((image) => image.color === color)?.image_url || '',
+          }}
+          sizingConvention={sizing_convention}
+        />
         <ProductInfo productId={productId} info={product_info} />
       </div>
     </section>

@@ -45,7 +45,10 @@
     "discount": "OFF",
     "noReviews": "No reviews yet.",
     "beFirst": "Be the first.",
-    "inCollection": "In this collection"
+    "inCollection": "In this collection",
+    "features": "Features",
+    "fabric": "Fabric & Care",
+    "shipping": "Shipping"
   },
   "productSpec": {
     "discover": "Discover timeless elegance",
@@ -136,5 +139,23 @@
     "belowAverage": "Below Average",
     "poor": "Poor",
     "loadMore": "Load more"
+  },
+  "cart": {
+    "shoppingCart": "Shopping Cart",
+    "remove": "Remove",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "addCoupon": "Add coupon code",
+    "free": "free",
+    "total": "Total",
+    "checkout": "Checkout",
+    "emptyCart": "Your cart is empty",
+    "exploreCall": "Let's explore some products",
+    "explore": "Explore products",
+    "couponCode": "Coupon code",
+    "couponPlaceholder": "Enter coupon code",
+    "apply": "Apply",
+    "invalidCoupon": "Invalid coupon code."
   }
 }

@@ -4,7 +4,8 @@ import { useTranslations } from 'next-intl';
 
 import Button from '@/components/ui/button';
 import CartControl from '@/features/cart/components/cart-control';
-import useAddToCart from '@/features/cart/hooks/useAddToCart';
+import useCart from '@/features/cart/hooks/useCart';
+import { CartItemDetails } from '@/features/cart/types';
 
 import useInventory from '../../hooks/useInventory';
 import { InventoryItem } from '../../types';
@@ -12,22 +13,20 @@ import { InventoryItem } from '../../types';
 interface AddToCartProps {
   inventory: InventoryItem[];
   sizingConvention: string | null;
+  itemDetails: CartItemDetails;
 }
 
 export default function AddToCart({
   inventory,
   sizingConvention,
+  itemDetails,
 }: AddToCartProps) {
   const translate = useTranslations('productPage');
 
   const { item, max, disabled } = useInventory(inventory, sizingConvention);
-  const {
-    amount,
-    increment: handleIncrement,
-    decrement: handleDecrement,
-    addToCart,
-  } = useAddToCart({
-    sku: item?.sku ?? '',
+  const { amount, increment, decrement, addToCart } = useCart({
+    item,
+    itemDetails,
     max,
     initialAmount: 1,
     disabled: disabled || !item,
@@ -42,8 +41,8 @@ export default function AddToCart({
         <CartControl
           max={disabled ? 1 : max}
           amount={amount}
-          handleIncrement={handleIncrement}
-          handleDecrement={handleDecrement}
+          handleIncrement={increment}
+          handleDecrement={decrement}
         />
       </div>
 

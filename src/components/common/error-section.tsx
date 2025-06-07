@@ -27,7 +27,7 @@ export default function ErrorSection({ reset }: { reset: () => void }) {
           {translate('explanation')}
         </p>
         <div className="flex flex-wrap gap-4">
-          <Button type="button" onClick={reset} variant="destructive" size="md">
+          <Button onClick={reset} variant="destructive" size="md">
             {translate('reload')}
           </Button>
           <Link

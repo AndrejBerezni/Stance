@@ -1,14 +1,14 @@
+'use client';
 import { ShoppingBag } from 'lucide-react';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 
+import buttonVariants from '@/components/ui/button/styles';
+import { useAppSelector } from '@/hooks/redux-hooks';
+import type { RootState } from '@/lib/store';
 import { cn } from '@/lib/utils/cn';
 
-import { NavbarButton } from './navbar-buttons';
-
-// Temporary number for display until we implement cart logic
-const TEMP_ITEMS = 82;
-
 function NumberOfItems({ items }: { items: number }) {
-  //TO BE IMPLEMENTED: useCart in parent will provide number of items
   return (
     <div
       className={cn(
@@ -22,12 +22,22 @@ function NumberOfItems({ items }: { items: number }) {
 }
 
 export default function CartButton() {
-  // TO BE IMPLEMENTED: useCart hook that we will use on this button
+  const itemsInCart = useAppSelector(
+    (state: RootState) => state.cart.totalItems
+  );
+  const locale = useLocale();
 
   return (
-    <NavbarButton aria-label="Cart button">
+    <Link
+      href={`/${locale}/cart`}
+      aria-label="Cart button"
+      className={cn(
+        buttonVariants({ variant: 'ghost', size: 'md' }),
+        'relative'
+      )}
+    >
       <ShoppingBag size={24} />
-      {TEMP_ITEMS > 0 && <NumberOfItems items={TEMP_ITEMS} />}
-    </NavbarButton>
+      {itemsInCart > 0 && <NumberOfItems items={itemsInCart} />}
+    </Link>
   );
 }
