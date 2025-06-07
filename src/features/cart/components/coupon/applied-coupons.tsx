@@ -25,6 +25,7 @@ export default function AppliedCoupons() {
             variant="ghost"
             size="sm"
             iconOnly
+            aria-label={`Remove coupon ${coupon.code}`}
             onClick={() => dispatch(removeCoupon(coupon))}
           >
             <X size={18} />

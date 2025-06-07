@@ -17,7 +17,7 @@ export const getCoupon = async (
 
     const validatedCoupon = await validateCoupon(code);
 
-    if (validatedCoupon.data.length === 0) {
+    if (validatedCoupon.data.length === 0 || !validatedCoupon.data) {
       return { success: false };
     }
 

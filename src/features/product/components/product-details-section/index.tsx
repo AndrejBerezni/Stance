@@ -60,8 +60,8 @@ export default async function ProductDetailsSection({
           itemDetails={{
             name,
             description,
-            image_url: images.filter((image) => image.color === color)[0]
-              .image_url,
+            image_url:
+              images.find((image) => image.color === color)?.image_url || '',
           }}
           sizingConvention={sizing_convention}
         />

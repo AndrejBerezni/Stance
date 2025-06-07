@@ -53,9 +53,9 @@ export default function CartItem({ cartItem }: { cartItem: ICartItem }) {
           <div className="ml-auto flex items-center">
             <ProductCardPrice
               price={{
-                list_price: cartItem.item.list_price * cartItem.quantity,
+                list_price: cartItem.item.list_price * amount,
                 sale_price: cartItem.item.sale_price
-                  ? cartItem.item.sale_price * cartItem.quantity
+                  ? cartItem.item.sale_price * amount
                   : null,
               }}
             />

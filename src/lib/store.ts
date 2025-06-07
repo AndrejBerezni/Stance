@@ -37,7 +37,7 @@ export const makeStore = () => {
     return makeConfiguredStore();
   } else {
     const persistedReducer = persistReducer(persistConfig, rootReducer);
-    const store: any = configureStore({
+    const store = configureStore({
       reducer: persistedReducer,
       middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
