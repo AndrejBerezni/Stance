@@ -47,9 +47,11 @@ export const multipleProductsQuery = ({
           'color', i.color,
           'size', i.size,
           'list_price', i.list_price,
+          'list_price_stripe_id', i.list_price_stripe_id,
           'discount', i.discount,
           'discount_percentage', i.discount_percentage,
           'sale_price', i.sale_price,
+          'sale_price_stripe_id', i.sale_price_stripe_id,
           'sold', i.sold,
           'stock', i.stock
         )
@@ -119,9 +121,11 @@ export const singleProductQuery = (productId: string) => sql`
                 'color', i.color,
                 'size', i.size,
                 'list_price', i.list_price,
+                'list_price_stripe_id', i.list_price_stripe_id,
                 'discount', i.discount,
                 'discount_percentage', i.discount_percentage,
                 'sale_price', i.sale_price,
+                'sale_price_stripe_id', i.sale_price_stripe_id,
                 'sold', i.sold,
                 'stock', i.stock
               )

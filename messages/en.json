@@ -45,7 +45,10 @@
     "discount": "OFF",
     "noReviews": "No reviews yet.",
     "beFirst": "Be the first.",
-    "inCollection": "In this collection"
+    "inCollection": "In this collection",
+    "features": "Features",
+    "fabric": "Fabric & Care",
+    "shipping": "Shipping"
   },
   "productSpec": {
     "discover": "Discover timeless elegance",

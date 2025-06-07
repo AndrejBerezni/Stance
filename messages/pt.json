@@ -45,7 +45,10 @@
     "discount": "Desconto",
     "noReviews": "Nenhuma avaliação ainda.",
     "beFirst": "Seja o primeiro.",
-    "inCollection": "Nesta coleção"
+    "inCollection": "Nesta coleção",
+    "features": "Características",
+    "fabric": "Tecido e Cuidados",
+    "shipping": "Envio"
   },
   "productSpec": {
     "discover": "Descubra a elegância intemporal",
