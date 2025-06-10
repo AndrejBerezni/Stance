@@ -28,7 +28,7 @@ describe('ProductCard', () => {
     const urlParam = new URLSearchParams(src!.split('?')[1]).get('url');
 
     expect(decodeURIComponent(urlParam as string)).toBe(
-      mockCardData.images.black
+      mockCardData.images.find((img) => img.color === 'black')?.image_url
     );
   });
 
@@ -41,7 +41,7 @@ describe('ProductCard', () => {
     const urlParam = new URLSearchParams(src!.split('?')[1]).get('url');
 
     expect(decodeURIComponent(urlParam as string)).toBe(
-      mockCardData.images.white
+      mockCardData.images.find((img) => img.color === 'white')?.image_url
     );
   });
   it('shows one prices when there is no discount', () => {

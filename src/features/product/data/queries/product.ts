@@ -24,9 +24,9 @@ export const multipleProductsQuery = ({
     p.available_colors,
     p.stripe_id,
     p.number_of_reviews,
-    p.rating,
+    p.rating::float,
+    p.list_price::float,
     p.updated_at,
-
     (
       SELECT json_agg(
         jsonb_build_object(
@@ -92,7 +92,8 @@ export const singleProductQuery = (productId: string) => sql`
         p.available_colors,
         p.stripe_id,
         p.number_of_reviews,
-        p.rating,
+        p.rating::float,
+        p.list_price::float,
         p.updated_at,
 
         -- Aggregate product_info as array

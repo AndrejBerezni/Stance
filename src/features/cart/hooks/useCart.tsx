@@ -26,7 +26,6 @@ export default function useCart({
   disabled = false,
 }: UseCartParams) {
   const dispatch = useAppDispatch();
-  // TO BE IMPLEMENTED: when we have cart store, this will handle adding products to cart, now we are just handling it for UI updates
   const [amount, setAmount] = useState<number>(initialAmount);
 
   const increment = (cart?: 'cart') => {

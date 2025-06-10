@@ -29,7 +29,7 @@ export interface InventoryItem {
   stock: number;
 }
 
-export type ProductInfoTitle = 'Features' | 'Fabric & Care' | 'Shipping';
+export type ProductInfoTitle = 'features' | 'fabric' | 'shipping';
 
 export interface ProductInfo {
   product_id: string;
