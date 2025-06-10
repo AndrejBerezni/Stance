@@ -72,6 +72,7 @@ export default function useCart({
       dispatch(
         updateCartItem({ item, details: itemDetails, quantity: amount })
       );
+      setIsItemAdded(true);
     }
   };
 
@@ -81,5 +82,6 @@ export default function useCart({
     decrement,
     removeFromCart,
     addToCart,
+    isItemAdded,
   };
 }
