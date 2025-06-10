@@ -34,10 +34,18 @@ export const cartSlice = createSlice({
     updateCartItem: (state, action: PayloadAction<CartItem>) => {
       const cartItem = action.payload;
 
-      if (cartItem.quantity <= 0) {
+      if (cartItem.quantity === 0) {
         delete state.items[cartItem.item.sku];
       } else {
-        state.items[cartItem.item.sku] = cartItem;
+        if (state.items[cartItem.item.sku]) {
+          state.items[cartItem.item.sku] = {
+            ...cartItem,
+            quantity:
+              state.items[cartItem.item.sku].quantity + cartItem.quantity,
+          };
+        } else {
+          state.items[cartItem.item.sku] = cartItem;
+        }
       }
 
       state.totalItems = countTotalItems(state.items);
