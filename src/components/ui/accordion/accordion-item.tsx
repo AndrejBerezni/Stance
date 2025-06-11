@@ -16,6 +16,8 @@ export interface IAccordionItem {
 export default function AccordionItem({ item }: { item: IAccordionItem }) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
+  const toggleExpanded = () => setIsExpanded((prev) => !prev);
+
   return (
     <div className="flex items-start justify-between gap-6 border-t-[1px] pt-6 first:border-t-0 first:pt-0">
       <div className="flex-1">
@@ -28,7 +30,6 @@ export default function AccordionItem({ item }: { item: IAccordionItem }) {
             }
           )}
           id={item.title}
-          onClick={() => setIsExpanded((prev) => !prev)}
         >
           {item.title}
         </h3>
@@ -37,7 +38,7 @@ export default function AccordionItem({ item }: { item: IAccordionItem }) {
       <AccordionItemTrigger
         item={item}
         isExpanded={isExpanded}
-        handleExpand={() => setIsExpanded((prev) => !prev)}
+        handleExpand={toggleExpanded}
       />
     </div>
   );

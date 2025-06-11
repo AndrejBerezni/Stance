@@ -6,6 +6,7 @@ import useFloatingElement, {
 } from '@/hooks/useFloatingElement';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { cn } from '@/lib/utils/cn';
+import handleKeyPress from '@/lib/utils/handle-key-press';
 
 import Portal from '../portal';
 import { dropdownVariants } from './styles';
@@ -50,6 +51,8 @@ export default function DropdownMenu({
         aria-expanded={visible}
         aria-controls={id}
         onClick={toggle}
+        onKeyDown={(e) => handleKeyPress(e, toggle, 'Enter')}
+        tabIndex={0}
       >
         {trigger}
       </div>
@@ -62,6 +65,7 @@ export default function DropdownMenu({
             style={elementStyles}
             className={cn(dropdownVariants({ position, align }))}
             onClick={toggle}
+            onKeyDown={(e) => handleKeyPress(e, toggle, 'Enter')}
           >
             {items.map((item, index) => (
               <li key={index}>{item}</li>

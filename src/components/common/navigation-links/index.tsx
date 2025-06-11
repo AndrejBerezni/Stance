@@ -42,11 +42,12 @@ export default function NavigationLinks({
   );
 
   return (
-    <nav onClick={closeSidebar}>
+    <nav>
       <ul {...props}>
         {links.map((link) => (
           <li key={link.id}>
             <Link
+              onClick={closeSidebar}
               href={`/${locale}${link.href}`}
               className={cn(
                 'active:text-primary hover:text-ink-900 disabled:text-disabled link-focus text-sm lg:text-base',
