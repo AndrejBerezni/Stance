@@ -21,18 +21,20 @@ export default function AccordionItem({ item }: { item: IAccordionItem }) {
   return (
     <div className="flex items-start justify-between gap-6 border-t-[1px] pt-6 first:border-t-0 first:pt-0">
       <div className="flex-1">
-        <h3
+        <button
           className={cn(
-            'align-top text-lg font-medium duration-300 hover:cursor-pointer',
+            'link-focus w-full text-start align-top text-lg font-medium duration-300 hover:cursor-pointer',
             {
               'mb-0': !isExpanded,
               'mb-2': isExpanded,
             }
           )}
           id={item.title}
+          onClick={toggleExpanded}
+          tabIndex={-1}
         >
           {item.title}
-        </h3>
+        </button>
         <AccordionItemContent item={item} isExpanded={isExpanded} />
       </div>
       <AccordionItemTrigger
