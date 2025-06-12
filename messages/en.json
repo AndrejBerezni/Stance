@@ -158,5 +158,12 @@
     "couponPlaceholder": "Enter coupon code",
     "apply": "Apply",
     "invalidCoupon": "Invalid coupon code."
+  },
+  "underConstruction": {
+    "line1": "This app is still under construction!",
+    "line2": "You're welcome to explore the features that have already been built.",
+    "line3": "We’re working hard to bring more to you soon — stay tuned!",
+    "visit": "Visit the page",
+    "visitLabel": "Close information panel"
   }
 }

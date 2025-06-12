@@ -158,5 +158,12 @@
     "couponPlaceholder": "Introduza o código do cupão",
     "apply": "Aplicar",
     "invalidCoupon": "Código de cupão inválido."
+  },
+  "underConstruction": {
+    "line1": "Esta aplicação ainda está em construção!",
+    "line2": "Sinta-se à vontade para explorar as funcionalidades que já estão disponíveis.",
+    "line3": "Estamos a trabalhar para trazer mais novidades em breve — fique atento!",
+    "visit": "Visitar a página",
+    "visitLabel": "Fechar painel de informação"
   }
 }
