@@ -18,7 +18,7 @@ export default function SortButton({
       aria-checked={selected}
       onClick={handleSort}
       className={cn(
-        'hover:bg-ink-50 align-start w-full px-4 py-2 text-start hover:cursor-pointer',
+        'focus:bg-ink-50 hover:bg-ink-50 align-start w-full px-4 py-2 text-start hover:cursor-pointer focus:outline-0',
         {
           'text-primary': selected,
           'text-ink-600': !selected,

@@ -58,6 +58,7 @@ export default function Tabs({ tabs, defaultValue }: TabsProps) {
         role="tablist"
         className="no-scrollbar flex overflow-x-scroll border-b-[1px]"
         onKeyDown={(e) => handleKeyInput(e)}
+        tabIndex={-1}
       >
         {tabs.map(({ label, value }) => {
           const isActive = activeTab === value;

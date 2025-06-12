@@ -25,6 +25,7 @@ export default function AttributeSelector<T>({
 }: AttributeSelectorProps<T>) {
   const { setSearchParam: handleSelect, currentValue } = useModifySearchParam({
     param: attribute,
+    scroll: false,
   });
 
   return (

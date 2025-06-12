@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 import { cn } from '@/lib/utils/cn';
+import handleKeyPress from '@/lib/utils/handle-key-press';
 
 import Star from './star';
 
@@ -30,11 +31,17 @@ export default function StarRating({
     return 'empty';
   };
 
+  const handleStarAction = (star: number) => {
+    if (handleClick) {
+      handleClick(star);
+    }
+  };
+
   return (
     <div aria-label="Star Rating" role="radiogroup" className="flex">
       {!locked && <input type="hidden" name={name} value={rating} />}
       {Array.from({ length: max }, (_, index) => index + 1).map((star) => (
-        <span
+        <button
           key={star}
           tabIndex={locked ? -1 : 0}
           onMouseEnter={() => {
@@ -43,18 +50,17 @@ export default function StarRating({
           onMouseLeave={() => {
             if (!locked) setHovered(null);
           }}
-          onClick={() => {
-            if (handleClick) {
-              handleClick(star);
-            }
-          }}
+          onClick={() => handleStarAction(star)}
+          onKeyDown={(e) =>
+            handleKeyPress(e, () => handleStarAction(star), 'Enter')
+          }
           className={cn('', {
             'hover:cursor-pointer hover:drop-shadow-[0px_0px_1px_var(--ink-900)]':
               !locked,
           })}
         >
           <Star filled={handleFill(star)} />
-        </span>
+        </button>
       ))}
     </div>
   );

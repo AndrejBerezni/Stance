@@ -8,7 +8,7 @@ import useCoupons from '../../hooks/useCoupons';
 export default function Coupon() {
   const { isFormVisible, showForm } = useCoupons();
   return (
-    <div
+    <li
       className={cn('flex w-full flex-col', {
         'justify-end': isFormVisible,
       })}
@@ -21,6 +21,6 @@ export default function Coupon() {
       ) : (
         <ShowCouponFormButton addFirstCoupon={showForm} />
       )}
-    </div>
+    </li>
   );
 }

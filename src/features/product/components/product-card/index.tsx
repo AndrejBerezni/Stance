@@ -12,12 +12,12 @@ import { generateProductLink, getInventoryPrice } from '../../utils';
 
 interface ProductCardProps {
   cardData: ExtendedProduct;
-  priorityLoad: boolean;
+  priorityLoad?: boolean;
 }
 
 export default function ProductCard({
   cardData,
-  priorityLoad,
+  priorityLoad = false,
 }: ProductCardProps) {
   const {
     product_id,

@@ -5,10 +5,9 @@ import useFloatingElement, {
   FloatingElementPosition,
 } from '@/hooks/useFloatingElement';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
-import { cn } from '@/lib/utils/cn';
+import handleKeyPress from '@/lib/utils/handle-key-press';
 
-import Portal from '../portal';
-import { dropdownVariants } from './styles';
+import DropdownMenuPortal from './dropdown-menu-portal';
 
 interface DropdownMenuProps {
   items: React.ReactNode[];
@@ -50,24 +49,21 @@ export default function DropdownMenu({
         aria-expanded={visible}
         aria-controls={id}
         onClick={toggle}
+        onKeyDown={(e) => handleKeyPress(e, toggle, 'Enter')}
+        tabIndex={0}
       >
         {trigger}
       </div>
       {visible && (
-        <Portal>
-          <ul
-            id={id}
-            ref={menuRef}
-            role="menu"
-            style={elementStyles}
-            className={cn(dropdownVariants({ position, align }))}
-            onClick={toggle}
-          >
-            {items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </Portal>
+        <DropdownMenuPortal
+          menuRef={menuRef}
+          id={id}
+          elementStyles={elementStyles}
+          position={position}
+          align={align}
+          toggle={toggle}
+          items={items}
+        />
       )}
     </>
   );

@@ -20,7 +20,7 @@ export default function JoinNewsletter() {
         </h3>
         <p className="text-ink-600">{translate('newsText')}</p>
       </div>
-      <form className="flex flex-col items-start sm:flex-row sm:gap-4 lg:w-auto">
+      <form className="flex flex-col items-start gap-4 sm:flex-row lg:w-auto">
         <TextInput
           id="email"
           name="email"

@@ -24,6 +24,7 @@ export default function AccordionItemTrigger({
       className="flex h-7 items-center"
       aria-expanded={isExpanded}
       aria-controls={item.id}
+      iconOnly
     >
       {isExpanded ? <CircleMinus size={20} /> : <CirclePlus size={20} />}
     </Button>

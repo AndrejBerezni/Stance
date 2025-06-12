@@ -26,17 +26,20 @@ export default function useCart({
   disabled = false,
 }: UseCartParams) {
   const dispatch = useAppDispatch();
-  // TO BE IMPLEMENTED: when we have cart store, this will handle adding products to cart, now we are just handling it for UI updates
   const [amount, setAmount] = useState<number>(initialAmount);
+  const [isItemAdded, setIsItemAdded] = useState<boolean>(false);
+
+  // When user adds item, we want to disable add button and change text on it
+  useEffect(() => {
+    setIsItemAdded(false);
+  }, [amount]);
 
   const increment = (cart?: 'cart') => {
     if (amount < max && !disabled && item) {
       const newAmount = amount + 1;
       setAmount(newAmount);
       if (cart === 'cart') {
-        dispatch(
-          updateCartItem({ item, details: itemDetails, quantity: newAmount })
-        );
+        dispatch(updateCartItem({ item, details: itemDetails, quantity: 1 }));
       }
     }
   };
@@ -46,9 +49,7 @@ export default function useCart({
       const newAmount = amount - 1;
       setAmount(newAmount);
       if (cart === 'cart') {
-        dispatch(
-          updateCartItem({ item, details: itemDetails, quantity: newAmount })
-        );
+        dispatch(updateCartItem({ item, details: itemDetails, quantity: -1 }));
       }
     }
   };
@@ -71,6 +72,7 @@ export default function useCart({
       dispatch(
         updateCartItem({ item, details: itemDetails, quantity: amount })
       );
+      setIsItemAdded(true);
     }
   };
 
@@ -80,5 +82,6 @@ export default function useCart({
     decrement,
     removeFromCart,
     addToCart,
+    isItemAdded,
   };
 }

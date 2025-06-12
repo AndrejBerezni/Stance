@@ -1,5 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
+
+import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { useSidebar } from '@/lib/providers/sidebar-provider';
 import { cn } from '@/lib/utils/cn';
 
@@ -9,10 +12,19 @@ import SidebarHeader from './sidebar-header';
 
 export default function Sidebar() {
   const { isOpen, closeSidebar } = useSidebar();
+  const sidebarRef = useRef<HTMLElement | null>(null);
+
+  useOnClickOutside({
+    refs: sidebarRef,
+    handleClick: closeSidebar,
+    visible: isOpen,
+  });
+
   return (
     <>
       <aside
         id="sidebar"
+        ref={sidebarRef}
         aria-hidden={!isOpen} //inert is not supported at all browsers at the moment of creation of this component, so we are adding aria-hidden as well
         inert={!isOpen}
         className={cn(
@@ -26,7 +38,7 @@ export default function Sidebar() {
         <SidebarHeader />
         <NavigationLinks className="flex flex-col gap-8 p-3" />
       </aside>
-      <SidebarOuter closeModal={closeSidebar} show={isOpen} />
+      <SidebarOuter show={isOpen} />
     </>
   );
 }

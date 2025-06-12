@@ -24,7 +24,7 @@ export default function AddToCart({
   const translate = useTranslations('productPage');
 
   const { item, max, disabled } = useInventory(inventory, sizingConvention);
-  const { amount, increment, decrement, addToCart } = useCart({
+  const { amount, increment, decrement, addToCart, isItemAdded } = useCart({
     item,
     itemDetails,
     max,
@@ -50,9 +50,9 @@ export default function AddToCart({
         className="mb-2"
         onClick={addToCart}
         aria-label={`Add ${amount} of ${item?.sku} to cart`}
-        disabled={disabled}
+        disabled={disabled || isItemAdded}
       >
-        {translate('addToCart')}
+        {isItemAdded ? translate('productAdded') : translate('addToCart')}
       </Button>
     </>
   );
