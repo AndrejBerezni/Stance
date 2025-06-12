@@ -48,7 +48,7 @@ export default function ProductFilters({ filters }: ProductFiltersProps) {
         <Separator />
         <ClearFilters />
       </aside>
-      <SidebarOuter closeModal={handleClose} show={!isDesktop && isOpen} />
+      <SidebarOuter show={!isDesktop && isOpen} />
     </>
   );
 }
