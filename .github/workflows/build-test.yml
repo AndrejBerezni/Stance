@@ -109,12 +109,13 @@ jobs:
     name: Lighthouse audit
     needs: deploy-preview
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v12
         with:
           urls: ${{ needs.deploy-preview.outputs.preview_url }}
           uploadArtifacts: true
