@@ -37,6 +37,7 @@ export default function UnderConstruction() {
           onClick={() => setShow(false)}
           aria-label={translate('visitLabel')}
           className="-mt-4 md:-mt-8 lg:-mt-16"
+          data-testid="close-under-construction"
         >
           {translate('visit')}
         </Button>

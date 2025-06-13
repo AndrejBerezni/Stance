@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import Separator from '@/components/ui/separator';
 import SidebarOuter from '@/components/ui/sidebar-outer';
 import useIsDesktop from '@/hooks/useIsDesktop';
+import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { cn } from '@/lib/utils/cn';
 
 import ClearFilters from './clear-filters';
@@ -18,19 +19,29 @@ interface ProductFiltersProps {
 }
 
 export default function ProductFilters({ filters }: ProductFiltersProps) {
+  const filtersRef = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const isDesktop = useIsDesktop();
 
-  const handleClose = () => setIsOpen((prev) => !prev);
+  const handleClose = () => {
+    if (isOpen && !isDesktop) setIsOpen(false);
+  };
+
+  useOnClickOutside({
+    refs: filtersRef,
+    handleClick: handleClose,
+    visible: isOpen,
+  });
 
   return (
     <>
       <ProductFiltersTrigger
-        handleClose={() => setIsOpen((prev) => !prev)}
+        handleOpen={() => setIsOpen(true)}
         isOpen={isOpen}
       />
       <aside
         id="filters"
+        ref={filtersRef}
         aria-modal={isDesktop ? undefined : true}
         aria-hidden={!isDesktop && !isOpen ? true : undefined}
         inert={!isDesktop && !isOpen ? true : undefined}

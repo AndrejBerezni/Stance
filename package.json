@@ -10,7 +10,8 @@
     "lint:fix": "eslint --fix ./src",
     "format": "prettier --write ./src",
     "prepare": "husky",
-    "test": "vitest",
+    "test:unit": "vitest",
+    "test:e2e": "",
     "cypress:open": "cypress open",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

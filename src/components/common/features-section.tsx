@@ -35,7 +35,10 @@ export default async function FeaturesSection() {
   ];
 
   return (
-    <section className="section-wrapper text-center">
+    <section
+      className="section-wrapper text-center"
+      data-testid="features-section"
+    >
       <div className="mb-12 md:mb-16 md:px-[40px] lg:px-[160px]">
         <h3 className="text-primary mb-3 font-semibold">
           {translate('featuresSubtitle')}

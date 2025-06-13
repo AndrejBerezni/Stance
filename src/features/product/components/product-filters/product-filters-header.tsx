@@ -12,7 +12,12 @@ export default function ProductFiltersHeader({
   return (
     <div className="flex items-center justify-between border-b-[1px] pb-6 xl:hidden">
       <h2 className="text-xl font-medium">{translate('filter')}</h2>
-      <Button variant="ghost" iconOnly onClick={handleClose}>
+      <Button
+        variant="ghost"
+        iconOnly
+        onClick={handleClose}
+        data-testid="close-filters-sidebar"
+      >
         <X className="text-ink-600 hover:text-ink-900" />
       </Button>
     </div>
