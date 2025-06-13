@@ -100,7 +100,7 @@ jobs:
       - name: Run Cypress against Vercel Preview
         env:
           CYPRESS_BASE_URL: ${{ needs.deploy-preview.outputs.preview_url }}
-          VERCEL_BYPASS_TOKEN: ${{ secrets.VERCEL_BYPASS_TOKEN }}
+          CYPRESS_VERCEL_BYPASS_TOKEN: ${{ secrets.VERCEL_BYPASS_TOKEN }}
         run: |
           echo "Testing against: $CYPRESS_BASE_URL"
           npx cypress run
