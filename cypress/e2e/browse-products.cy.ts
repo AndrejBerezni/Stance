@@ -1,6 +1,6 @@
 describe('Visit page and browse product catalogue', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
     // Close 'under construction' info panel
     cy.get('[data-testid="close-under-construction"]').click();
     // Switch language to English

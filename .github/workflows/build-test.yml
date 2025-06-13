@@ -1,0 +1,116 @@
+name: Build and test
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  install-lint-format-unit-build:
+    name: Install, Lint, Format, Unit Test, Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Lint
+        run: |
+          echo "Running lint check..."
+          npm run lint || { echo "❌ Lint failed!"; exit 1; }
+
+      - name: Run Format Check
+        run: |
+          echo "Formatting..."
+          npm run format || { echo "❌ Format check failed!"; exit 1; }
+
+      - name: Run Unit Tests
+        run: |
+          echo "🧪 Running Unit Tests..."
+          npm run test:unit || { echo "❌ Unit tests failed!"; exit 1; }
+
+      - name: Build
+        run: npm run build
+
+  deploy-preview:
+    name: Deploy Preview
+    needs: install-lint-format-unit-build
+    runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.deploy.outputs.preview_url }}
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Artifact
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Artifact
+        id: deploy
+        run: |
+          echo "Deploying Preview on Vercel..."
+          URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          echo "Preview URL: $URL"
+          echo "preview_url=$URL" >> $GITHUB_OUTPUT
+
+  e2e-tests:
+    name: E2E Tests (Cypress)
+    needs: deploy-preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Cypress against Vercel Preview
+        env:
+          CYPRESS_BASE_URL: ${{ needs.deploy-preview.outputs.preview_url }}
+        run: |
+          echo "Testing against: $CYPRESS_BASE_URL"
+          npx cypress run
+
+  lighthouse:
+    name: Lighthouse audit
+    needs: deploy-preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: ${{ needs.deploy-preview.outputs.preview_url }}
+          uploadArtifacts: true
+          configPath: './lighthouserc.json'
