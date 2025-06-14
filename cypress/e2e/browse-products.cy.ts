@@ -1,7 +1,6 @@
 describe('Visit page and browse product catalogue', () => {
   beforeEach(() => {
-    const bypassToken = Cypress.env('VERCEL_BYPASS_TOKEN');
-    cy.visit(`/?x-vercel-protection-bypass=${bypassToken}`);
+    cy.visit(`/`);
     // Close 'under construction' info panel
     cy.get('[data-testid="close-under-construction"]').click();
     // Switch language to English
