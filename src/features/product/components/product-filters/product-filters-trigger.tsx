@@ -5,12 +5,12 @@ import Button from '@/components/ui/button';
 import useIsDesktop from '@/hooks/useIsDesktop';
 
 interface ProductFiltersTriggerProps {
-  handleClose: () => void;
+  handleOpen: () => void;
   isOpen: boolean;
 }
 
 export default function ProductFiltersTrigger({
-  handleClose,
+  handleOpen,
   isOpen,
 }: ProductFiltersTriggerProps) {
   const translate = useTranslations('filterAndSort');
@@ -22,7 +22,7 @@ export default function ProductFiltersTrigger({
         variant="secondary"
         size="sm"
         className="max-h-full gap-1.5 text-xs sm:text-sm xl:hidden"
-        onClick={handleClose}
+        onClick={handleOpen}
         aria-expanded={!isDesktop && isOpen}
         aria-controls="filters"
       >

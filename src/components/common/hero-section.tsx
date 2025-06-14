@@ -11,7 +11,10 @@ export default async function HeroSection({ locale }: { locale: string }) {
   const translate = await getTranslations('home');
 
   return (
-    <section className="section-wrapper grid grid-cols-1 gap-12 xl:grid-cols-2 xl:gap-8">
+    <section
+      className="section-wrapper grid grid-cols-1 gap-12 xl:grid-cols-2 xl:gap-8"
+      data-testid="hero-section"
+    >
       <div className="flex flex-col items-start justify-center">
         <div className="mb-8 xl:mb-16">
           <h1 className="mb-4 text-4xl font-semibold md:mb-6 md:text-5xl xl:text-6xl">

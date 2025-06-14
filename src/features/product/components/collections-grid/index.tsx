@@ -9,7 +9,7 @@ export default async function CollectionsGrid() {
 
   if (collections) {
     return (
-      <section className="section-wrapper">
+      <section className="section-wrapper" data-testid="collections-section">
         <h2 className="mb-8 text-3xl font-semibold">
           {translate('ourCollections')}
         </h2>

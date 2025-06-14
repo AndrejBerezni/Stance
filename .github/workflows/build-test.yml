@@ -1,0 +1,60 @@
+name: Build and test
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  PRODUCTION_URL: ${{ secrets.PRODUCTION_URL }}
+  STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+
+jobs:
+  install-lint-format-unit-build:
+    name: Install, Lint, Format, Unit Test, Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Lint
+        run: |
+          echo "Running lint check..."
+          npm run lint || { echo "❌ Lint failed!"; exit 1; }
+
+      - name: Run Format Check
+        run: |
+          echo "Formatting..."
+          npm run format || { echo "❌ Format check failed!"; exit 1; }
+
+      - name: Run Unit Tests
+        run: |
+          echo "🧪 Running Unit Tests..."
+          npm run test:unit || { echo "❌ Unit tests failed!"; exit 1; }
+
+      - name: Build
+        run: npm run build
+
+  e2e-tests:
+    name: E2E Tests (Cypress)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start

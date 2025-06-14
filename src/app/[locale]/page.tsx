@@ -25,7 +25,10 @@ export default async function Home({
     <>
       <HeroSection locale={locale} />
 
-      <section className="section-wrapper">
+      <section
+        className="section-wrapper"
+        data-testid="latest-arrivals-section"
+      >
         <Suspense fallback={<ProductGridSkeleton items={8} withHeader />}>
           <ProductGrid
             searchParams={{ sort: 'created-at', limit: '8' }}

@@ -59,7 +59,7 @@ export default function ProductCard({
   );
 
   return (
-    <article>
+    <article data-testid="product-card">
       <ProductCardImage
         src={image}
         alt={name}
