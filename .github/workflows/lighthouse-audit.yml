@@ -2,6 +2,10 @@ name: Lighthouse Audit
 
 on: workflow_dispatch
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   lighthouse-audit:
     name: Perform Lighthouse Audit on production URL
