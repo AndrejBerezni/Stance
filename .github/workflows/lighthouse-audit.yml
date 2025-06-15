@@ -13,10 +13,68 @@ jobs:
       - name: Audit
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: | 
+          urls: |
             https://${{ secrets.PRODUCTION_URL }}
             https://${{ secrets.PRODUCTION_URL }}/en/catalogue
             https://${{ secrets.PRODUCTION_URL }}/en/product/voyager-hoodie?color=brown&size=xs
             https://${{ secrets.PRODUCTION_URL }}/en/product/voyager-hoodie/reviews
           uploadArtifacts: true
           configPath: './lighthouserc.json'
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lighthouse-results
+          path: ./lhci-artifacts
+
+      - name: Unzip artifact
+        run: |
+          unzip -q "$(find ./lhci-artifacts -name '*.zip')" -d ./lhci-extracted
+
+      - name: Check Lighthouse Assertions
+        id: check-assertions
+        run: |
+          FILE="./lhci-extracted/assertion-results.json"  # update if needed
+          if [ ! -f "$FILE" ]; then
+            echo "❌ assertion-results.json not found"
+            exit 1
+          fi
+
+          jq '[.[] | select(.passed == false and (.level == "warn" or .level == "error"))]' "$FILE" > failed_assertions.json
+
+          COUNT=$(jq 'length' failed_assertions.json)
+          echo "Found $COUNT failing assertions"
+
+          if [ "$COUNT" -gt 0 ]; then
+            echo "failures_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "failures_detected=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Issue if assertions failed
+        if: steps.check-assertions.outputs.failures_detected == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Lighthouse audit failures"
+          BODY="Lighthouse audit failures detected:\n\n"
+
+          while IFS= read -r row; do
+            URL=$(echo "$row" | jq -r '.url')
+            PROP=$(echo "$row" | jq -r '.auditProperty')
+            ACTUAL=$(echo "$row" | jq -r '.actual')
+            EXPECTED=$(echo "$row" | jq -r '.expected')
+
+            BODY+="- ${ACTUAL} \"${PROP}\" score detected on ${URL} (expected ≥ ${EXPECTED})\n"
+          done < <(jq -c '.[]' failed_assertions.json)
+
+          BODY+="\n\n🔍 [View Lighthouse run artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+
+          # Avoid duplicate issue creation
+          EXISTING=$(gh issue list --search "$TITLE" --state open --json title --jq '.[].title')
+          if [[ "$EXISTING" == *"$TITLE"* ]]; then
+            echo "⚠️ Issue already exists, skipping creation."
+          else
+            gh issue create --title "$TITLE" --body "$BODY"
+          fi
+
