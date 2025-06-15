@@ -27,14 +27,10 @@ jobs:
           name: lighthouse-results
           path: ./lhci-artifacts
 
-      - name: Unzip artifact
-        run: |
-          unzip -q "$(find ./lhci-artifacts -name '*.zip')" -d ./lhci-extracted
-
       - name: Check Lighthouse Assertions
         id: check-assertions
         run: |
-          FILE="./lhci-extracted/assertion-results.json"  # update if needed
+          FILE="./lhci-artifacts/assertion-results.json"  # update if needed
           if [ ! -f "$FILE" ]; then
             echo "❌ assertion-results.json not found"
             exit 1
