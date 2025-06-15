@@ -57,24 +57,27 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TITLE="Lighthouse audit failures"
-          BODY="Lighthouse audit failures detected:\n\n"
+          BODY="Lighthouse audit failures detected:
 
-          while IFS= read -r row; do
+          "
+
+            while IFS= read -r row; do
             URL=$(echo "$row" | jq -r '.url')
             PROP=$(echo "$row" | jq -r '.auditProperty')
             ACTUAL=$(echo "$row" | jq -r '.actual')
             EXPECTED=$(echo "$row" | jq -r '.expected')
 
-            BODY+="- ${ACTUAL} \"${PROP}\" score detected on ${URL} (expected ≥ ${EXPECTED})\n"
-          done < <(jq -c '.[]' failed_assertions.json)
+            BODY+=$(printf -- "- %s \"%s\" score detected on %s (expected ≥ %s)\n" "$ACTUAL" "$PROP" "$URL" "$EXPECTED")
+                done < <(jq -c '.[]' failed_assertions.json)
 
-          BODY+="\n\n🔍 [View Lighthouse run artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+            BODY+="
 
-          # Avoid duplicate issue creation
-          EXISTING=$(gh issue list --search "$TITLE" --state open --json title --jq '.[].title')
-          if [[ "$EXISTING" == *"$TITLE"* ]]; then
-            echo "⚠️ Issue already exists, skipping creation."
-          else
-            gh issue create --title "$TITLE" --body "$BODY"
-          fi
+              🔍 [View Lighthouse run artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
+
+            EXISTING=$(gh issue list --search "$TITLE" --state open --json title --jq '.[].title')
+            if [[ "$EXISTING" == *"$TITLE"* ]]; then
+              echo "⚠️ Issue already exists, skipping creation."
+            else
+              gh issue create --title "$TITLE" --body "$BODY"
+            fi
