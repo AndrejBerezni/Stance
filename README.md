@@ -33,7 +33,7 @@ Check out the production site here: [https://stance-liard.vercel.app](https://st
 - **UI:** React, Tailwind CSS
 - **State Management:** Redux Toolkit, redux-persist
 - **Internationalization:** next-intl
-- **Testing:** Jest, @testing-library/react, Cypress (E2E)
+- **Testing:** Vitest, @testing-library/react, Cypress (E2E)
 - **Component Development:** Storybook
 - **Linting & Formatting:** ESLint, Prettier
 - **CI/CD:** GitHub Actions

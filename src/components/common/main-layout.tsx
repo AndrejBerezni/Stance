@@ -3,7 +3,6 @@ import { SidebarProvider } from '@/lib/providers/sidebar-provider';
 import Footer from './footer';
 import Navbar from './navbar';
 import Sidebar from './sidebar';
-import UnderConstruction from './under-construction';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -20,7 +19,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
         {children}
       </main>
       <Footer />
-      <UnderConstruction />
     </>
   );
 }

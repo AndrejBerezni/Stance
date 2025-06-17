@@ -159,6 +159,11 @@
     "apply": "Aplicar",
     "invalidCoupon": "Código de cupão inválido."
   },
+  "checkout": {
+    "checkout": "Finalizar Compra",
+    "backToCart": "Voltar ao Carrinho de Compras",
+    "confirmOrder": "Confirmar encomenda"
+  },
   "underConstruction": {
     "line1": "Esta aplicação ainda está em construção!",
     "line2": "Sinta-se à vontade para explorar as funcionalidades que já estão disponíveis.",

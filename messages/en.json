@@ -159,6 +159,11 @@
     "apply": "Apply",
     "invalidCoupon": "Invalid coupon code."
   },
+  "checkout": {
+    "checkout": "Checkout",
+    "backToCart": "Back to Shopping Cart",
+    "confirmOrder": "Confirm order"
+  },
   "underConstruction": {
     "line1": "This app is still under construction!",
     "line2": "You're welcome to explore the features that have already been built.",
