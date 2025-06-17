@@ -4,8 +4,8 @@ import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
 import buttonVariants from '@/components/ui/button/styles';
-import CartSummary from '@/features/cart/components/cart-summary';
 import CheckoutForm from '@/features/cart/components/checkout-form';
+import CheckoutSummary from '@/features/cart/components/checkout-summary';
 import { cn } from '@/lib/utils/cn';
 
 export default async function CheckoutPage({
@@ -38,7 +38,7 @@ export default async function CheckoutPage({
       </h1>
       <div className="flex flex-col gap-8 xl:flex-row">
         <CheckoutForm />
-        <CartSummary isCheckout />
+        <CheckoutSummary />
       </div>
     </section>
   );

@@ -1,13 +1,15 @@
 'use client';
-import useIsCheckout from '../../hooks/useIsCheckout';
 import useSummaryItems from '../../hooks/useSummaryItems';
 import Coupon from '../coupon';
 import CartSummaryItem from './cart-summary-item';
 
-export default function CartSummaryItemsList() {
-  const isCheckout = useIsCheckout();
+export default function CartSummaryItemsList({
+  isCheckout = false,
+}: {
+  isCheckout?: boolean;
+}) {
   const list = useSummaryItems();
-  console.log(isCheckout);
+
   return (
     <ul className="flex flex-col gap-4">
       {list.map((item) => (

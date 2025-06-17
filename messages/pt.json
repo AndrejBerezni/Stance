@@ -162,7 +162,8 @@
   "checkout": {
     "checkout": "Finalizar Compra",
     "backToCart": "Voltar ao Carrinho de Compras",
-    "confirmOrder": "Confirmar encomenda"
+    "confirmOrder": "Confirmar encomenda",
+    "summary": "Resumo da Encomenda"
   },
   "underConstruction": {
     "line1": "Esta aplicação ainda está em construção!",

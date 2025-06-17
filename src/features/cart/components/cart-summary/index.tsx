@@ -5,13 +5,10 @@ import Separator from '@/components/ui/separator';
 
 import CartSummaryItemsList from './cart-summary-items-list';
 import CartTotal from './cart-total';
-import useIsCheckout from '../../hooks/useIsCheckout';
-import CheckoutButton from '../checkout-button';
-import CreateCheckoutButton from '../create-checkout-button';
+import CreateCheckoutButton from './create-checkout-button';
 
 export default function CartSummary() {
   const translate = useTranslations('cart');
-  const isCheckout = useIsCheckout();
 
   return (
     <article className="sticky top-0 flex h-fit flex-col gap-8 rounded-xl border p-8 xl:min-w-[400px]">
@@ -19,7 +16,7 @@ export default function CartSummary() {
       <CartSummaryItemsList />
       <Separator />
       <CartTotal />
-      {isCheckout ? <CheckoutButton /> : <CreateCheckoutButton />}
+      <CreateCheckoutButton />
     </article>
   );
 }
