@@ -163,7 +163,8 @@
     "checkout": "Checkout",
     "backToCart": "Back to Shopping Cart",
     "confirmOrder": "Confirm order",
-    "summary": "Order Summary"
+    "summary": "Order Summary",
+    "quantity": "Quantity"
   },
   "underConstruction": {
     "line1": "This app is still under construction!",

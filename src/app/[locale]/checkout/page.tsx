@@ -25,7 +25,7 @@ export default async function CheckoutPage({
   const { locale } = await params;
 
   return (
-    <section className="section-wrapper flex flex-col gap-8">
+    <div className="section-wrapper flex flex-col gap-8">
       <Link
         href={`/${locale}/cart`}
         className={cn(buttonVariants({ variant: 'link', size: 'sm' }), 'w-fit')}
@@ -40,6 +40,6 @@ export default async function CheckoutPage({
         <CheckoutForm />
         <CheckoutSummary />
       </div>
-    </section>
+    </div>
   );
 }

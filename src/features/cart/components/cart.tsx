@@ -6,6 +6,7 @@ import { useAppSelector } from '@/hooks/redux-hooks';
 import { RootState } from '@/lib/store';
 
 import CartEmpty from './cart-empty';
+import CartItem from './cart-item';
 import CartItemsList from './cart-items-list';
 import CartSummary from './cart-summary';
 
@@ -22,7 +23,7 @@ export default function Cart() {
       </h1>
       {itemsInCart > 0 ? (
         <div className="relative flex flex-col gap-8 xl:flex-row">
-          <CartItemsList />
+          <CartItemsList itemComponent={CartItem} />
           <CartSummary />
         </div>
       ) : (

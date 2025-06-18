@@ -163,7 +163,8 @@
     "checkout": "Finalizar Compra",
     "backToCart": "Voltar ao Carrinho de Compras",
     "confirmOrder": "Confirmar encomenda",
-    "summary": "Resumo da Encomenda"
+    "summary": "Resumo da Encomenda",
+    "quantity": "Quantidade"
   },
   "underConstruction": {
     "line1": "Esta aplicação ainda está em construção!",
