@@ -43,7 +43,6 @@ export default async function ProductPage({
   params: Promise<{ productId: string }>;
   searchParams: Promise<{ color: string; size: string }>;
 }) {
-  const translate = await getTranslations('productPage');
   const { productId } = await params;
 
   const product = await getProduct(productId);
@@ -67,6 +66,8 @@ export default async function ProductPage({
     category: product.category,
     color: product.available_colors.join(' '),
   };
+
+  const translate = await getTranslations('productPage');
 
   return (
     <>
